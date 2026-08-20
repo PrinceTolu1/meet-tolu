@@ -1,269 +1,1074 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meet Tolu | Local Tech Helper</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Meet Tolu | Your Friendly Local Tech Helper</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 
 <style>
 
+/* =========================
+   GENERAL
+========================= */
+
+*{
+    box-sizing:border-box;
+}
+
 body{
-font-family:Inter,sans-serif;
-margin:0;
-background:#f7f5f2;
-color:#333;
-line-height:1.6;
+    margin:0;
+    font-family:"Inter", sans-serif;
+    background:#f7f9fc;
+    color:#273142;
+    line-height:1.7;
 }
 
 .container{
-max-width:900px;
-margin:auto;
-padding:40px 20px;
+    max-width:1050px;
+    margin:auto;
+    padding:0 20px;
 }
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:white;
+    border-bottom:1px solid #e8edf5;
+
+    position:sticky;
+    top:0;
+
+    z-index:100;
+}
+
+.nav{
+    max-width:1050px;
+    margin:auto;
+    padding:15px 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+    color:#5b4bdb;
+}
+
+.logo span{
+    color:#f2b84b;
+}
+
+.nav-button{
+    background:#5b4bdb;
+    color:white;
+
+    text-decoration:none;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    font-weight:600;
+    font-size:14px;
+
+    transition:.2s ease;
+}
+
+.nav-button:hover{
+    background:#4939c8;
+    transform:translateY(-2px);
+}
+
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-text-align:center;
-padding:50px 20px;
+    text-align:center;
+
+    padding:70px 20px 60px;
 }
 
-.hero img{
-width:170px;
-height:170px;
-border-radius:50%;
-object-fit:cover;
-border:6px solid #d8c7a4;
+
+/* Technology icon instead of image */
+
+.hero-icon{
+
+    width:120px;
+    height:120px;
+
+    margin:0 auto 25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:35px;
+
+    background:linear-gradient(
+        135deg,
+        #eeeaff,
+        #fff3d8
+    );
+
+    font-size:55px;
+
+    border:6px solid white;
+
+    box-shadow:
+        0 10px 30px rgba(91,75,219,.15);
 }
 
-h1{
-font-size:42px;
-margin-bottom:5px;
+
+.hero h1{
+
+    font-size:48px;
+
+    margin:0 0 5px;
+
+    font-weight:800;
+
+    color:#202938;
 }
+
 
 .subtitle{
-font-size:22px;
-color:#777;
-margin-bottom:30px;
+
+    font-size:21px;
+
+    color:#687386;
+
+    margin-bottom:28px;
 }
+
 
 .tagline{
-font-size:24px;
-font-weight:600;
-background:#ffffff;
-padding:25px;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-margin-bottom:40px;
+
+    max-width:750px;
+
+    margin:auto;
+
+    background:linear-gradient(
+        135deg,
+        #eeeaff,
+        #fff6df
+    );
+
+    padding:25px 30px;
+
+    border-radius:18px;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:#37345a;
+
+    border:1px solid #e7e0ff;
+
+    box-shadow:
+        0 6px 20px rgba(91,75,219,.06);
 }
+
+
+/* =========================
+   HIGHLIGHTS
+========================= */
+
+.highlights{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+
+    margin-bottom:25px;
+}
+
+
+.highlight{
+
+    background:white;
+
+    padding:25px 20px;
+
+    border-radius:16px;
+
+    text-align:center;
+
+    border:1px solid #edf0f5;
+
+    box-shadow:
+        0 5px 20px rgba(35,45,65,.05);
+
+    transition:.2s ease;
+}
+
+
+.highlight:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 10px 25px rgba(35,45,65,.10);
+}
+
+
+.icon{
+
+    width:55px;
+    height:55px;
+
+    margin:0 auto 12px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    background:#eeeaff;
+
+    font-size:27px;
+}
+
+
+.highlight:nth-child(2) .icon{
+
+    background:#fff3d8;
+}
+
+
+.highlight:nth-child(3) .icon{
+
+    background:#e2f8eb;
+}
+
+
+.highlight h3{
+
+    margin:5px 0;
+
+    font-size:17px;
+}
+
+
+.highlight p{
+
+    margin:0;
+
+    font-size:14px;
+
+    color:#737d8c;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
 
 .section{
-background:white;
-padding:30px;
-margin-bottom:25px;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,.06);
+
+    background:white;
+
+    padding:32px;
+
+    margin-bottom:25px;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 6px 25px rgba(35,45,65,.06);
+
+    border:1px solid #edf0f5;
 }
 
-h2{
-color:#444;
-margin-top:0;
+
+.section h2{
+
+    margin-top:0;
+
+    font-size:26px;
+
+    color:#30394a;
 }
+
+
+.section p{
+
+    color:#5f6b7a;
+}
+
+
+/* =========================
+   LIST
+========================= */
 
 ul{
-padding-left:20px;
+
+    padding-left:0;
+
+    list-style:none;
 }
+
+
+ul li{
+
+    margin:12px 0;
+
+    padding-left:30px;
+
+    position:relative;
+
+    color:#596575;
+}
+
+
+ul li::before{
+
+    content:"✓";
+
+    position:absolute;
+
+    left:0;
+
+    top:2px;
+
+    width:21px;
+    height:21px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#e5f8ec;
+
+    color:#27a85a;
+
+    border-radius:50%;
+
+    font-size:13px;
+
+    font-weight:bold;
+}
+
+
+/* =========================
+   COMPANY TAGS
+========================= */
+
+.company-list{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin:20px 0;
+}
+
+
+.company{
+
+    padding:8px 15px;
+
+    border-radius:20px;
+
+    background:#f0edff;
+
+    color:#5748c7;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+
+
+/* =========================
+   PROMISE
+========================= */
 
 .promise{
-background:#efe8d8;
-text-align:center;
-font-size:22px;
-font-weight:600;
-padding:30px;
-border-radius:15px;
+
+    background:linear-gradient(
+        135deg,
+        #5b4bdb,
+        #7667e8
+    );
+
+    color:white;
+
+    text-align:center;
+
+    padding:42px 30px;
+
+    margin:30px 0;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 10px 30px rgba(91,75,219,.25);
 }
+
+
+.promise .big{
+
+    font-size:27px;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+}
+
+
+.promise p{
+
+    max-width:650px;
+
+    margin:auto;
+
+    font-size:17px;
+
+    color:#f1efff;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
 
 .buttons{
-text-align:center;
-margin-top:35px;
+
+    text-align:center;
+
+    padding:20px 0 45px;
 }
+
+
+.buttons h2{
+
+    font-size:28px;
+
+    margin-bottom:8px;
+}
+
+
+.buttons p{
+
+    color:#707b8b;
+
+    margin-bottom:25px;
+}
+
 
 .button{
-display:inline-block;
-padding:18px 35px;
-margin:10px;
-text-decoration:none;
-border-radius:10px;
-font-size:22px;
-font-weight:700;
+
+    display:inline-block;
+
+    padding:16px 30px;
+
+    margin:8px;
+
+    text-decoration:none;
+
+    border-radius:12px;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    transition:.2s ease;
 }
+
+
+.button:hover{
+
+    transform:translateY(-3px);
+}
+
 
 .call{
-background:#1f2937;
-color:white;
+
+    background:#273142;
+
+    color:white;
+
+    box-shadow:
+        0 7px 20px rgba(39,49,66,.2);
 }
+
 
 .whatsapp{
-background:#25D366;
-color:white;
+
+    background:#25D366;
+
+    color:white;
+
+    box-shadow:
+        0 7px 20px rgba(37,211,102,.2);
 }
 
+
+/* =========================
+   FOOTER
+========================= */
+
 footer{
-text-align:center;
-padding:30px;
-color:#777;
+
+    background:#202938;
+
+    color:#aeb7c5;
+
+    text-align:center;
+
+    padding:30px 20px;
+}
+
+
+footer strong{
+
+    color:white;
+}
+
+
+.footer-icons{
+
+    margin-top:8px;
+
+    font-size:14px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .hero{
+
+        padding:50px 10px 45px;
+    }
+
+
+    .hero-icon{
+
+        width:100px;
+        height:100px;
+
+        border-radius:28px;
+
+        font-size:45px;
+    }
+
+
+    .hero h1{
+
+        font-size:36px;
+    }
+
+
+    .subtitle{
+
+        font-size:18px;
+    }
+
+
+    .tagline{
+
+        font-size:18px;
+
+        padding:20px;
+    }
+
+
+    .highlights{
+
+        grid-template-columns:1fr;
+    }
+
+
+    .section{
+
+        padding:25px;
+    }
+
+
+    .button{
+
+        display:block;
+
+        margin:12px 0;
+    }
+
+
+    .nav-button{
+
+        font-size:13px;
+
+        padding:9px 13px;
+    }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="nav">
+
+        <div class="logo">
+            Tolu<span>.</span>
+        </div>
+
+
+        <a
+            href="#contact"
+            class="nav-button"
+        >
+            Get Help
+        </a>
+
+    </div>
+
+</header>
+
+
 
 <div class="container">
 
-<div class="hero">
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
 
 
-<h1>Meet Tolu</h1>
+    <!-- No image -->
 
-<div class="subtitle">
-Your Friendly Local Technology Helper
+    <div class="hero-icon">
+        💻
+    </div>
+
+
+    <h1>
+        Meet Tolu 👋
+    </h1>
+
+
+    <div class="subtitle">
+        Your Friendly Local Technology Helper
+    </div>
+
+
+    <div class="tagline">
+
+        Technology doesn't have to be confusing.
+
+        <br>
+
+        <strong>
+            I'm here to make it simple.
+        </strong>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     HIGHLIGHTS
+========================= -->
+
+<div class="highlights">
+
+
+    <div class="highlight">
+
+        <div class="icon">
+            💻
+        </div>
+
+        <h3>
+            Tech Support
+        </h3>
+
+        <p>
+            Help with computers, phones and everyday technology.
+        </p>
+
+    </div>
+
+
+
+    <div class="highlight">
+
+        <div class="icon">
+            🤝
+        </div>
+
+        <h3>
+            Patient & Friendly
+        </h3>
+
+        <p>
+            No rushing and no complicated technical language.
+        </p>
+
+    </div>
+
+
+
+    <div class="highlight">
+
+        <div class="icon">
+            📍
+        </div>
+
+        <h3>
+            Local Help
+        </h3>
+
+        <p>
+            Friendly technology support in your local community.
+        </p>
+
+    </div>
+
+
 </div>
 
-<div class="tagline">
 
-I make technology simple so you never have to feel stuck or embarrassed asking for help.
 
-</div>
-
-</div>
+<!-- =========================
+     ABOUT ME
+========================= -->
 
 <div class="section">
 
-<h2>About Me</h2>
+    <h2>
+        👋 About Me
+    </h2>
 
-<p>
 
-Hello! My name is <strong>Tolu</strong>, and I'm a Computer Science student at the
-<strong>Université libre de Bruxelles (ULB)</strong>.
+    <p>
 
-I enjoy helping people who find computers, phones and new technology confusing or frustrating. Whether it's fixing a problem or teaching you something new, my goal is to make technology simple and stress-free.
+        Hello! My name is
+        <strong>Tolu</strong>,
+        and I'm a Computer Science student at the
+        <strong>
+            Université libre de Bruxelles (ULB)
+        </strong>.
 
-</p>
+    </p>
+
+
+    <p>
+
+        I enjoy helping people who find computers,
+        phones and new technology confusing or frustrating.
+
+        Whether you need help fixing a problem or simply
+        want someone to show you how something works,
+        I'm here to help.
+
+    </p>
 
 </div>
+
+
+
+<!-- =========================
+     EXPERIENCE
+========================= -->
 
 <div class="section">
 
-<h2>Why Choose Me?</h2>
+    <h2>
+        ⭐ Why Choose Me?
+    </h2>
 
-<p>
 
-I work as an <strong>IT Consultant at Beego</strong>, where I've helped people with technology at organisations including:
+    <p>
 
-</p>
+        I work as an
+        <strong>IT Consultant at Beego</strong>,
+        where I've helped people with technology
+        in different organisations.
 
-<ul>
+    </p>
 
-<li>ING</li>
 
-<li>Colruyt</li>
+    <div class="company-list">
 
-<li>Social Centre of Antwerp</li>
+        <div class="company">
+            ING
+        </div>
 
-</ul>
 
-<p>
+        <div class="company">
+            Colruyt
+        </div>
 
-I've helped people solve everyday technology problems such as computers, printers, phones, passwords, emails and online services.
 
-</p>
+        <div class="company">
+            Social Centre of Antwerp
+        </div>
+
+    </div>
+
+
+    <p>
+
+        I've helped people solve everyday technology
+        problems involving computers, printers,
+        phones, passwords, emails and online services.
+
+    </p>
 
 </div>
+
+
+
+<!-- =========================
+     QUALIFICATIONS
+========================= -->
 
 <div class="section">
 
-<h2>Certified & Always Learning</h2>
+    <h2>
+        🎓 Certified & Always Learning
+    </h2>
 
-<ul>
 
-<li>Google AI Essentials</li>
+    <ul>
 
-<li>Computer Science Student at ULB</li>
+        <li>
+            Google AI Essentials
+        </li>
 
-<li>Programming & Software Development</li>
 
-<li>Continuously learning new AI tools</li>
+        <li>
+            Computer Science Student at ULB
+        </li>
 
-</ul>
+
+        <li>
+            Programming & Software Development
+        </li>
+
+
+        <li>
+            Continuously learning new AI tools
+        </li>
+
+    </ul>
 
 </div>
+
+
+
+<!-- =========================
+     SERVICES
+========================= -->
 
 <div class="section">
 
-<h2>I Can Help With</h2>
+    <h2>
+        🛠️ I Can Help With
+    </h2>
 
-<ul>
 
-<li>Computer & laptop problems</li>
+    <ul>
 
-<li>Phone & tablet help</li>
+        <li>
+            Computer & laptop problems
+        </li>
 
-<li>Wi-Fi & printers</li>
 
-<li>Passwords & emails</li>
+        <li>
+            Phone & tablet help
+        </li>
 
-<li>Online forms</li>
 
-<li>ChatGPT & Artificial Intelligence</li>
+        <li>
+            Wi-Fi & printer problems
+        </li>
 
-</ul>
+
+        <li>
+            Passwords & emails
+        </li>
+
+
+        <li>
+            Online forms & websites
+        </li>
+
+
+        <li>
+            ChatGPT & Artificial Intelligence
+        </li>
+
+    </ul>
 
 </div>
+
+
+
+<!-- =========================
+     PROMISE
+========================= -->
 
 <div class="promise">
 
-I won't just fix the problem.
 
-<br><br>
+    <div class="big">
 
-I'll explain everything in simple language so you feel confident afterwards.
+        I won't just fix the problem.
 
-<br><br>
+    </div>
 
-No confusing technical words.
 
-No rushing.
+    <p>
 
-Just friendly, patient help.
+        I'll explain what I'm doing in simple language,
+        so you understand what happened and feel more
+        confident using your technology afterwards.
+
+    </p>
+
+
+    <br>
+
+
+    <p>
+
+        <strong>
+
+            No confusing technical words.
+            No rushing.
+            Just friendly, patient help. 💜
+
+        </strong>
+
+    </p>
 
 </div>
 
-<div class="buttons">
 
-<a class="button call" href="tel:+32485101860">
 
-📞 Call Tolu
+<!-- =========================
+     CONTACT
+========================= -->
 
-</a>
+<div
+    class="buttons"
+    id="contact"
+>
 
-<a class="button whatsapp"
-href="https://wa.me/32485101860">
 
-💬 WhatsApp Me
+    <h2>
+        Need a little tech help?
+    </h2>
 
-</a>
+
+    <p>
+
+        Don't struggle with it alone.
+        Just give me a call or send me a message.
+
+    </p>
+
+
+    <a
+        class="button call"
+        href="tel:+32485101860"
+    >
+
+        📞 Call Tolu
+
+    </a>
+
+
+    <a
+        class="button whatsapp"
+        href="https://wa.me/32485101860"
+    >
+
+        💬 WhatsApp Me
+
+    </a>
 
 </div>
+
+
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-Home Visits • Friendly • Patient • Local
+    <strong>
+        Meet Tolu
+    </strong>
+
+
+    <div class="footer-icons">
+
+        🏠 Home Visits
+        &nbsp; • &nbsp;
+
+        🤝 Friendly
+        &nbsp; • &nbsp;
+
+        💬 Patient
+        &nbsp; • &nbsp;
+
+        📍 Local
+
+    </div>
 
 </footer>
 
-</div>
 
 </body>
+
 </html>
+```
