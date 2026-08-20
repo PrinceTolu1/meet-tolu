@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,10 +7,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Meet Tolu | Your Friendly Local Tech Helper</title>
+<title>Tolu | Local Technology Helper</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
 
 <style>
 
@@ -20,6 +22,10 @@
 
 *{
     box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
@@ -54,6 +60,7 @@ header{
 .nav{
     max-width:1050px;
     margin:auto;
+
     padding:15px 20px;
 
     display:flex;
@@ -64,16 +71,74 @@ header{
 }
 
 .logo{
-    font-size:22px;
+    font-size:24px;
     font-weight:800;
     color:#5b4bdb;
 }
 
-.nav-button{
+
+/* =========================
+   LANGUAGE SWITCHER
+========================= */
+
+.languages{
     position:absolute;
+    left:20px;
+
+    display:flex;
+    gap:5px;
+}
+
+.language-button{
+
+    border:none;
+
+    background:transparent;
+
+    color:#687386;
+
+    padding:6px 8px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    transition:.2s ease;
+}
+
+.language-button:hover{
+
+    background:#f0edff;
+
+    color:#5b4bdb;
+}
+
+.language-button.active{
+
+    background:#eeeaff;
+
+    color:#5b4bdb;
+}
+
+
+/* =========================
+   GET HELP BUTTON
+========================= */
+
+.nav-button{
+
+    position:absolute;
+
     right:20px;
 
     background:#5b4bdb;
+
     color:white;
 
     text-decoration:none;
@@ -83,13 +148,16 @@ header{
     border-radius:10px;
 
     font-weight:600;
+
     font-size:14px;
 
     transition:.2s ease;
 }
 
 .nav-button:hover{
+
     background:#4939c8;
+
     transform:translateY(-2px);
 }
 
@@ -99,13 +167,12 @@ header{
 ========================= */
 
 .hero{
+
     text-align:center;
 
     padding:70px 20px 60px;
 }
 
-
-/* Technology icon instead of image */
 
 .hero-icon{
 
@@ -115,6 +182,7 @@ header{
     margin:0 auto 25px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -454,7 +522,7 @@ ul li::before{
 
 
 /* =========================
-   BUTTONS
+   CONTACT
 ========================= */
 
 .buttons{
@@ -565,68 +633,133 @@ footer strong{
 
 @media(max-width:700px){
 
+    .nav{
+
+        padding:12px 15px;
+
+    }
+
+    .languages{
+
+        left:10px;
+
+    }
+
+    .language-button{
+
+        padding:5px;
+
+        font-size:11px;
+
+    }
+
+    .logo{
+
+        font-size:20px;
+
+    }
+
+    .nav-button{
+
+        right:10px;
+
+        padding:8px 10px;
+
+        font-size:11px;
+
+    }
+
     .hero{
 
         padding:50px 10px 45px;
-    }
 
+    }
 
     .hero-icon{
 
         width:100px;
+
         height:100px;
 
         border-radius:28px;
 
         font-size:45px;
-    }
 
+    }
 
     .hero h1{
 
         font-size:36px;
-    }
 
+    }
 
     .subtitle{
 
         font-size:18px;
-    }
 
+    }
 
     .tagline{
 
         font-size:18px;
 
         padding:20px;
-    }
 
+    }
 
     .highlights{
 
         grid-template-columns:1fr;
-    }
 
+    }
 
     .section{
 
         padding:25px;
-    }
 
+    }
 
     .button{
 
         display:block;
 
         margin:12px 0;
+
     }
 
+}
 
-    .nav-button{
 
-        font-size:13px;
+/* =========================
+   VERY SMALL PHONES
+========================= */
 
-        padding:9px 13px;
+@media(max-width:400px){
+
+    .languages{
+
+        position:static;
+
+        margin-right:auto;
+
+    }
+
+    .nav{
+
+        justify-content:flex-end;
+
+        gap:10px;
+
+    }
+
+    .logo{
+
+        position:absolute;
+
+        left:50%;
+
+        transform:translateX(-50%);
+
     }
 
 }
@@ -647,14 +780,48 @@ footer strong{
 
     <div class="nav">
 
+
+        <!-- Language buttons -->
+
+        <div class="languages">
+
+            <button
+                class="language-button"
+                data-language="nl"
+            >
+                NL
+            </button>
+
+            <button
+                class="language-button"
+                data-language="fr"
+            >
+                FR
+            </button>
+
+            <button
+                class="language-button"
+                data-language="en"
+            >
+                EN
+            </button>
+
+        </div>
+
+
+        <!-- Centered logo -->
+
         <div class="logo">
             Mijn Techhulp
         </div>
 
 
+        <!-- Get help -->
+
         <a
             href="#contact"
             class="nav-button"
+            data-translate="getHelp"
         >
             Get Help
         </a>
@@ -675,30 +842,33 @@ footer strong{
 <section class="hero">
 
 
-    <!-- No image -->
-
     <div class="hero-icon">
         💻
     </div>
 
 
-    <h1>
+    <h1 data-translate="heroTitle">
         Meet Tolu 👋
     </h1>
 
 
-    <div class="subtitle">
+    <div
+        class="subtitle"
+        data-translate="subtitle"
+    >
         Your Friendly Local Technology Helper
     </div>
 
 
     <div class="tagline">
 
-        Technology doesn't have to be confusing.
+        <span data-translate="tagline">
+            Technology doesn't have to be confusing.
+        </span>
 
         <br>
 
-        <strong>
+        <strong data-translate="taglineStrong">
             I'm here to make it simple.
         </strong>
 
@@ -721,11 +891,11 @@ footer strong{
             💻
         </div>
 
-        <h3>
+        <h3 data-translate="techSupport">
             Tech Support
         </h3>
 
-        <p>
+        <p data-translate="techSupportText">
             Help with computers, phones and everyday technology.
         </p>
 
@@ -739,11 +909,11 @@ footer strong{
             🤝
         </div>
 
-        <h3>
+        <h3 data-translate="patient">
             Patient & Friendly
         </h3>
 
-        <p>
+        <p data-translate="patientText">
             No rushing and no complicated technical language.
         </p>
 
@@ -757,11 +927,11 @@ footer strong{
             📍
         </div>
 
-        <h3>
+        <h3 data-translate="local">
             Local Help
         </h3>
 
-        <p>
+        <p data-translate="localText">
             Friendly technology support in your local community.
         </p>
 
@@ -773,36 +943,30 @@ footer strong{
 
 
 <!-- =========================
-     ABOUT ME
+     ABOUT
 ========================= -->
 
 <div class="section">
 
-    <h2>
+    <h2 data-translate="aboutTitle">
         👋 About Me
     </h2>
 
 
-    <p>
+    <p data-translate="aboutText1">
 
-        Hello! My name is
-        <strong>Tolu</strong>,
-        and I'm a Computer Science student at the
-        <strong>
-            Université libre de Bruxelles (ULB)
-        </strong>.
+        Hello! My name is Tolu, and I'm a Computer Science
+        student at the Université libre de Bruxelles (ULB).
 
     </p>
 
 
-    <p>
+    <p data-translate="aboutText2">
 
-        I enjoy helping people who find computers,
-        phones and new technology confusing or frustrating.
-
-        Whether you need help fixing a problem or simply
-        want someone to show you how something works,
-        I'm here to help.
+        I enjoy helping people who find computers, phones and
+        new technology confusing or frustrating. Whether you
+        need help fixing a problem or simply want someone to
+        show you how something works, I'm here to help.
 
     </p>
 
@@ -816,17 +980,15 @@ footer strong{
 
 <div class="section">
 
-    <h2>
+    <h2 data-translate="whyTitle">
         ⭐ Why Choose Me?
     </h2>
 
 
-    <p>
+    <p data-translate="whyText1">
 
-        I work as an
-        <strong>IT Consultant at Beego</strong>,
-        where I've helped people with technology
-        in different organisations.
+        I work as an IT Consultant at Beego, where I've helped
+        people with technology in different organisations.
 
     </p>
 
@@ -837,11 +999,9 @@ footer strong{
             ING
         </div>
 
-
         <div class="company">
             Colruyt
         </div>
-
 
         <div class="company">
             Social Centre of Antwerp
@@ -850,11 +1010,11 @@ footer strong{
     </div>
 
 
-    <p>
+    <p data-translate="whyText2">
 
-        I've helped people solve everyday technology
-        problems involving computers, printers,
-        phones, passwords, emails and online services.
+        I've helped people solve everyday technology problems
+        involving computers, printers, phones, passwords,
+        emails and online services.
 
     </p>
 
@@ -868,29 +1028,26 @@ footer strong{
 
 <div class="section">
 
-    <h2>
+    <h2 data-translate="learningTitle">
         🎓 Certified & Always Learning
     </h2>
 
 
     <ul>
 
-        <li>
+        <li data-translate="learning1">
             Google AI Essentials
         </li>
 
-
-        <li>
+        <li data-translate="learning2">
             Computer Science Student at ULB
         </li>
 
-
-        <li>
+        <li data-translate="learning3">
             Programming & Software Development
         </li>
 
-
-        <li>
+        <li data-translate="learning4">
             Continuously learning new AI tools
         </li>
 
@@ -906,39 +1063,34 @@ footer strong{
 
 <div class="section">
 
-    <h2>
+    <h2 data-translate="servicesTitle">
         🛠️ I Can Help With
     </h2>
 
 
     <ul>
 
-        <li>
+        <li data-translate="service1">
             Computer & laptop problems
         </li>
 
-
-        <li>
+        <li data-translate="service2">
             Phone & tablet help
         </li>
 
-
-        <li>
+        <li data-translate="service3">
             Wi-Fi & printer problems
         </li>
 
-
-        <li>
+        <li data-translate="service4">
             Passwords & emails
         </li>
 
-
-        <li>
+        <li data-translate="service5">
             Online forms & websites
         </li>
 
-
-        <li>
+        <li data-translate="service6">
             ChatGPT & Artificial Intelligence
         </li>
 
@@ -955,14 +1107,15 @@ footer strong{
 <div class="promise">
 
 
-    <div class="big">
-
+    <div
+        class="big"
+        data-translate="promiseTitle"
+    >
         I won't just fix the problem.
-
     </div>
 
 
-    <p>
+    <p data-translate="promiseText">
 
         I'll explain what I'm doing in simple language,
         so you understand what happened and feel more
@@ -976,7 +1129,7 @@ footer strong{
 
     <p>
 
-        <strong>
+        <strong data-translate="promiseStrong">
 
             No confusing technical words.
             No rushing.
@@ -1000,12 +1153,12 @@ footer strong{
 >
 
 
-    <h2>
+    <h2 data-translate="contactTitle">
         Need a little tech help?
     </h2>
 
 
-    <p>
+    <p data-translate="contactText">
 
         Don't struggle with it alone.
         Just give me a call or send me a message.
@@ -1016,20 +1169,18 @@ footer strong{
     <a
         class="button call"
         href="tel:+32485101860"
+        data-translate="callButton"
     >
-
         📞 Call Tolu
-
     </a>
 
 
     <a
         class="button whatsapp"
         href="https://wa.me/32485101860"
+        data-translate="whatsappButton"
     >
-
         💬 WhatsApp Me
-
     </a>
 
 </div>
@@ -1047,21 +1198,21 @@ footer strong{
 <footer>
 
     <strong>
-        Meet Tolu
+        Tolu
     </strong>
 
 
-    <div class="footer-icons">
+    <div
+        class="footer-icons"
+        data-translate="footer"
+    >
 
         🏠 Home Visits
         &nbsp; • &nbsp;
-
         🤝 Friendly
         &nbsp; • &nbsp;
-
         💬 Patient
         &nbsp; • &nbsp;
-
         📍 Local
 
     </div>
@@ -1069,7 +1220,558 @@ footer strong{
 </footer>
 
 
+
+<!-- =========================
+     TRANSLATION JAVASCRIPT
+========================= -->
+
+<script>
+
+
+const translations = {
+
+
+    /* =====================
+       ENGLISH
+    ===================== */
+
+    en: {
+
+        getHelp:
+            "Get Help",
+
+        heroTitle:
+            "Meet Tolu 👋",
+
+        subtitle:
+            "Your Friendly Local Technology Helper",
+
+        tagline:
+            "Technology doesn't have to be confusing.",
+
+        taglineStrong:
+            "I'm here to make it simple.",
+
+        techSupport:
+            "Tech Support",
+
+        techSupportText:
+            "Help with computers, phones and everyday technology.",
+
+        patient:
+            "Patient & Friendly",
+
+        patientText:
+            "No rushing and no complicated technical language.",
+
+        local:
+            "Local Help",
+
+        localText:
+            "Friendly technology support in your local community.",
+
+        aboutTitle:
+            "👋 About Me",
+
+        aboutText1:
+            "Hello! My name is Tolu, and I'm a Computer Science student at the Université libre de Bruxelles (ULB).",
+
+        aboutText2:
+            "I enjoy helping people who find computers, phones and new technology confusing or frustrating. Whether you need help fixing a problem or simply want someone to show you how something works, I'm here to help.",
+
+        whyTitle:
+            "⭐ Why Choose Me?",
+
+        whyText1:
+            "I work as an IT Consultant at Beego, where I've helped people with technology in different organisations.",
+
+        whyText2:
+            "I've helped people solve everyday technology problems involving computers, printers, phones, passwords, emails and online services.",
+
+        learningTitle:
+            "🎓 Certified & Always Learning",
+
+        learning1:
+            "Google AI Essentials",
+
+        learning2:
+            "Computer Science Student at ULB",
+
+        learning3:
+            "Programming & Software Development",
+
+        learning4:
+            "Continuously learning new AI tools",
+
+        servicesTitle:
+            "🛠️ I Can Help With",
+
+        service1:
+            "Computer & laptop problems",
+
+        service2:
+            "Phone & tablet help",
+
+        service3:
+            "Wi-Fi & printer problems",
+
+        service4:
+            "Passwords & emails",
+
+        service5:
+            "Online forms & websites",
+
+        service6:
+            "ChatGPT & Artificial Intelligence",
+
+        promiseTitle:
+            "I won't just fix the problem.",
+
+        promiseText:
+            "I'll explain what I'm doing in simple language, so you understand what happened and feel more confident using your technology afterwards.",
+
+        promiseStrong:
+            "No confusing technical words. No rushing. Just friendly, patient help. 💜",
+
+        contactTitle:
+            "Need a little tech help?",
+
+        contactText:
+            "Don't struggle with it alone. Just give me a call or send me a message.",
+
+        callButton:
+            "📞 Call Tolu",
+
+        whatsappButton:
+            "💬 WhatsApp Me",
+
+        footer:
+            "🏠 Home Visits • 🤝 Friendly • 💬 Patient • 📍 Local"
+
+    },
+
+
+    /* =====================
+       DUTCH
+    ===================== */
+
+    nl: {
+
+        getHelp:
+            "Hulp nodig?",
+
+        heroTitle:
+            "Maak kennis met Tolu 👋",
+
+        subtitle:
+            "Jouw vriendelijke lokale technologiehulp",
+
+        tagline:
+            "Technologie hoeft niet ingewikkeld te zijn.",
+
+        taglineStrong:
+            "Ik help je om het eenvoudig te maken.",
+
+        techSupport:
+            "Technologiehulp",
+
+        techSupportText:
+            "Hulp met computers, telefoons en dagelijkse technologie.",
+
+        patient:
+            "Geduldig & vriendelijk",
+
+        patientText:
+            "Geen haast en geen ingewikkelde technische taal.",
+
+        local:
+            "Lokale hulp",
+
+        localText:
+            "Persoonlijke technologiehulp bij jou in de buurt.",
+
+        aboutTitle:
+            "👋 Over mij",
+
+        aboutText1:
+            "Hallo! Mijn naam is Tolu en ik ben een student Computerwetenschappen aan de Université libre de Bruxelles (ULB).",
+
+        aboutText2:
+            "Ik help graag mensen die computers, telefoons en nieuwe technologie moeilijk of frustrerend vinden. Of je nu hulp nodig hebt bij een probleem of gewoon wilt leren hoe iets werkt, ik help je graag.",
+
+        whyTitle:
+            "⭐ Waarom voor mij kiezen?",
+
+        whyText1:
+            "Ik werk als IT Consultant bij Beego, waar ik mensen heb geholpen met technologie bij verschillende organisaties.",
+
+        whyText2:
+            "Ik heb mensen geholpen met alledaagse technologieproblemen zoals computers, printers, telefoons, wachtwoorden, e-mails en online diensten.",
+
+        learningTitle:
+            "🎓 Gecertificeerd & altijd aan het leren",
+
+        learning1:
+            "Google AI Essentials",
+
+        learning2:
+            "Student Computerwetenschappen aan de ULB",
+
+        learning3:
+            "Programmeren & softwareontwikkeling",
+
+        learning4:
+            "Ik leer voortdurend nieuwe AI-tools bij",
+
+        servicesTitle:
+            "🛠️ Waarmee kan ik helpen?",
+
+        service1:
+            "Problemen met computers & laptops",
+
+        service2:
+            "Hulp met telefoons & tablets",
+
+        service3:
+            "Wi-Fi & printerproblemen",
+
+        service4:
+            "Wachtwoorden & e-mails",
+
+        service5:
+            "Online formulieren & websites",
+
+        service6:
+            "ChatGPT & Artificiële Intelligentie",
+
+        promiseTitle:
+            "Ik los niet alleen het probleem op.",
+
+        promiseText:
+            "Ik leg in eenvoudige taal uit wat ik doe, zodat je begrijpt wat er gebeurd is en je je daarna zekerder voelt met je technologie.",
+
+        promiseStrong:
+            "Geen ingewikkelde technische woorden. Geen haast. Gewoon vriendelijke en geduldige hulp. 💜",
+
+        contactTitle:
+            "Hulp nodig met technologie?",
+
+        contactText:
+            "Blijf er niet alleen mee worstelen. Bel me of stuur me gewoon een bericht.",
+
+        callButton:
+            "📞 Bel Tolu",
+
+        whatsappButton:
+            "💬 WhatsApp Tolu",
+
+        footer:
+            "🏠 Hulp aan huis • 🤝 Vriendelijk • 💬 Geduldig • 📍 Lokaal"
+
+    },
+
+
+    /* =====================
+       FRENCH
+    ===================== */
+
+    fr: {
+
+        getHelp:
+            "Besoin d'aide ?",
+
+        heroTitle:
+            "Découvrez Tolu 👋",
+
+        subtitle:
+            "Votre aide technologique locale et conviviale",
+
+        tagline:
+            "La technologie ne doit pas être compliquée.",
+
+        taglineStrong:
+            "Je suis là pour vous la rendre simple.",
+
+        techSupport:
+            "Assistance technique",
+
+        techSupportText:
+            "Aide avec les ordinateurs, téléphones et technologies du quotidien.",
+
+        patient:
+            "Patient & convivial",
+
+        patientText:
+            "Pas de précipitation et aucun langage technique compliqué.",
+
+        local:
+            "Aide locale",
+
+        localText:
+            "Une aide technologique conviviale près de chez vous.",
+
+        aboutTitle:
+            "👋 À propos de moi",
+
+        aboutText1:
+            "Bonjour ! Je m'appelle Tolu et je suis étudiante en informatique à l'Université libre de Bruxelles (ULB).",
+
+        aboutText2:
+            "J'aime aider les personnes qui trouvent les ordinateurs, les téléphones et les nouvelles technologies compliqués ou frustrants. Que vous ayez besoin d'aide pour résoudre un problème ou simplement pour apprendre à utiliser quelque chose, je suis là pour vous aider.",
+
+        whyTitle:
+            "⭐ Pourquoi me choisir ?",
+
+        whyText1:
+            "Je travaille comme consultante IT chez Beego, où j'ai aidé des personnes avec la technologie dans différentes organisations.",
+
+        whyText2:
+            "J'ai aidé des personnes à résoudre des problèmes technologiques du quotidien liés aux ordinateurs, imprimantes, téléphones, mots de passe, e-mails et services en ligne.",
+
+        learningTitle:
+            "🎓 Certifiée & toujours en apprentissage",
+
+        learning1:
+            "Google AI Essentials",
+
+        learning2:
+            "Étudiante en informatique à l'ULB",
+
+        learning3:
+            "Programmation & développement logiciel",
+
+        learning4:
+            "J'apprends continuellement de nouveaux outils d'IA",
+
+        servicesTitle:
+            "🛠️ Je peux vous aider avec",
+
+        service1:
+            "Problèmes d'ordinateur & d'ordinateur portable",
+
+        service2:
+            "Aide avec les téléphones & tablettes",
+
+        service3:
+            "Problèmes de Wi-Fi & d'imprimante",
+
+        service4:
+            "Mots de passe & e-mails",
+
+        service5:
+            "Formulaires en ligne & sites web",
+
+        service6:
+            "ChatGPT & intelligence artificielle",
+
+        promiseTitle:
+            "Je ne vais pas seulement résoudre le problème.",
+
+        promiseText:
+            "Je vous expliquerai ce que je fais avec des mots simples, afin que vous compreniez ce qui s'est passé et que vous vous sentiez plus à l'aise avec votre technologie.",
+
+        promiseStrong:
+            "Pas de termes techniques compliqués. Pas de précipitation. Une aide simplement sympathique et patiente. 💜",
+
+        contactTitle:
+            "Besoin d'un peu d'aide avec la technologie ?",
+
+        contactText:
+            "Ne restez pas seul face au problème. Appelez-moi ou envoyez-moi simplement un message.",
+
+        callButton:
+            "📞 Appeler Tolu",
+
+        whatsappButton:
+            "💬 WhatsApp Tolu",
+
+        footer:
+            "🏠 Visites à domicile • 🤝 Conviviale • 💬 Patiente • 📍 Locale"
+
+    }
+
+};
+
+
+
+/* =========================
+   CHANGE LANGUAGE
+========================= */
+
+function changeLanguage(language){
+
+    const selectedLanguage =
+        translations[language]
+        ? language
+        : "en";
+
+
+    /* Change page language */
+
+    document.documentElement.lang =
+        selectedLanguage;
+
+
+    /* Change all translated elements */
+
+    document
+        .querySelectorAll("[data-translate]")
+        .forEach(function(element){
+
+            const key =
+                element.getAttribute("data-translate");
+
+            if(translations[selectedLanguage][key]){
+
+                element.textContent =
+                    translations[selectedLanguage][key];
+
+            }
+
+        });
+
+
+    /* Highlight active language */
+
+    document
+        .querySelectorAll(".language-button")
+        .forEach(function(button){
+
+            button.classList.remove("active");
+
+            if(
+                button.dataset.language ===
+                selectedLanguage
+            ){
+
+                button.classList.add("active");
+
+            }
+
+        });
+
+
+    /* Change browser tab title */
+
+    const titles = {
+
+        en:
+            "Tolu | Local Technology Helper",
+
+        nl:
+            "Tolu | Lokale Technologiehulp",
+
+        fr:
+            "Tolu | Aide Technologique Locale"
+
+    };
+
+
+    document.title =
+        titles[selectedLanguage];
+
+
+    /* Remember language */
+
+    localStorage.setItem(
+        "preferredLanguage",
+        selectedLanguage
+    );
+
+}
+
+
+
+/* =========================
+   LANGUAGE BUTTONS
+========================= */
+
+document
+    .querySelectorAll(".language-button")
+    .forEach(function(button){
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                changeLanguage(
+                    this.dataset.language
+                );
+
+            }
+        );
+
+    });
+
+
+
+/* =========================
+   AUTOMATIC LANGUAGE DETECTION
+========================= */
+
+function detectLanguage(){
+
+    /* Check if visitor previously selected a language */
+
+    const savedLanguage =
+        localStorage.getItem(
+            "preferredLanguage"
+        );
+
+
+    if(savedLanguage &&
+       translations[savedLanguage]){
+
+        changeLanguage(savedLanguage);
+
+        return;
+
+    }
+
+
+    /* Detect browser language */
+
+    const browserLanguage =
+        navigator.language
+        .toLowerCase();
+
+
+    let language = "en";
+
+
+    if(browserLanguage.startsWith("nl")){
+
+        language = "nl";
+
+    }
+
+    else if(browserLanguage.startsWith("fr")){
+
+        language = "fr";
+
+    }
+
+    else if(browserLanguage.startsWith("en")){
+
+        language = "en";
+
+    }
+
+
+    changeLanguage(language);
+
+}
+
+
+/* Run language detection */
+
+detectLanguage();
+
+
+</script>
+
+
 </body>
 
 </html>
-
+```
