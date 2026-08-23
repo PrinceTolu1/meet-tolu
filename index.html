@@ -1,2089 +1,2401 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Tolu | Local Technology Helper</title>
-
-<link
-href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-rel="stylesheet">
-
-<style>
-
-/* =========================
-   GENERAL
-========================= */
-
-*{
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    margin:0;
-    font-family:"Inter",sans-serif;
-    background:#f7f9fc;
-    color:#273142;
-    line-height:1.7;
-}
-
-.container{
-    max-width:1050px;
-    margin:auto;
-    padding:0 20px;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-    background:white;
-    border-bottom:1px solid #e8edf5;
-    position:sticky;
-    top:0;
-    z-index:100;
-}
-
-.nav{
-    max-width:1050px;
-    margin:auto;
-    padding:15px 20px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    position:relative;
-}
-
-.logo{
-    font-size:24px;
-    font-weight:800;
-    color:#5b4bdb;
-}
-
-.languages{
-    position:absolute;
-    left:20px;
-    display:flex;
-    gap:5px;
-}
-
-.language-button{
-    border:none;
-    background:transparent;
-    color:#687386;
-    padding:6px 8px;
-    border-radius:7px;
-    cursor:pointer;
-    font-family:inherit;
-    font-size:12px;
-    font-weight:600;
-}
-
-.language-button:hover,
-.language-button.active{
-    background:#eeeaff;
-    color:#5b4bdb;
-}
-
-.nav-button{
-    position:absolute;
-    right:20px;
-
-    background:#5b4bdb;
-    color:white;
-
-    text-decoration:none;
-
-    padding:10px 18px;
-
-    border-radius:10px;
-
-    font-weight:600;
-    font-size:14px;
-
-    transition:.2s ease;
-}
-
-.nav-button:hover{
-    background:#4939c8;
-    transform:translateY(-2px);
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    text-align:center;
-    padding:70px 20px 60px;
-}
-
-.hero-icon{
-    width:120px;
-    height:120px;
-
-    margin:0 auto 25px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:35px;
-
-    background:linear-gradient(
-        135deg,
-        #eeeaff,
-        #fff3d8
-    );
-
-    font-size:55px;
-
-    border:6px solid white;
-
-    box-shadow:
-        0 10px 30px rgba(91,75,219,.15);
-}
-
-.hero h1{
-    font-size:48px;
-    margin:0 0 5px;
-    font-weight:800;
-    color:#202938;
-}
-
-.subtitle{
-    font-size:21px;
-    color:#687386;
-    margin-bottom:28px;
-}
-
-.tagline{
-    max-width:750px;
-    margin:auto;
-
-    background:linear-gradient(
-        135deg,
-        #eeeaff,
-        #fff6df
-    );
-
-    padding:25px 30px;
-
-    border-radius:18px;
-
-    font-size:22px;
-    font-weight:600;
-
-    color:#37345a;
-
-    border:1px solid #e7e0ff;
-}
-
-
-/* =========================
-   HIGHLIGHTS
-========================= */
-
-.highlights{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    margin-bottom:25px;
-}
-
-.highlight{
-    background:white;
-    padding:25px 20px;
-
-    border-radius:16px;
-    text-align:center;
-
-    border:1px solid #edf0f5;
-
-    box-shadow:
-        0 5px 20px rgba(35,45,65,.05);
-
-    transition:.2s ease;
-}
-
-.highlight:hover{
-    transform:translateY(-4px);
-}
-
-.icon{
-    width:55px;
-    height:55px;
-
-    margin:0 auto 12px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:15px;
-
-    background:#eeeaff;
-
-    font-size:27px;
-}
-
-.highlight:nth-child(2) .icon{
-    background:#fff3d8;
-}
-
-.highlight:nth-child(3) .icon{
-    background:#e2f8eb;
-}
-
-.highlight h3{
-    margin:5px 0;
-    font-size:17px;
-}
-
-.highlight p{
-    margin:0;
-    font-size:14px;
-    color:#737d8c;
-}
-
-
-/* =========================
-   SECTIONS
-========================= */
-
-.section{
-    background:white;
-
-    padding:32px;
-
-    margin-bottom:25px;
-
-    border-radius:18px;
-
-    box-shadow:
-        0 6px 25px rgba(35,45,65,.06);
-
-    border:1px solid #edf0f5;
-}
-
-.section h2{
-    margin-top:0;
-    font-size:26px;
-    color:#30394a;
-}
-
-.section p{
-    color:#5f6b7a;
-}
-
-
-/* =========================
-   LIST
-========================= */
-
-ul{
-    padding-left:0;
-    list-style:none;
-}
-
-ul li{
-    margin:12px 0;
-    padding-left:30px;
-    position:relative;
-    color:#596575;
-}
-
-ul li::before{
-    content:"✓";
-
-    position:absolute;
-    left:0;
-    top:2px;
-
-    width:21px;
-    height:21px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:#e5f8ec;
-
-    color:#27a85a;
-
-    border-radius:50%;
-
-    font-size:13px;
-    font-weight:bold;
-}
-
-
-/* =========================
-   COMPANY TAGS
-========================= */
-
-.company-list{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin:20px 0;
-}
-
-.company{
-    padding:8px 15px;
-
-    border-radius:20px;
-
-    background:#f0edff;
-
-    color:#5748c7;
-
-    font-size:14px;
-    font-weight:600;
-}
-
-
-/* =========================
-   PRICE
-========================= */
-
-.price-section{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-
-    margin-bottom:25px;
-}
-
-.price-card{
-    background:white;
-
-    padding:30px;
-
-    border-radius:18px;
-
-    text-align:center;
-
-    border:2px solid #eeeaff;
-
-    box-shadow:
-        0 6px 25px rgba(35,45,65,.06);
-}
-
-.price-card.special{
-    background:linear-gradient(
-        135deg,
-        #5b4bdb,
-        #7667e8
-    );
-
-    color:white;
-
-    border:none;
-}
-
-.price{
-    font-size:48px;
-    font-weight:800;
-    color:#5b4bdb;
-}
-
-.special .price{
-    color:#fff;
-}
-
-.price-label{
-    font-size:16px;
-    color:#687386;
-}
-
-.special .price-label{
-    color:#eeeaff;
-}
-
-.price-note{
-    font-size:13px;
-    color:#7a8492;
-}
-
-.special .price-note{
-    color:#eeeaff;
-}
-
-
-/* =========================
-   REFERRAL
-========================= */
-
-.referral{
-    background:#fff6df;
-
-    border:2px solid #f2c45f;
-
-    padding:28px;
-
-    border-radius:18px;
-
-    text-align:center;
-
-    margin-bottom:25px;
-}
-
-.referral h2{
-    color:#4b3a10;
-    margin-top:0;
-}
-
-.referral strong{
-    color:#5b4bdb;
-}
-
-
-/* =========================
-   PROMISE
-========================= */
-
-.promise{
-    background:linear-gradient(
-        135deg,
-        #5b4bdb,
-        #7667e8
-    );
-
-    color:white;
-
-    text-align:center;
-
-    padding:42px 30px;
-
-    margin:30px 0;
-
-    border-radius:20px;
-
-    box-shadow:
-        0 10px 30px rgba(91,75,219,.25);
-}
-
-.promise .big{
-    font-size:27px;
-    font-weight:800;
-    margin-bottom:15px;
-}
-
-.promise p{
-    max-width:650px;
-    margin:auto;
-    font-size:17px;
-    color:#f1efff;
-}
-
-
-/* =========================
-   BOOKING
-========================= */
-
-.booking-section{
-    background:white;
-
-    padding:35px;
-
-    margin-bottom:25px;
-
-    border-radius:20px;
-
-    border:2px solid #eeeaff;
-
-    box-shadow:
-        0 8px 30px rgba(35,45,65,.07);
-}
-
-.booking-header{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.booking-header h2{
-    margin-bottom:8px;
-    font-size:30px;
-}
-
-.booking-header p{
-    color:#687386;
-}
-
-.booking-form{
-    max-width:700px;
-    margin:auto;
-}
-
-.form-group{
-    margin-bottom:18px;
-}
-
-.form-group label{
-    display:block;
-
-    font-weight:600;
-
-    margin-bottom:7px;
-
-    color:#30394a;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-
-    width:100%;
-
-    padding:13px 15px;
-
-    border:1px solid #dce2eb;
-
-    border-radius:10px;
-
-    font-family:inherit;
-
-    font-size:15px;
-
-    background:#fbfcfe;
-
-    outline:none;
-
-    transition:.2s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-
-    border-color:#5b4bdb;
-
-    box-shadow:
-        0 0 0 3px rgba(91,75,219,.10);
-}
-
-.form-group textarea{
-    min-height:110px;
-    resize:vertical;
-}
-
-.form-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-}
-
-.booking-button{
-
-    width:100%;
-
-    border:none;
-
-    padding:16px;
-
-    border-radius:12px;
-
-    background:#25D366;
-
-    color:white;
-
-    font-family:inherit;
-
-    font-size:17px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.2s ease;
-}
-
-.booking-button:hover{
-
-    background:#1fb857;
-
-    transform:translateY(-2px);
-}
-
-.booking-note{
-
-    text-align:center;
-
-    font-size:13px;
-
-    color:#7a8492;
-
-    margin-top:15px;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.buttons{
-    text-align:center;
-    padding:20px 0 45px;
-}
-
-.buttons h2{
-    font-size:28px;
-    margin-bottom:8px;
-}
-
-.buttons p{
-    color:#707b8b;
-    margin-bottom:25px;
-}
-
-.button{
-    display:inline-block;
-
-    padding:16px 30px;
-
-    margin:8px;
-
-    text-decoration:none;
-
-    border-radius:12px;
-
-    font-size:17px;
-    font-weight:700;
-
-    transition:.2s ease;
-}
-
-.button:hover{
-    transform:translateY(-3px);
-}
-
-.call{
-    background:#273142;
-    color:white;
-}
-
-.whatsapp{
-    background:#25D366;
-    color:white;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    background:#202938;
-
-    color:#aeb7c5;
-
-    text-align:center;
-
-    padding:30px 20px;
-}
-
-footer strong{
-    color:white;
-}
-
-.footer-icons{
-    margin-top:8px;
-    font-size:14px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:700px){
-
-    .nav{
-        padding:12px 15px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tolu Tech Help | Friendly Local Technology Support</title>
+
+  <meta
+    name="description"
+    content="Friendly and patient technology help in Antwerp. Help with computers, phones, Wi-Fi, printers, passwords, online services and more. €35 per visit."
+  >
+
+  <style>
+    /* =========================================
+       RESET
+    ========================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .languages{
-        left:10px;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .language-button{
-        padding:5px;
-        font-size:11px;
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      color: #21152f;
+      background: #ffffff;
+      line-height: 1.6;
     }
 
-    .logo{
-        font-size:20px;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    .nav-button{
-        right:10px;
-        padding:8px 10px;
-        font-size:11px;
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
     }
 
-    .hero{
-        padding:50px 10px 45px;
+    /* =========================================
+       VARIABLES
+    ========================================= */
+
+    :root {
+      --purple: #6c3bb9;
+      --purple-dark: #4f278b;
+      --purple-light: #f4effc;
+
+      --green: #25d366;
+      --green-dark: #128c7e;
+
+      --yellow: #f5d83f;
+
+      --text: #21152f;
+      --text-light: #6f6878;
+
+      --background: #ffffff;
+      --background-soft: #f8f7fc;
+
+      --border: #eeeaf3;
+
+      --shadow:
+        0 15px 45px rgba(40, 20, 60, 0.08);
+
+      --radius: 24px;
     }
 
-    .hero-icon{
-        width:100px;
-        height:100px;
-        border-radius:28px;
-        font-size:45px;
+    /* =========================================
+       CONTAINER
+    ========================================= */
+
+    .container {
+      width: min(1150px, calc(100% - 40px));
+      margin: 0 auto;
     }
 
-    .hero h1{
-        font-size:36px;
+    /* =========================================
+       NAVBAR
+    ========================================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid rgba(108, 59, 185, 0.08);
     }
 
-    .subtitle{
-        font-size:18px;
+    .navbar {
+      min-height: 72px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
-    .tagline{
-        font-size:18px;
-        padding:20px;
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--purple);
     }
 
-    .highlights{
-        grid-template-columns:1fr;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+
+      list-style: none;
     }
 
-    .price-section{
-        grid-template-columns:1fr;
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 600;
+      color: #4d4654;
+
+      transition: color 0.2s ease;
     }
 
-    .form-row{
-        grid-template-columns:1fr;
+    .nav-links a:hover {
+      color: var(--purple);
     }
 
-    .section,
-    .booking-section{
-        padding:25px;
+    .nav-book {
+      background: var(--purple);
+      color: white !important;
+
+      padding: 11px 18px;
+      border-radius: 999px;
     }
 
-    .button{
-        display:block;
-        margin:12px 0;
-    }
-}
-
-
-/* =========================
-   VERY SMALL PHONES
-========================= */
-
-@media(max-width:400px){
-
-    .languages{
-        position:static;
-        margin-right:auto;
+    .nav-book:hover {
+      background: var(--purple-dark);
     }
 
-    .nav{
-        justify-content:flex-end;
-        gap:10px;
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+
+      padding: 100px 0 90px;
+
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          #eee4ff 0,
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 10% 80%,
+          #f5efff 0,
+          transparent 30%
+        ),
+        #ffffff;
     }
 
-    .logo{
-        position:absolute;
-        left:50%;
-        transform:translateX(-50%);
+    .hero-content {
+      max-width: 850px;
+      margin: 0 auto;
+      text-align: center;
     }
 
-}
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
 
-</style>
+      padding: 8px 15px;
+      margin-bottom: 22px;
 
+      background: var(--purple-light);
+      color: var(--purple);
+
+      border: 1px solid #e7dcf8;
+      border-radius: 999px;
+
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1.04;
+      letter-spacing: -2px;
+
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: var(--purple);
+    }
+
+    .hero-subtitle {
+      max-width: 680px;
+      margin: 0 auto 30px;
+
+      color: var(--text-light);
+
+      font-size: clamp(18px, 2.5vw, 21px);
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      min-height: 52px;
+      padding: 0 24px;
+
+      border-radius: 999px;
+
+      font-weight: 700;
+      font-size: 16px;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--purple);
+      color: white;
+
+      box-shadow:
+        0 10px 25px rgba(108, 59, 185, 0.22);
+    }
+
+    .btn-primary:hover {
+      background: var(--purple-dark);
+    }
+
+    .btn-whatsapp {
+      background: var(--green);
+      color: white;
+
+      box-shadow:
+        0 10px 25px rgba(37, 211, 102, 0.18);
+    }
+
+    .btn-whatsapp:hover {
+      background: var(--green-dark);
+    }
+
+    .hero-note {
+      margin-top: 18px;
+
+      color: #837b8d;
+      font-size: 14px;
+    }
+
+    /* =========================================
+       TRUST BAR
+    ========================================= */
+
+    .trust-bar {
+      background: var(--purple);
+      color: white;
+    }
+
+    .trust-items {
+      min-height: 78px;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+
+      text-align: center;
+    }
+
+    .trust-item {
+      padding: 15px;
+
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .trust-item strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 2px;
+    }
+
+    /* =========================================
+       GENERAL SECTION
+    ========================================= */
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .section-label {
+      display: inline-block;
+
+      margin-bottom: 12px;
+
+      color: var(--purple);
+
+      font-size: 13px;
+      font-weight: 800;
+
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 14px;
+
+      font-size: clamp(32px, 5vw, 46px);
+      line-height: 1.12;
+
+      letter-spacing: -1px;
+    }
+
+    .section-heading p {
+      color: var(--text-light);
+      font-size: 17px;
+    }
+
+    /* =========================================
+       ABOUT
+    ========================================= */
+
+    .about {
+      background: var(--background-soft);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-visual {
+      min-height: 360px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #6c3bb9,
+          #8d62cf
+        );
+
+      box-shadow:
+        0 25px 60px rgba(108, 59, 185, 0.22);
+    }
+
+    .about-icon {
+      font-size: 120px;
+    }
+
+    .about-content h2 {
+      margin-bottom: 20px;
+
+      font-size: clamp(32px, 5vw, 46px);
+      line-height: 1.1;
+    }
+
+    .about-content p {
+      margin-bottom: 18px;
+
+      color: var(--text-light);
+
+      font-size: 17px;
+    }
+
+    .about-points {
+      display: grid;
+      gap: 13px;
+
+      margin-top: 25px;
+
+      list-style: none;
+    }
+
+    .about-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+
+      font-weight: 600;
+    }
+
+    .about-points span {
+      color: var(--purple);
+      font-size: 20px;
+    }
+
+    /* =========================================
+       WHY CHOOSE ME
+    ========================================= */
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .why-card {
+      padding: 30px;
+
+      background: white;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-5px);
+
+      box-shadow:
+        0 20px 50px rgba(40, 20, 60, 0.12);
+    }
+
+    .why-icon {
+      width: 56px;
+      height: 56px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 20px;
+
+      background: var(--purple-light);
+
+      border-radius: 17px;
+
+      font-size: 27px;
+    }
+
+    .why-card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .why-card p {
+      color: var(--text-light);
+      font-size: 15px;
+    }
+
+    /* =========================================
+       EXPERIENCE
+    ========================================= */
+
+    .experience {
+      background: var(--background-soft);
+    }
+
+    .experience-box {
+      max-width: 900px;
+      margin: 0 auto;
+
+      padding: 38px;
+
+      background: white;
+
+      border: 1px solid var(--border);
+      border-radius: 25px;
+
+      box-shadow: var(--shadow);
+
+      text-align: center;
+    }
+
+    .experience-box p {
+      margin-bottom: 25px;
+
+      color: var(--text-light);
+      font-size: 17px;
+    }
+
+    .experience-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+
+      flex-wrap: wrap;
+    }
+
+    .experience-logo {
+      padding: 11px 18px;
+
+      background: #f7f5fa;
+
+      border: 1px solid var(--border);
+      border-radius: 999px;
+
+      font-weight: 700;
+      color: #4d4654;
+    }
+
+    /* =========================================
+       SERVICES
+    ========================================= */
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      padding: 27px;
+
+      border: 1px solid var(--border);
+      border-radius: 22px;
+
+      background: white;
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: #d9c9ee;
+    }
+
+    .service-icon {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .service-card p {
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    /* =========================================
+       TESTIMONIALS
+    ========================================= */
+
+    .testimonials {
+      background: var(--background-soft);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      display: flex;
+      flex-direction: column;
+
+      min-height: 340px;
+
+      padding: 30px;
+
+      background: white;
+
+      border-radius: 24px;
+      border: 1px solid rgba(108, 59, 185, 0.08);
+
+      box-shadow: var(--shadow);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+
+      box-shadow:
+        0 20px 50px rgba(40, 20, 60, 0.13);
+    }
+
+    .stars {
+      margin-bottom: 22px;
+
+      color: var(--yellow);
+
+      font-size: 25px;
+      letter-spacing: 3px;
+      line-height: 1;
+    }
+
+    .testimonial-card blockquote {
+      flex: 1;
+
+      margin: 0;
+
+      color: #4d4654;
+
+      font-size: 17px;
+      line-height: 1.7;
+
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+
+      margin-top: 28px;
+      padding-top: 20px;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .author-icon {
+      width: 44px;
+      height: 44px;
+
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--purple);
+      color: white;
+
+      border-radius: 50%;
+
+      font-weight: 800;
+    }
+
+    .testimonial-author strong {
+      display: block;
+
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    .testimonial-author span {
+      display: block;
+
+      margin-top: 2px;
+
+      color: #817889;
+      font-size: 13px;
+    }
+
+    /* =========================================
+       PRICING
+    ========================================= */
+
+    .pricing {
+      background: white;
+    }
+
+    .pricing-grid {
+      max-width: 900px;
+      margin: 0 auto;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .price-card {
+      position: relative;
+
+      padding: 38px;
+
+      border-radius: 26px;
+
+      background: white;
+
+      border: 1px solid var(--border);
+
+      box-shadow: var(--shadow);
+
+      text-align: center;
+    }
+
+    .price-card.featured {
+      background:
+        linear-gradient(
+          145deg,
+          #6c3bb9,
+          #8053c4
+        );
+
+      color: white;
+
+      border: none;
+    }
+
+    .price-card h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .price {
+      margin: 15px 0;
+
+      font-size: 58px;
+      line-height: 1;
+
+      font-weight: 850;
+    }
+
+    .price small {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .price-description {
+      color: var(--text-light);
+      margin-bottom: 25px;
+    }
+
+    .featured .price-description {
+      color: rgba(255,255,255,0.82);
+    }
+
+    .offer-badge {
+      display: inline-block;
+
+      margin-bottom: 12px;
+      padding: 7px 13px;
+
+      background: #fff4a8;
+      color: #574c00;
+
+      border-radius: 999px;
+
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    /* =========================================
+       HOW IT WORKS
+    ========================================= */
+
+    .steps {
+      background: var(--background-soft);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .step {
+      position: relative;
+
+      padding: 30px;
+
+      background: white;
+
+      border-radius: 22px;
+
+      border: 1px solid var(--border);
+
+      box-shadow: var(--shadow);
+
+      text-align: center;
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+
+      margin: 0 auto 18px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--purple);
+      color: white;
+
+      border-radius: 50%;
+
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    /* =========================================
+       BOOKING
+    ========================================= */
+
+    .booking {
+      background:
+        radial-gradient(
+          circle at 90% 20%,
+          #eee4ff 0,
+          transparent 30%
+        ),
+        #ffffff;
+    }
+
+    .booking-box {
+      max-width: 850px;
+      margin: 0 auto;
+
+      padding: 45px;
+
+      background: white;
+
+      border-radius: 30px;
+
+      border: 1px solid var(--border);
+
+      box-shadow:
+        0 25px 70px rgba(40, 20, 60, 0.10);
+    }
+
+    .booking-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .booking-heading h2 {
+      margin-bottom: 10px;
+
+      font-size: clamp(32px, 5vw, 44px);
+    }
+
+    .booking-heading p {
+      color: var(--text-light);
+    }
+
+    .booking-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: grid;
+      gap: 7px;
+    }
+
+    .form-group label {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+
+      padding: 14px 15px;
+
+      border: 1px solid #ddd7e5;
+      border-radius: 13px;
+
+      outline: none;
+
+      background: white;
+      color: var(--text);
+
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--purple);
+
+      box-shadow:
+        0 0 0 4px rgba(108, 59, 185, 0.09);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .booking-submit {
+      width: 100%;
+      border: none;
+      margin-top: 8px;
+    }
+
+    .booking-note {
+      text-align: center;
+
+      margin-top: 14px;
+
+      color: #837b8d;
+      font-size: 13px;
+    }
+
+    /* =========================================
+       FINAL CTA
+    ========================================= */
+
+    .final-cta {
+      padding: 75px 0;
+
+      background: var(--purple);
+      color: white;
+
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      margin-bottom: 12px;
+
+      font-size: clamp(32px, 5vw, 48px);
+    }
+
+    .final-cta p {
+      max-width: 650px;
+
+      margin: 0 auto 28px;
+
+      color: rgba(255,255,255,0.84);
+
+      font-size: 17px;
+    }
+
+    .final-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .final-cta .btn-primary {
+      background: white;
+      color: var(--purple);
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      padding: 35px 0;
+
+      background: #21152f;
+      color: white;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .footer-text {
+      color: rgba(255,255,255,0.65);
+      font-size: 13px;
+      text-align: right;
+    }
+
+    /* =========================================
+       FLOATING WHATSAPP
+    ========================================= */
+
+    .floating-whatsapp {
+      position: fixed;
+
+      right: 20px;
+      bottom: 20px;
+
+      z-index: 999;
+
+      width: 58px;
+      height: 58px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--green);
+      color: white;
+
+      border-radius: 50%;
+
+      font-size: 27px;
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.18);
+
+      transition:
+        transform 0.2s ease;
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.08);
+    }
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .about-visual {
+        min-height: 280px;
+      }
+
+      .why-grid,
+      .service-grid,
+      .testimonial-grid,
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 550px;
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .container {
+        width: min(100% - 30px, 1150px);
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .hero {
+        padding: 70px 0 65px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .trust-items {
+        grid-template-columns: 1fr;
+        padding: 15px 0;
+      }
+
+      .trust-item {
+        padding: 9px;
+      }
+
+      .booking-box {
+        padding: 27px 20px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .price-card {
+        padding: 30px 22px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-text {
+        text-align: center;
+      }
+
+      .floating-whatsapp {
+        right: 15px;
+        bottom: 15px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- =========================================
+       NAVIGATION
+  ========================================== -->
 
-<!-- =========================
-     HEADER
-========================= -->
+  <header>
+    <div class="container navbar">
 
-<header>
+      <a href="#" class="logo">
+        Tolu
+      </a>
 
-<div class="nav">
+      <nav>
+        <ul class="nav-links">
+          <li>
+            <a href="#about">About</a>
+          </li>
 
+          <li>
+            <a href="#services">Services</a>
+          </li>
 
-<div class="languages">
+          <li>
+            <a href="#testimonials">Reviews</a>
+          </li>
 
-<button
-class="language-button"
-data-language="nl">
-NL
-</button>
+          <li>
+            <a href="#pricing">Pricing</a>
+          </li>
 
-<button
-class="language-button"
-data-language="fr">
-FR
-</button>
+          <li>
+            <a href="#booking" class="nav-book">
+              Book a Visit
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-<button
-class="language-button"
-data-language="en">
-EN
-</button>
+    </div>
+  </header>
 
-</div>
 
+  <!-- =========================================
+       HERO
+  ========================================== -->
 
-<div class="logo">
-Tolu
-</div>
+  <main>
 
+    <section class="hero">
 
-<a
-href="#booking"
-class="nav-button"
-data-translate="bookNow">
-Book
-</a>
+      <div class="container">
 
+        <div class="hero-content">
 
-</div>
+          <div class="hero-badge">
+            📍 Local Technology Help in Antwerp
+          </div>
 
-</header>
+          <h1>
+            Technology doesn't have to be
+            <span>confusing.</span>
+          </h1>
 
+          <p class="hero-subtitle">
+            Friendly, patient and practical help with your
+            computer, phone and everyday technology.
+            I'll explain everything in simple language —
+            without rushing you.
+          </p>
 
+          <div class="hero-buttons">
 
-<div class="container">
+            <a
+              href="#booking"
+              class="btn btn-primary"
+            >
+              📅 Book a Visit
+            </a>
 
+            <a
+              href="https://wa.me/32485101860"
+              class="btn btn-whatsapp"
+              target="_blank"
+              rel="noopener"
+            >
+              💬 WhatsApp Me
+            </a>
 
-<!-- =========================
-     HERO
-========================= -->
+          </div>
 
-<section class="hero">
+          <p class="hero-note">
+            Home visits • €35 per visit • Friendly & patient
+          </p>
 
-<div class="hero-icon">
-💻
-</div>
+        </div>
 
-<h1 data-translate="heroTitle">
-Meet Tolu 👋
-</h1>
+      </div>
 
-<div
-class="subtitle"
-data-translate="subtitle">
-Your Friendly Local Technology Helper
-</div>
+    </section>
 
-<div class="tagline">
 
-<span data-translate="tagline">
-Technology doesn't have to be confusing.
-</span>
+    <!-- =========================================
+         TRUST BAR
+    ========================================== -->
 
-<br>
+    <div class="trust-bar">
 
-<strong data-translate="taglineStrong">
-I'm here to make it simple.
-</strong>
+      <div class="container trust-items">
 
-</div>
+        <div class="trust-item">
+          <strong>⭐ 5-Star Feedback</strong>
+          From people I've helped
+        </div>
 
-</section>
+        <div class="trust-item">
+          <strong>💶 €35</strong>
+          Simple price per visit
+        </div>
 
+        <div class="trust-item">
+          <strong>📍 Antwerp</strong>
+          Local & personal support
+        </div>
 
+      </div>
 
-<!-- =========================
-     HIGHLIGHTS
-========================= -->
+    </div>
 
-<div class="highlights">
 
+    <!-- =========================================
+         ABOUT
+    ========================================== -->
 
-<div class="highlight">
+    <section class="about" id="about">
 
-<div class="icon">
-💻
-</div>
+      <div class="container">
 
-<h3 data-translate="techSupport">
-Tech Support
-</h3>
+        <div class="about-grid">
 
-<p data-translate="techSupportText">
-Help with computers, phones and everyday technology.
-</p>
+          <div class="about-visual">
+            <div class="about-icon">
+              💻
+            </div>
+          </div>
 
-</div>
+          <div class="about-content">
 
+            <span class="section-label">
+              ABOUT ME
+            </span>
 
-<div class="highlight">
+            <h2>
+              Meet Tolu 👋
+            </h2>
 
-<div class="icon">
-🤝
-</div>
+            <p>
+              Hello! My name is Tolu, and I'm a Computer
+              Science student at the Université libre de
+              Bruxelles (ULB).
+            </p>
 
-<h3 data-translate="patient">
-Patient & Friendly
-</h3>
+            <p>
+              I enjoy helping people who find computers,
+              phones and new technology confusing or
+              frustrating.
+            </p>
 
-<p data-translate="patientText">
-No rushing and no complicated technical language.
-</p>
+            <p>
+              Whether you need help fixing a problem or
+              simply want someone to show you how something
+              works, I'm here to help.
+            </p>
 
-</div>
+            <ul class="about-points">
 
+              <li>
+                <span>✓</span>
+                Patient explanations
+              </li>
 
-<div class="highlight">
+              <li>
+                <span>✓</span>
+                No complicated technical language
+              </li>
 
-<div class="icon">
-📍
-</div>
+              <li>
+                <span>✓</span>
+                Practical help at your pace
+              </li>
 
-<h3 data-translate="local">
-Local Help
-</h3>
+              <li>
+                <span>✓</span>
+                Local home visits
+              </li>
 
-<p data-translate="localText">
-Friendly technology support in your local community.
-</p>
+            </ul>
 
-</div>
+          </div>
 
+        </div>
 
-</div>
+      </div>
 
+    </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+    <!-- =========================================
+         WHY CHOOSE ME
+    ========================================== -->
 
-<div class="section">
+    <section id="why">
 
-<h2 data-translate="aboutTitle">
-👋 About Me
-</h2>
+      <div class="container">
 
-<p data-translate="aboutText1">
+        <div class="section-heading">
 
-Hello! My name is Tolu, and I'm a Computer Science student
-at the Université libre de Bruxelles (ULB).
+          <span class="section-label">
+            WHY TOLU?
+          </span>
 
-</p>
+          <h2>
+            Help that feels simple
+          </h2>
 
-<p data-translate="aboutText2">
+          <p>
+            Technology support shouldn't make you feel
+            more confused. My goal is to help you understand
+            and feel confident.
+          </p>
 
-I enjoy helping people who find computers, phones and new
-technology confusing or frustrating. Whether you need help
-fixing a problem or simply want someone to show you how
-something works, I'm here to help.
+        </div>
 
-</p>
 
-</div>
+        <div class="why-grid">
 
+          <article class="why-card">
 
+            <div class="why-icon">
+              🤝
+            </div>
 
-<!-- =========================
-     EXPERIENCE
-========================= -->
+            <h3>
+              Patient & Friendly
+            </h3>
 
-<div class="section">
+            <p>
+              No rushing and no complicated technical
+              language. I take the time to explain things
+              clearly.
+            </p>
 
-<h2 data-translate="whyTitle">
-⭐ Why Choose Me?
-</h2>
+          </article>
 
-<p data-translate="whyText1">
 
-I work as an IT Consultant at Beego, where I've helped
-people with technology in different organisations.
+          <article class="why-card">
 
-</p>
+            <div class="why-icon">
+              🧠
+            </div>
 
-<div class="company-list">
+            <h3>
+              I Explain, Not Just Fix
+            </h3>
 
-<div class="company">
-ING
-</div>
+            <p>
+              I'll explain what I'm doing so you can
+              understand what happened and feel more
+              confident afterwards.
+            </p>
 
-<div class="company">
-Colruyt
-</div>
+          </article>
 
-<div class="company">
-Social Centre of Antwerp
-</div>
 
-</div>
+          <article class="why-card">
 
-<p data-translate="whyText2">
+            <div class="why-icon">
+              📍
+            </div>
 
-I've helped people solve everyday technology problems
-involving computers, printers, phones, passwords, emails
-and online services.
+            <h3>
+              Local Help
+            </h3>
 
-</p>
+            <p>
+              Personal technology support in your local
+              community, without needing to travel to a
+              computer shop.
+            </p>
 
-</div>
+          </article>
 
+        </div>
 
+      </div>
 
-<!-- =========================
-     SERVICES
-========================= -->
+    </section>
 
-<div class="section">
 
-<h2 data-translate="servicesTitle">
-🛠️ I Can Help With
-</h2>
+    <!-- =========================================
+         EXPERIENCE
+    ========================================== -->
 
-<ul>
+    <section class="experience">
 
-<li data-translate="service1">
-Computer & laptop problems
-</li>
+      <div class="container">
 
-<li data-translate="service2">
-Phone & tablet help
-</li>
+        <div class="section-heading">
 
-<li data-translate="service3">
-Wi-Fi & printer problems
-</li>
+          <span class="section-label">
+            EXPERIENCE
+          </span>
 
-<li data-translate="service4">
-Passwords & emails
-</li>
+          <h2>
+            Real experience helping people
+          </h2>
 
-<li data-translate="service5">
-Online forms & websites
-</li>
+          <p>
+            I work as an IT Consultant at Beego, where I've
+            helped people with technology in different
+            organisations.
+          </p>
 
-<li data-translate="service6">
-ChatGPT & Artificial Intelligence
-</li>
+        </div>
 
-</ul>
 
-</div>
+        <div class="experience-box">
 
+          <p>
+            My experience includes helping people with
+            computers, printers, phones, passwords, emails
+            and online services.
+          </p>
 
+          <div class="experience-logos">
 
-<!-- =========================
-     PRICE
-========================= -->
+            <span class="experience-logo">
+              ING
+            </span>
 
-<div class="price-section">
+            <span class="experience-logo">
+              Colruyt
+            </span>
 
+            <span class="experience-logo">
+              Stad Antwerpen
+            </span>
 
-<div class="price-card">
+          </div>
 
-<h2 data-translate="priceTitle">
-💶 Simple Pricing
-</h2>
+        </div>
 
-<div class="price">
-€35
-</div>
+      </div>
 
-<div
-class="price-label"
-data-translate="priceLabel">
-per visit
-</div>
+    </section>
 
-<p
-class="price-note"
-data-translate="priceNote">
 
-Clear pricing. No confusing technical costs.
+    <!-- =========================================
+         SERVICES
+    ========================================== -->
 
-</p>
+    <section id="services">
 
-</div>
+      <div class="container">
 
+        <div class="section-heading">
 
+          <span class="section-label">
+            HOW I CAN HELP
+          </span>
 
-<div class="price-card special">
+          <h2>
+            Everyday technology problems
+          </h2>
 
-<h2 data-translate="offerTitle">
-🎁 Launch Offer
-</h2>
+          <p>
+            If you're stuck with something digital,
+            don't worry. I can help you work through it.
+          </p>
 
-<div class="price">
-FREE
-</div>
+        </div>
 
-<div
-class="price-label"
-data-translate="offerLabel">
 
-For the first 5 customers
+        <div class="service-grid">
 
-</div>
+          <article class="service-card">
 
-<p
-class="price-note"
-data-translate="offerText">
+            <div class="service-icon">
+              💻
+            </div>
 
-Refer 2 people who contact me about my service
-and your first visit is free.
+            <h3>
+              Computer & Laptop
+            </h3>
 
-</p>
+            <p>
+              Help with slow computers, settings, software,
+              updates and everyday problems.
+            </p>
 
-</div>
+          </article>
 
-</div>
 
+          <article class="service-card">
 
+            <div class="service-icon">
+              📱
+            </div>
 
-<!-- =========================
-     REFERRAL
-========================= -->
+            <h3>
+              Phone & Tablet
+            </h3>
 
-<div class="referral">
+            <p>
+              Help with settings, apps, accounts,
+              transfers and getting comfortable with your
+              device.
+            </p>
 
-<h2 data-translate="referralTitle">
-🎁 Know someone who needs help?
-</h2>
+          </article>
 
-<p data-translate="referralText">
 
-Tell <strong>2 people</strong> about Tolu Tech Help.
-If you're one of the first 5 customers and those
-2 people contact me, your first visit is FREE.
+          <article class="service-card">
 
-</p>
+            <div class="service-icon">
+              📶
+            </div>
 
-</div>
+            <h3>
+              Wi-Fi & Internet
+            </h3>
 
+            <p>
+              Help when your Wi-Fi, internet connection or
+              devices aren't working properly.
+            </p>
 
+          </article>
 
-<!-- =========================
-     PROMISE
-========================= -->
 
-<div class="promise">
+          <article class="service-card">
 
-<div
-class="big"
-data-translate="promiseTitle">
+            <div class="service-icon">
+              🖨️
+            </div>
 
-I won't just fix the problem.
+            <h3>
+              Printers
+            </h3>
 
-</div>
+            <p>
+              Help connecting your printer and solving
+              common printing problems.
+            </p>
 
-<p data-translate="promiseText">
+          </article>
 
-I'll explain what I'm doing in simple language, so you
-understand what happened and feel more confident using
-your technology afterwards.
 
-</p>
+          <article class="service-card">
 
-<br>
+            <div class="service-icon">
+              🔐
+            </div>
 
-<p>
+            <h3>
+              Passwords & Email
+            </h3>
 
-<strong data-translate="promiseStrong">
+            <p>
+              Help understanding accounts, passwords,
+              email settings and online services.
+            </p>
 
-No confusing technical words.
-No rushing.
-Just friendly, patient help. 💜
+          </article>
 
-</strong>
 
-</p>
+          <article class="service-card">
 
-</div>
+            <div class="service-icon">
+              🤖
+            </div>
 
+            <h3>
+              ChatGPT & AI
+            </h3>
 
+            <p>
+              Learn how to use ChatGPT and other AI tools
+              for everyday tasks.
+            </p>
 
-<!-- =========================
-     BOOKING
-========================= -->
+          </article>
 
-<section
-class="booking-section"
-id="booking">
+        </div>
 
+      </div>
 
-<div class="booking-header">
+    </section>
 
-<h2 data-translate="bookingTitle">
-📅 Book a Visit
-</h2>
 
-<p data-translate="bookingText">
+    <!-- =========================================
+         TESTIMONIALS
+    ========================================== -->
 
-Choose the day and time that works best for you.
-I'll confirm your appointment by WhatsApp.
+    <section class="testimonials" id="testimonials">
 
-</p>
+      <div class="container">
 
-</div>
+        <div class="section-heading">
 
+          <span class="section-label">
+            ⭐ REAL FEEDBACK
+          </span>
 
+          <h2>
+            What people say about my help
+          </h2>
 
-<form
-class="booking-form"
-id="bookingForm">
+          <p>
+            A few words from people I've had the opportunity
+            to help.
+          </p>
 
+        </div>
 
-<div class="form-group">
 
-<label
-for="name"
-data-translate="nameLabel">
+        <div class="testimonial-grid">
 
-Your name
 
-</label>
+          <!-- TESTIMONIAL 1 -->
 
-<input
-type="text"
-id="name"
-required
-placeholder="Your name">
+          <article class="testimonial-card">
 
-</div>
+            <div class="stars">
+              ★★★★★
+            </div>
 
+            <blockquote>
+              “Ontzettend ondernemend, vriendelijk en
+              professioneel. Klanten kwamen zelfs speciaal
+              naar ons om te melden hoe goed ze door hem
+              werden verder geholpen.”
+            </blockquote>
 
+            <div class="testimonial-author">
 
-<div class="form-group">
+              <div class="author-icon">
+                A
+              </div>
 
-<label
-for="phone"
-data-translate="phoneLabel">
+              <div>
+                <strong>
+                  Stad Antwerpen
+                </strong>
 
-Phone number
+                <span>
+                  Sociaal centrum Wilrijk
+                </span>
+              </div>
 
-</label>
+            </div>
 
-<input
-type="tel"
-id="phone"
-required
-placeholder="Your phone number">
+          </article>
 
-</div>
 
+          <!-- TESTIMONIAL 2 -->
 
+          <article class="testimonial-card">
 
-<div class="form-row">
+            <div class="stars">
+              ★★★★★
+            </div>
 
+            <blockquote>
+              “Hij was zeer vriendelijk, beleefd en
+              behulpzaam.”
+            </blockquote>
 
-<div class="form-group">
+            <div class="testimonial-author">
 
-<label
-for="date"
-data-translate="dateLabel">
+              <div class="author-icon">
+                A
+              </div>
 
-Preferred date
+              <div>
+                <strong>
+                  Stad Antwerpen
+                </strong>
 
-</label>
+                <span>
+                  Sociaal centrum Hoboken/Kiel
+                </span>
+              </div>
 
-<input
-type="date"
-id="date"
-required>
+            </div>
 
-</div>
+          </article>
 
 
+          <!-- TESTIMONIAL 3 -->
 
-<div class="form-group">
+          <article class="testimonial-card">
 
-<label
-for="time"
-data-translate="timeLabel">
+            <div class="stars">
+              ★★★★★
+            </div>
 
-Preferred time
+            <blockquote>
+              “Top medewerker, beleefd, hulpvaardig.”
+            </blockquote>
 
-</label>
+            <div class="testimonial-author">
 
-<select
-id="time"
-required>
+              <div class="author-icon">
+                A
+              </div>
 
-<option value="">
-Select a time
-</option>
+              <div>
+                <strong>
+                  Stad Antwerpen
+                </strong>
 
-<option>
-09:00
-</option>
+                <span>
+                  Sociaal centrum Arena
+                </span>
+              </div>
 
-<option>
-10:00
-</option>
+            </div>
 
-<option>
-11:00
-</option>
+          </article>
 
-<option>
-12:00
-</option>
 
-<option>
-13:00
-</option>
+        </div>
 
-<option>
-14:00
-</option>
+      </div>
 
-<option>
-15:00
-</option>
+    </section>
 
-<option>
-16:00
-</option>
 
-<option>
-17:00
-</option>
+    <!-- =========================================
+         PRICING
+    ========================================== -->
 
-<option>
-18:00
-</option>
+    <section class="pricing" id="pricing">
 
-<option>
-19:00
-</option>
+      <div class="container">
 
-</select>
+        <div class="section-heading">
 
-</div>
+          <span class="section-label">
+            SIMPLE PRICING
+          </span>
 
-</div>
+          <h2>
+            No confusing technical costs
+          </h2>
 
+          <p>
+            One simple price for a visit.
+          </p>
 
+        </div>
 
-<div class="form-group">
 
-<label
-for="problem"
-data-translate="problemLabel">
+        <div class="pricing-grid">
 
-What do you need help with?
 
-</label>
+          <!-- NORMAL PRICE -->
 
-<textarea
-id="problem"
-placeholder="Tell me briefly what you need help with..."
-required></textarea>
+          <div class="price-card">
 
-</div>
+            <h3>
+              Regular Visit
+            </h3>
 
+            <div class="price">
+              €35
+              <small>/ visit</small>
+            </div>
 
+            <p class="price-description">
+              Friendly technology support at your home.
+            </p>
 
-<button
-type="submit"
-class="booking-button"
-data-translate="bookingButton">
+            <a
+              href="#booking"
+              class="btn btn-primary"
+            >
+              Book a Visit
+            </a>
 
-📅 Request My Appointment
+          </div>
 
-</button>
 
+          <!-- LAUNCH OFFER -->
 
-<div
-class="booking-note"
-data-translate="bookingNote">
+          <div class="price-card featured">
 
-Your request will open WhatsApp.
-Your appointment is confirmed only after I reply.
+            <span class="offer-badge">
+              🎁 LAUNCH OFFER
+            </span>
 
-</div>
+            <h3>
+              First 5 Customers
+            </h3>
 
+            <div class="price">
+              FREE
+            </div>
 
-</form>
+            <p class="price-description">
+              Refer 2 people who contact me about my
+              service and your first visit is free.
+            </p>
 
-</section>
+            <a
+              href="#booking"
+              class="btn"
+              style="background:white;color:#6c3bb9;"
+            >
+              Claim the Offer
+            </a>
 
+          </div>
 
+        </div>
 
-<!-- =========================
-     CONTACT
-========================= -->
+      </div>
 
-<div
-class="buttons"
-id="contact">
+    </section>
 
-<h2 data-translate="contactTitle">
-Need a little tech help?
-</h2>
 
-<p data-translate="contactText">
+    <!-- =========================================
+         HOW IT WORKS
+    ========================================== -->
 
-Don't struggle with it alone.
-Just give me a call or send me a message.
+    <section class="steps">
 
-</p>
+      <div class="container">
 
+        <div class="section-heading">
 
-<a
-class="button call"
-href="tel:+32485101860"
-data-translate="callButton">
+          <span class="section-label">
+            HOW IT WORKS
+          </span>
 
-📞 Call Tolu
+          <h2>
+            Getting help is easy
+          </h2>
 
-</a>
+          <p>
+            No complicated process.
+          </p>
 
+        </div>
 
-<a
-class="button whatsapp"
-href="https://wa.me/32485101860"
-data-translate="whatsappButton">
 
-💬 WhatsApp Me
+        <div class="steps-grid">
 
-</a>
 
-</div>
+          <article class="step">
 
+            <div class="step-number">
+              1
+            </div>
 
-</div>
+            <h3>
+              Book
+            </h3>
 
+            <p>
+              Choose the day and time that works best for
+              you.
+            </p>
 
+          </article>
 
-<!-- =========================
-     FOOTER
-========================= -->
 
-<footer>
+          <article class="step">
 
-<strong>
-Tolu
-</strong>
+            <div class="step-number">
+              2
+            </div>
 
-<div
-class="footer-icons"
-data-translate="footer">
+            <h3>
+              I Confirm
+            </h3>
 
-🏠 Home Visits • 🤝 Friendly • 💬 Patient • 📍 Local
+            <p>
+              I'll contact you through WhatsApp to confirm
+              the appointment.
+            </p>
 
-</div>
+          </article>
 
-</footer>
 
+          <article class="step">
 
+            <div class="step-number">
+              3
+            </div>
 
-<script>
+            <h3>
+              Get Help
+            </h3>
 
-/* =========================
-   TRANSLATIONS
-========================= */
+            <p>
+              I'll help solve the problem and explain what
+              I'm doing in simple language.
+            </p>
 
-const translations = {
+          </article>
 
-en: {
 
-bookNow:"Book",
+        </div>
 
-heroTitle:"Meet Tolu 👋",
+      </div>
 
-subtitle:"Your Friendly Local Technology Helper",
+    </section>
 
-tagline:"Technology doesn't have to be confusing.",
 
-taglineStrong:"I'm here to make it simple.",
+    <!-- =========================================
+         BOOKING
+    ========================================== -->
 
-techSupport:"Tech Support",
+    <section class="booking" id="booking">
 
-techSupportText:
-"Help with computers, phones and everyday technology.",
+      <div class="container">
 
-patient:"Patient & Friendly",
+        <div class="booking-box">
 
-patientText:
-"No rushing and no complicated technical language.",
+          <div class="booking-heading">
 
-local:"Local Help",
+            <span class="section-label">
+              📅 BOOK A VISIT
+            </span>
 
-localText:
-"Friendly technology support in your local community.",
+            <h2>
+              Tell me what you need help with
+            </h2>
 
-aboutTitle:"👋 About Me",
+            <p>
+              Fill in the form and your request will open
+              WhatsApp. Your appointment is confirmed only
+              after I reply.
+            </p>
 
-aboutText1:
-"Hello! My name is Tolu, and I'm a Computer Science student at the Université libre de Bruxelles (ULB).",
+          </div>
 
-aboutText2:
-"I enjoy helping people who find computers, phones and new technology confusing or frustrating. Whether you need help fixing a problem or simply want someone to show you how something works, I'm here to help.",
 
-whyTitle:"⭐ Why Choose Me?",
+          <form
+            class="booking-form"
+            id="bookingForm"
+          >
 
-whyText1:
-"I work as an IT Consultant at Beego, where I've helped people with technology in different organisations.",
 
-whyText2:
-"I've helped people solve everyday technology problems involving computers, printers, phones, passwords, emails and online services.",
+            <div class="form-row">
 
-servicesTitle:"🛠️ I Can Help With",
+              <div class="form-group">
 
-service1:"Computer & laptop problems",
+                <label for="name">
+                  Your name
+                </label>
 
-service2:"Phone & tablet help",
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                >
 
-service3:"Wi-Fi & printer problems",
+              </div>
 
-service4:"Passwords & emails",
 
-service5:"Online forms & websites",
+              <div class="form-group">
 
-service6:"ChatGPT & Artificial Intelligence",
+                <label for="phone">
+                  Phone number
+                </label>
 
-priceTitle:"💶 Simple Pricing",
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Your phone number"
+                  required
+                >
 
-priceLabel:"per visit",
+              </div>
 
-priceNote:
-"Clear pricing. No confusing technical costs.",
+            </div>
 
-offerTitle:"🎁 Launch Offer",
 
-offerLabel:"For the first 5 customers",
+            <div class="form-row">
 
-offerText:
-"Refer 2 people who contact me about my service and your first visit is free.",
+              <div class="form-group">
 
-referralTitle:
-"🎁 Know someone who needs help?",
+                <label for="date">
+                  Preferred date
+                </label>
 
-referralText:
-"Tell 2 people about Tolu Tech Help. If you're one of the first 5 customers and those 2 people contact me, your first visit is FREE.",
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  required
+                >
 
-promiseTitle:
-"I won't just fix the problem.",
+              </div>
 
-promiseText:
-"I'll explain what I'm doing in simple language, so you understand what happened and feel more confident using your technology afterwards.",
 
-promiseStrong:
-"No confusing technical words. No rushing. Just friendly, patient help. 💜",
+              <div class="form-group">
 
-bookingTitle:
-"📅 Book a Visit",
+                <label for="time">
+                  Preferred time
+                </label>
 
-bookingText:
-"Choose the day and time that works best for you. I'll confirm your appointment by WhatsApp.",
+                <select
+                  id="time"
+                  name="time"
+                  required
+                >
 
-nameLabel:"Your name",
+                  <option value="">
+                    Select a time
+                  </option>
 
-phoneLabel:"Phone number",
+                  <option value="09:00">
+                    09:00
+                  </option>
 
-dateLabel:"Preferred date",
+                  <option value="10:00">
+                    10:00
+                  </option>
 
-timeLabel:"Preferred time",
+                  <option value="11:00">
+                    11:00
+                  </option>
 
-problemLabel:"What do you need help with?",
+                  <option value="12:00">
+                    12:00
+                  </option>
 
-bookingButton:
-"📅 Request My Appointment",
+                  <option value="13:00">
+                    13:00
+                  </option>
 
-bookingNote:
-"Your request will open WhatsApp. Your appointment is confirmed only after I reply.",
+                  <option value="14:00">
+                    14:00
+                  </option>
 
-contactTitle:
-"Need a little tech help?",
+                  <option value="15:00">
+                    15:00
+                  </option>
 
-contactText:
-"Don't struggle with it alone. Just give me a call or send me a message.",
+                  <option value="16:00">
+                    16:00
+                  </option>
 
-callButton:"📞 Call Tolu",
+                  <option value="17:00">
+                    17:00
+                  </option>
 
-whatsappButton:"💬 WhatsApp Me",
+                  <option value="18:00">
+                    18:00
+                  </option>
 
-footer:
-"🏠 Home Visits • 🤝 Friendly • 💬 Patient • 📍 Local"
+                  <option value="19:00">
+                    19:00
+                  </option>
 
-},
+                </select>
 
+              </div>
 
-nl: {
+            </div>
 
-bookNow:"Boeken",
 
-heroTitle:"Maak kennis met Tolu 👋",
+            <div class="form-group">
 
-subtitle:"Jouw vriendelijke lokale technologiehulp",
+              <label for="problem">
+                What do you need help with?
+              </label>
 
-tagline:
-"Technologie hoeft niet ingewikkeld te zijn.",
+              <textarea
+                id="problem"
+                name="problem"
+                placeholder="For example: My laptop is very slow, I need help with my Wi-Fi, I don't know how to use ChatGPT..."
+                required
+              ></textarea>
 
-taglineStrong:
-"Ik help je om het eenvoudig te maken.",
+            </div>
 
-techSupport:"Technologiehulp",
 
-techSupportText:
-"Hulp met computers, telefoons en dagelijkse technologie.",
+            <button
+              type="submit"
+              class="btn btn-whatsapp booking-submit"
+            >
+              📅 Request My Appointment
+            </button>
 
-patient:"Geduldig & vriendelijk",
 
-patientText:
-"Geen haast en geen ingewikkelde technische taal.",
+            <p class="booking-note">
+              💬 Your request will open WhatsApp automatically.
+              I'll reply to confirm your appointment.
+            </p>
 
-local:"Lokale hulp",
+          </form>
 
-localText:
-"Persoonlijke technologiehulp bij jou in de buurt.",
+        </div>
 
-aboutTitle:"👋 Over mij",
+      </div>
 
-aboutText1:
-"Hallo! Mijn naam is Tolu en ik ben een student Computerwetenschappen aan de Université libre de Bruxelles (ULB).",
+    </section>
 
-aboutText2:
-"Ik help graag mensen die computers, telefoons en nieuwe technologie moeilijk of frustrerend vinden. Of je nu hulp nodig hebt bij een probleem of gewoon wilt leren hoe iets werkt, ik help je graag.",
 
-whyTitle:"⭐ Waarom voor mij kiezen?",
+    <!-- =========================================
+         FINAL CTA
+    ========================================== -->
 
-whyText1:
-"Ik werk als IT Consultant bij Beego, waar ik mensen heb geholpen met technologie bij verschillende organisaties.",
+    <section class="final-cta">
 
-whyText2:
-"Ik heb mensen geholpen met alledaagse technologieproblemen zoals computers, printers, telefoons, wachtwoorden, e-mails en online diensten.",
+      <div class="container">
 
-servicesTitle:"🛠️ Waarmee kan ik helpen?",
+        <h2>
+          Need a little tech help?
+        </h2>
 
-service1:"Problemen met computers & laptops",
+        <p>
+          Don't struggle with it alone. Get friendly,
+          patient help with your technology.
+        </p>
 
-service2:"Hulp met telefoons & tablets",
+        <div class="final-buttons">
 
-service3:"Wi-Fi & printerproblemen",
+          <a
+            href="#booking"
+            class="btn btn-primary"
+          >
+            📅 Book a Visit
+          </a>
 
-service4:"Wachtwoorden & e-mails",
+          <a
+            href="https://wa.me/32485101860"
+            class="btn btn-whatsapp"
+            target="_blank"
+            rel="noopener"
+          >
+            💬 WhatsApp Me
+          </a>
 
-service5:"Online formulieren & websites",
+        </div>
 
-service6:"ChatGPT & Artificiële Intelligentie",
+      </div>
 
-priceTitle:"💶 Eenvoudige prijzen",
+    </section>
 
-priceLabel:"per bezoek",
+  </main>
 
-priceNote:
-"Duidelijke prijzen. Geen verrassende technische kosten.",
 
-offerTitle:"🎁 Lancering actie",
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
 
-offerLabel:"Voor de eerste 5 klanten",
+  <footer>
 
-offerText:
-"Breng 2 mensen aan die contact met mij opnemen over mijn dienst en je eerste bezoek is gratis.",
+    <div class="container footer-content">
 
-referralTitle:
-"🎁 Ken je iemand die hulp nodig heeft?",
+      <div class="footer-logo">
+        Tolu
+      </div>
 
-referralText:
-"Vertel 2 mensen over Tolu Tech Help. Ben je één van de eerste 5 klanten en nemen die 2 mensen contact met mij op? Dan is je eerste bezoek GRATIS.",
+      <div class="footer-text">
+        💻 Home Visits • 🤝 Friendly • 💬 Patient • 📍 Local
+        <br>
+        © 2026 Tolu Tech Help
+      </div>
 
-promiseTitle:
-"Ik los niet alleen het probleem op.",
+    </div>
 
-promiseText:
-"Ik leg in eenvoudige taal uit wat ik doe, zodat je begrijpt wat er gebeurd is en je je daarna zekerder voelt met je technologie.",
+  </footer>
 
-promiseStrong:
-"Geen ingewikkelde technische woorden. Geen haast. Gewoon vriendelijke en geduldige hulp. 💜",
 
-bookingTitle:
-"📅 Boek een bezoek",
+  <!-- =========================================
+       FLOATING WHATSAPP
+  ========================================== -->
 
-bookingText:
-"Kies de dag en het tijdstip dat het beste voor jou past. Ik bevestig je afspraak via WhatsApp.",
+  <a
+    href="https://wa.me/32485101860"
+    class="floating-whatsapp"
+    target="_blank"
+    rel="noopener"
+    aria-label="Contact Tolu on WhatsApp"
+  >
+    💬
+  </a>
 
-nameLabel:"Je naam",
 
-phoneLabel:"Telefoonnummer",
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================== -->
 
-dateLabel:"Gewenste datum",
+  <script>
 
-timeLabel:"Gewenst tijdstip",
+    /* -----------------------------------------
+       PREVENT PAST DATES
+    ----------------------------------------- */
 
-problemLabel:
-"Waarmee heb je hulp nodig?",
+    const dateInput = document.getElementById("date");
 
-bookingButton:
-"📅 Mijn afspraak aanvragen",
+    const today = new Date();
 
-bookingNote:
-"Je aanvraag opent WhatsApp. Je afspraak is pas bevestigd nadat ik heb geantwoord.",
+    const year = today.getFullYear();
 
-contactTitle:
-"Hulp nodig met technologie?",
+    const month = String(
+      today.getMonth() + 1
+    ).padStart(2, "0");
 
-contactText:
-"Blijf er niet alleen mee worstelen. Bel me of stuur me gewoon een bericht.",
+    const day = String(
+      today.getDate()
+    ).padStart(2, "0");
 
-callButton:
-"📞 Bel Tolu",
+    dateInput.min =
+      `${year}-${month}-${day}`;
 
-whatsappButton:
-"💬 WhatsApp Tolu",
 
-footer:
-"🏠 Hulp aan huis • 🤝 Vriendelijk • 💬 Geduldig • 📍 Lokaal"
-
-},
-
-
-fr: {
-
-bookNow:"Réserver",
-
-heroTitle:"Découvrez Tolu 👋",
-
-subtitle:
-"Votre aide technologique locale et conviviale",
-
-tagline:
-"La technologie ne doit pas être compliquée.",
-
-taglineStrong:
-"Je suis là pour vous la rendre simple.",
-
-techSupport:
-"Assistance technique",
-
-techSupportText:
-"Aide avec les ordinateurs, téléphones et technologies du quotidien.",
-
-patient:
-"Patiente & conviviale",
-
-patientText:
-"Pas de précipitation et aucun langage technique compliqué.",
-
-local:
-"Aide locale",
-
-localText:
-"Une aide technologique conviviale près de chez vous.",
-
-aboutTitle:
-"👋 À propos de moi",
-
-aboutText1:
-"Bonjour ! Je m'appelle Tolu et je suis étudiante en informatique à l'Université libre de Bruxelles (ULB).",
-
-aboutText2:
-"J'aime aider les personnes qui trouvent les ordinateurs, les téléphones et les nouvelles technologies compliqués ou frustrants. Que vous ayez besoin d'aide pour résoudre un problème ou simplement pour apprendre à utiliser quelque chose, je suis là pour vous aider.",
-
-whyTitle:
-"⭐ Pourquoi me choisir ?",
-
-whyText1:
-"Je travaille comme consultante IT chez Beego, où j'ai aidé des personnes avec la technologie dans différentes organisations.",
-
-whyText2:
-"J'ai aidé des personnes à résoudre des problèmes technologiques du quotidien liés aux ordinateurs, imprimantes, téléphones, mots de passe, e-mails et services en ligne.",
-
-servicesTitle:
-"🛠️ Je peux vous aider avec",
-
-service1:
-"Problèmes d'ordinateur & d'ordinateur portable",
-
-service2:
-"Aide avec les téléphones & tablettes",
-
-service3:
-"Problèmes de Wi-Fi & d'imprimante",
-
-service4:
-"Mots de passe & e-mails",
-
-service5:
-"Formulaires en ligne & sites web",
-
-service6:
-"ChatGPT & intelligence artificielle",
-
-priceTitle:
-"💶 Tarifs simples",
-
-priceLabel:
-"par visite",
-
-priceNote:
-"Des prix clairs. Aucun coût technique surprenant.",
-
-offerTitle:
-"🎁 Offre de lancement",
-
-offerLabel:
-"Pour les 5 premiers clients",
-
-offerText:
-"Recommandez 2 personnes qui me contactent au sujet de mon service et votre première visite est gratuite.",
-
-referralTitle:
-"🎁 Vous connaissez quelqu'un qui a besoin d'aide ?",
-
-referralText:
-"Parlez de Tolu Tech Help à 2 personnes. Si vous êtes l'un des 5 premiers clients et que ces 2 personnes me contactent, votre première visite est GRATUITE.",
-
-promiseTitle:
-"Je ne vais pas seulement résoudre le problème.",
-
-promiseText:
-"Je vous expliquerai ce que je fais avec des mots simples, afin que vous compreniez ce qui s'est passé et que vous vous sentiez plus à l'aise avec votre technologie.",
-
-promiseStrong:
-"Pas de termes techniques compliqués. Pas de précipitation. Une aide simplement sympathique et patiente. 💜",
-
-bookingTitle:
-"📅 Réserver une visite",
-
-bookingText:
-"Choisissez le jour et l'heure qui vous conviennent le mieux. Je confirmerai votre rendez-vous par WhatsApp.",
-
-nameLabel:
-"Votre nom",
-
-phoneLabel:
-"Numéro de téléphone",
-
-dateLabel:
-"Date souhaitée",
-
-timeLabel:
-"Heure souhaitée",
-
-problemLabel:
-"De quelle aide avez-vous besoin ?",
-
-bookingButton:
-"📅 Demander mon rendez-vous",
-
-bookingNote:
-"Votre demande ouvrira WhatsApp. Votre rendez-vous est confirmé uniquement après ma réponse.",
-
-contactTitle:
-"Besoin d'un peu d'aide avec la technologie ?",
-
-contactText:
-"Ne restez pas seul face au problème. Appelez-moi ou envoyez-moi simplement un message.",
-
-callButton:
-"📞 Appeler Tolu",
-
-whatsappButton:
-"💬 WhatsApp Tolu",
-
-footer:
-"🏠 Visites à domicile • 🤝 Conviviale • 💬 Patiente • 📍 Locale"
-
-}
-
-};
-
-
-/* =========================
-   LANGUAGE
-========================= */
-
-function changeLanguage(language){
-
-    if(!translations[language]){
-        language="en";
-    }
-
-    document.documentElement.lang=language;
+    /* -----------------------------------------
+       BOOKING FORM
+    ----------------------------------------- */
 
     document
-    .querySelectorAll("[data-translate]")
-    .forEach(function(element){
+      .getElementById("bookingForm")
+      .addEventListener("submit", function(event) {
 
-        const key=
-        element.getAttribute("data-translate");
+        event.preventDefault();
 
-        if(translations[language][key]){
 
-            element.textContent=
-            translations[language][key];
+        const name =
+          document.getElementById("name").value.trim();
 
+        const phone =
+          document.getElementById("phone").value.trim();
+
+        const date =
+          document.getElementById("date").value;
+
+        const time =
+          document.getElementById("time").value;
+
+        const problem =
+          document.getElementById("problem").value.trim();
+
+
+        if (
+          !name ||
+          !phone ||
+          !date ||
+          !time ||
+          !problem
+        ) {
+
+          alert(
+            "Please complete all fields before submitting."
+          );
+
+          return;
         }
 
-    });
 
-    document
-    .querySelectorAll(".language-button")
-    .forEach(function(button){
+        /* Convert date to DD/MM/YYYY */
 
-        button.classList.remove("active");
+        const selectedDate =
+          new Date(date + "T00:00:00");
 
-        if(button.dataset.language===language){
-
-            button.classList.add("active");
-
-        }
-
-    });
-
-    localStorage.setItem(
-        "preferredLanguage",
-        language
-    );
-}
+        const formattedDate =
+          selectedDate.toLocaleDateString(
+            "en-GB"
+          );
 
 
-/* =========================
-   LANGUAGE BUTTONS
-========================= */
+        /* -------------------------------------
+           WHATSAPP MESSAGE
+        ------------------------------------- */
 
-document
-.querySelectorAll(".language-button")
-.forEach(function(button){
-
-    button.addEventListener(
-        "click",
-        function(){
-
-            changeLanguage(
-                this.dataset.language
-            );
-
-        }
-    );
-
-});
-
-
-/* =========================
-   AUTOMATIC LANGUAGE
-========================= */
-
-function detectLanguage(){
-
-    const saved=
-    localStorage.getItem(
-        "preferredLanguage"
-    );
-
-    if(saved && translations[saved]){
-
-        changeLanguage(saved);
-
-        return;
-    }
-
-    const browserLanguage=
-    navigator.language.toLowerCase();
-
-    let language="en";
-
-    if(browserLanguage.startsWith("nl")){
-        language="nl";
-    }
-
-    else if(browserLanguage.startsWith("fr")){
-        language="fr";
-    }
-
-    changeLanguage(language);
-}
-
-detectLanguage();
-
-
-/* =========================
-   BOOKING FORM
-========================= */
-
-document
-.getElementById("bookingForm")
-.addEventListener("submit",function(event){
-
-    event.preventDefault();
-
-
-    const name=
-    document.getElementById("name").value;
-
-    const phone=
-    document.getElementById("phone").value;
-
-    const date=
-    document.getElementById("date").value;
-
-    const time=
-    document.getElementById("time").value;
-
-    const problem=
-    document.getElementById("problem").value;
-
-
-    const message=
-
+        const message =
 `Hello Tolu! 👋
 
-I would like to request a technology support visit.
+I would like to book a technology help visit.
 
 👤 Name: ${name}
-
 📞 Phone: ${phone}
-
-📅 Preferred date: ${date}
-
+📅 Preferred date: ${formattedDate}
 🕐 Preferred time: ${time}
 
 💻 What I need help with:
 ${problem}
 
-💶 Price: €35 per visit
-
-Please let me know if this date and time are available.
+I understand that the appointment is only confirmed after you reply.
 
 Thank you!`;
 
 
-    const whatsappNumber=
-    "32485101860";
+        /*
+          IMPORTANT:
+          Replace YOUR_WHATSAPP_NUMBER below
+          with your WhatsApp number.
+
+          Example Belgian number:
+
+          324XXXXXXXX
+
+          Do NOT include:
+          +
+          spaces
+          brackets
+          dashes
+        */
+
+        const whatsappNumber =
+          "32485101860";
 
 
-    const whatsappURL=
-    "https://wa.me/"
-    + whatsappNumber
-    + "?text="
-    + encodeURIComponent(message);
+        const whatsappURL =
+          "https://wa.me/" +
+          whatsappNumber +
+          "?text=" +
+          encodeURIComponent(message);
 
 
-    window.open(
-        whatsappURL,
-        "_blank"
-    );
+        window.open(
+          whatsappURL,
+          "_blank"
+        );
 
-});
+      });
 
-</script>
-
+  </script>
 
 </body>
-
 </html>
