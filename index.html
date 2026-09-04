@@ -8,18 +8,30 @@
 
   <meta
     name="description"
-    content="Friendly and patient technology help in Antwerp. Help with computers, phones, Wi-Fi, printers, passwords, online services and more. €35 per visit."
+    content="Friendly, patient technology support in Boom and nearby. Home visits from €34.99, flexible service options, and unlimited home visits with Tolu Tech Care."
   >
 
   <style>
-    /* =========================================
-       RESET
-    ========================================= */
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #0f172a;
+      --text: #1e293b;
+      --muted: #64748b;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --success: #16a34a;
+      --whatsapp: #25d366;
+      --gold: #f59e0b;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
     }
 
     html {
@@ -27,17 +39,9 @@
     }
 
     body {
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-      color: #21152f;
-      background: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
       line-height: 1.6;
     }
 
@@ -53,61 +57,23 @@
       font: inherit;
     }
 
-    /* =========================================
-       VARIABLES
-    ========================================= */
-
-    :root {
-      --purple: #6c3bb9;
-      --purple-dark: #4f278b;
-      --purple-light: #f4effc;
-
-      --green: #25d366;
-      --green-dark: #128c7e;
-
-      --yellow: #f5d83f;
-
-      --text: #21152f;
-      --text-light: #6f6878;
-
-      --background: #ffffff;
-      --background-soft: #f8f7fc;
-
-      --border: #eeeaf3;
-
-      --shadow:
-        0 15px 45px rgba(40, 20, 60, 0.08);
-
-      --radius: 24px;
-    }
-
-    /* =========================================
-       CONTAINER
-    ========================================= */
-
     .container {
-      width: min(1150px, calc(100% - 40px));
+      width: min(1120px, 92%);
       margin: 0 auto;
     }
 
-    /* =========================================
-       NAVBAR
-    ========================================= */
-
+    /* NAVBAR */
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(14px);
-
-      border-bottom: 1px solid rgba(108, 59, 185, 0.08);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
-    .navbar {
+    .nav {
       min-height: 72px;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -115,120 +81,130 @@
     }
 
     .logo {
-      font-size: 25px;
+      font-size: 1.5rem;
       font-weight: 800;
-      color: var(--purple);
+      color: var(--secondary);
+    }
+
+    .logo span {
+      color: var(--primary);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
-
-      list-style: none;
+      gap: 24px;
     }
 
     .nav-links a {
-      font-size: 15px;
+      color: var(--text);
       font-weight: 600;
-      color: #4d4654;
-
-      transition: color 0.2s ease;
+      font-size: 0.95rem;
     }
 
     .nav-links a:hover {
-      color: var(--purple);
+      color: var(--primary);
     }
 
-    .nav-book {
-      background: var(--purple);
-      color: white !important;
-
-      padding: 11px 18px;
-      border-radius: 999px;
+    .language-switcher {
+      display: flex;
+      gap: 6px;
     }
 
-    .nav-book:hover {
-      background: var(--purple-dark);
+    .language-switcher button {
+      border: 1px solid var(--border);
+      background: var(--white);
+      border-radius: 8px;
+      padding: 6px 9px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.78rem;
     }
 
-    /* =========================================
-       HERO
-    ========================================= */
+    .language-switcher button.active {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
 
+    /* HERO */
     .hero {
-      position: relative;
-      overflow: hidden;
-
-      padding: 100px 0 90px;
-
       background:
-        radial-gradient(
-          circle at 90% 10%,
-          #eee4ff 0,
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 10% 80%,
-          #f5efff 0,
-          transparent 30%
-        ),
-        #ffffff;
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.13), transparent 35%),
+        linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+      padding: 90px 0 80px;
     }
 
-    .hero-content {
-      max-width: 850px;
-      margin: 0 auto;
-      text-align: center;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 60px;
     }
 
-    .hero-badge {
+    .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-
-      padding: 8px 15px;
-      margin-bottom: 22px;
-
-      background: var(--purple-light);
-      color: var(--purple);
-
-      border: 1px solid #e7dcf8;
+      background: #eff6ff;
+      color: var(--primary);
+      padding: 8px 13px;
       border-radius: 999px;
-
-      font-size: 14px;
-      font-weight: 700;
+      font-size: 0.85rem;
+      font-weight: 800;
+      margin-bottom: 18px;
     }
 
     .hero h1 {
-      font-size: clamp(42px, 7vw, 72px);
+      font-size: clamp(2.4rem, 6vw, 4.7rem);
       line-height: 1.04;
-      letter-spacing: -2px;
-
+      letter-spacing: -0.04em;
+      color: var(--secondary);
       margin-bottom: 22px;
     }
 
     .hero h1 span {
-      color: var(--purple);
+      color: var(--primary);
     }
 
-    .hero-subtitle {
-      max-width: 680px;
-      margin: 0 auto 30px;
-
-      color: var(--text-light);
-
-      font-size: clamp(18px, 2.5vw, 21px);
-      line-height: 1.7;
+    .hero-text {
+      font-size: 1.18rem;
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 28px;
     }
 
-    .hero-buttons {
+    .hero-bullets {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .hero-bullets li {
       display: flex;
-      justify-content: center;
+      gap: 10px;
       align-items: center;
-      gap: 14px;
+      font-weight: 600;
+    }
 
+    .hero-bullets li::before {
+      content: "✓";
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #dcfce7;
+      color: var(--success);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .cta-row {
+      display: flex;
       flex-wrap: wrap;
+      gap: 12px;
     }
 
     .btn {
@@ -236,711 +212,558 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-
       min-height: 52px;
-      padding: 0 24px;
-
-      border-radius: 999px;
-
-      font-weight: 700;
-      font-size: 16px;
-
+      padding: 0 22px;
+      border-radius: 12px;
+      border: 2px solid transparent;
+      font-weight: 800;
       cursor: pointer;
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
+      transition: 0.2s ease;
     }
 
     .btn-primary {
-      background: var(--purple);
-      color: white;
-
-      box-shadow:
-        0 10px 25px rgba(108, 59, 185, 0.22);
+      background: var(--primary);
+      color: var(--white);
     }
 
     .btn-primary:hover {
-      background: var(--purple-dark);
+      background: var(--primary-dark);
+      transform: translateY(-2px);
     }
 
     .btn-whatsapp {
-      background: var(--green);
-      color: white;
-
-      box-shadow:
-        0 10px 25px rgba(37, 211, 102, 0.18);
+      background: var(--whatsapp);
+      color: #052e16;
     }
 
     .btn-whatsapp:hover {
-      background: var(--green-dark);
+      transform: translateY(-2px);
     }
 
-    .hero-note {
-      margin-top: 18px;
-
-      color: #837b8d;
-      font-size: 14px;
+    .btn-outline {
+      border-color: var(--border);
+      background: var(--white);
+      color: var(--secondary);
     }
 
-    /* =========================================
-       TRUST BAR
-    ========================================= */
-
-    .trust-bar {
-      background: var(--purple);
-      color: white;
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
     }
 
-    .trust-items {
-      min-height: 78px;
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
+    }
 
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+    .hero-card-top {
+      display: flex;
       align-items: center;
-
-      text-align: center;
+      gap: 16px;
+      margin-bottom: 20px;
     }
 
-    .trust-item {
-      padding: 15px;
-
-      font-weight: 600;
-      font-size: 15px;
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      display: grid;
+      place-items: center;
+      font-size: 1.8rem;
     }
 
-    .trust-item strong {
+    .hero-card h3 {
+      color: var(--secondary);
+      margin-bottom: 3px;
+    }
+
+    .hero-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .trust-box {
+      background: #f8fafc;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+
+    .trust-box strong {
       display: block;
-      font-size: 20px;
-      margin-bottom: 2px;
+      margin-bottom: 5px;
     }
 
-    /* =========================================
-       GENERAL SECTION
-    ========================================= */
-
+    /* GENERAL SECTIONS */
     section {
-      padding: 90px 0;
+      padding: 85px 0;
     }
 
     .section-heading {
       max-width: 720px;
-      margin: 0 auto 50px;
+      margin: 0 auto 45px;
       text-align: center;
     }
 
-    .section-label {
-      display: inline-block;
-
-      margin-bottom: 12px;
-
-      color: var(--purple);
-
-      font-size: 13px;
-      font-weight: 800;
-
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
     .section-heading h2 {
+      color: var(--secondary);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
       margin-bottom: 14px;
-
-      font-size: clamp(32px, 5vw, 46px);
-      line-height: 1.12;
-
-      letter-spacing: -1px;
+      letter-spacing: -0.03em;
     }
 
     .section-heading p {
-      color: var(--text-light);
-      font-size: 17px;
+      color: var(--muted);
+      font-size: 1.05rem;
     }
 
-    /* =========================================
-       ABOUT
-    ========================================= */
-
-    .about {
-      background: var(--background-soft);
+    /* PROBLEM */
+    .problem-section {
+      background: var(--light);
     }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about-visual {
-      min-height: 360px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 30px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #6c3bb9,
-          #8d62cf
-        );
-
-      box-shadow:
-        0 25px 60px rgba(108, 59, 185, 0.22);
-    }
-
-    .about-icon {
-      font-size: 120px;
-    }
-
-    .about-content h2 {
-      margin-bottom: 20px;
-
-      font-size: clamp(32px, 5vw, 46px);
-      line-height: 1.1;
-    }
-
-    .about-content p {
-      margin-bottom: 18px;
-
-      color: var(--text-light);
-
-      font-size: 17px;
-    }
-
-    .about-points {
-      display: grid;
-      gap: 13px;
-
-      margin-top: 25px;
-
-      list-style: none;
-    }
-
-    .about-points li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-
-      font-weight: 600;
-    }
-
-    .about-points span {
-      color: var(--purple);
-      font-size: 20px;
-    }
-
-    /* =========================================
-       WHY CHOOSE ME
-    ========================================= */
-
-    .why-grid {
+    .problem-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
     }
 
-    .why-card {
-      padding: 30px;
-
-      background: white;
-
+    .problem-card {
+      background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-
+      padding: 28px;
       box-shadow: var(--shadow);
-
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
     }
 
-    .why-card:hover {
-      transform: translateY(-5px);
-
-      box-shadow:
-        0 20px 50px rgba(40, 20, 60, 0.12);
+    .problem-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
     }
 
-    .why-icon {
-      width: 56px;
-      height: 56px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      margin-bottom: 20px;
-
-      background: var(--purple-light);
-
-      border-radius: 17px;
-
-      font-size: 27px;
+    .problem-card h3 {
+      margin-bottom: 8px;
+      color: var(--secondary);
     }
 
-    .why-card h3 {
-      margin-bottom: 10px;
-      font-size: 20px;
+    .problem-card p {
+      color: var(--muted);
     }
 
-    .why-card p {
-      color: var(--text-light);
-      font-size: 15px;
-    }
-
-    /* =========================================
-       EXPERIENCE
-    ========================================= */
-
-    .experience {
-      background: var(--background-soft);
-    }
-
-    .experience-box {
-      max-width: 900px;
-      margin: 0 auto;
-
-      padding: 38px;
-
-      background: white;
-
-      border: 1px solid var(--border);
-      border-radius: 25px;
-
-      box-shadow: var(--shadow);
-
-      text-align: center;
-    }
-
-    .experience-box p {
-      margin-bottom: 25px;
-
-      color: var(--text-light);
-      font-size: 17px;
-    }
-
-    .experience-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 14px;
-
-      flex-wrap: wrap;
-    }
-
-    .experience-logo {
-      padding: 11px 18px;
-
-      background: #f7f5fa;
-
-      border: 1px solid var(--border);
-      border-radius: 999px;
-
-      font-weight: 700;
-      color: #4d4654;
-    }
-
-    /* =========================================
-       SERVICES
-    ========================================= */
-
-    .service-grid {
+    /* SERVICES */
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 22px;
     }
 
     .service-card {
-      padding: 27px;
-
       border: 1px solid var(--border);
-      border-radius: 22px;
-
-      background: white;
-
-      transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
+      border-radius: var(--radius);
+      padding: 28px;
+      background: var(--white);
+      transition: 0.2s ease;
     }
 
     .service-card:hover {
-      transform: translateY(-4px);
-      border-color: #d9c9ee;
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
     }
 
     .service-icon {
-      font-size: 34px;
+      font-size: 2.1rem;
       margin-bottom: 15px;
     }
 
     .service-card h3 {
+      color: var(--secondary);
       margin-bottom: 8px;
-      font-size: 18px;
     }
 
     .service-card p {
-      color: var(--text-light);
-      font-size: 14px;
+      color: var(--muted);
     }
 
-    /* =========================================
-       TESTIMONIALS
-    ========================================= */
-
-    .testimonials {
-      background: var(--background-soft);
+    /* EXPERIENCE */
+    .experience-section {
+      background: var(--light);
     }
 
-    .testimonial-grid {
+    .experience-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
     }
 
-    .testimonial-card {
-      display: flex;
-      flex-direction: column;
-
-      min-height: 340px;
-
-      padding: 30px;
-
-      background: white;
-
-      border-radius: 24px;
-      border: 1px solid rgba(108, 59, 185, 0.08);
-
+    .experience-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
       box-shadow: var(--shadow);
-
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
     }
 
-    .testimonial-card:hover {
-      transform: translateY(-5px);
-
-      box-shadow:
-        0 20px 50px rgba(40, 20, 60, 0.13);
+    .experience-card h3 {
+      color: var(--secondary);
+      font-size: 1.25rem;
+      margin-bottom: 6px;
     }
 
-    .stars {
-      margin-bottom: 22px;
-
-      color: var(--yellow);
-
-      font-size: 25px;
-      letter-spacing: 3px;
-      line-height: 1;
-    }
-
-    .testimonial-card blockquote {
-      flex: 1;
-
-      margin: 0;
-
-      color: #4d4654;
-
-      font-size: 17px;
-      line-height: 1.7;
-
-      font-style: italic;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-
-      margin-top: 28px;
-      padding-top: 20px;
-
-      border-top: 1px solid var(--border);
-    }
-
-    .author-icon {
-      width: 44px;
-      height: 44px;
-
-      flex-shrink: 0;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: var(--purple);
-      color: white;
-
-      border-radius: 50%;
-
+    .experience-card .role {
+      color: var(--primary);
       font-weight: 800;
+      margin-bottom: 12px;
     }
 
-    .testimonial-author strong {
-      display: block;
-
-      color: var(--text);
-      font-size: 15px;
+    .experience-card p {
+      color: var(--muted);
     }
 
-    .testimonial-author span {
-      display: block;
-
-      margin-top: 2px;
-
-      color: #817889;
-      font-size: 13px;
+    .experience-summary {
+      margin-top: 28px;
+      background: var(--secondary);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 30px;
+      text-align: center;
     }
 
-    /* =========================================
-       PRICING
-    ========================================= */
+    .experience-summary p {
+      max-width: 800px;
+      margin: auto;
+      color: #e2e8f0;
+      font-size: 1.05rem;
+    }
 
-    .pricing {
-      background: white;
+    /* OFFER */
+    .pricing-section {
+      background: #ffffff;
     }
 
     .pricing-grid {
-      max-width: 900px;
-      margin: 0 auto;
-
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: stretch;
     }
 
     .price-card {
       position: relative;
-
-      padding: 38px;
-
-      border-radius: 26px;
-
-      background: white;
-
       border: 1px solid var(--border);
-
+      border-radius: 22px;
+      padding: 30px;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
       box-shadow: var(--shadow);
-
-      text-align: center;
     }
 
     .price-card.featured {
-      background:
-        linear-gradient(
-          145deg,
-          #6c3bb9,
-          #8053c4
-        );
+      border: 3px solid var(--primary);
+      transform: scale(1.025);
+      box-shadow: 0 20px 50px rgba(37, 99, 235, 0.16);
+    }
 
-      color: white;
-
-      border: none;
+    .popular-badge {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: var(--white);
+      padding: 7px 15px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 900;
+      white-space: nowrap;
     }
 
     .price-card h3 {
-      margin-bottom: 10px;
-      font-size: 22px;
-    }
-
-    .price {
-      margin: 15px 0;
-
-      font-size: 58px;
-      line-height: 1;
-
-      font-weight: 850;
-    }
-
-    .price small {
-      font-size: 18px;
-      font-weight: 600;
+      color: var(--secondary);
+      font-size: 1.35rem;
+      margin-bottom: 8px;
     }
 
     .price-description {
-      color: var(--text-light);
+      color: var(--muted);
+      min-height: 52px;
+    }
+
+    .price {
+      margin: 20px 0;
+      color: var(--secondary);
+    }
+
+    .price strong {
+      font-size: 2.5rem;
+      letter-spacing: -0.04em;
+    }
+
+    .price small {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .price-list {
+      list-style: none;
+      display: grid;
+      gap: 11px;
       margin-bottom: 25px;
     }
 
-    .featured .price-description {
-      color: rgba(255,255,255,0.82);
+    .price-list li {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
     }
 
-    .offer-badge {
-      display: inline-block;
+    .price-list li::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 900;
+    }
 
-      margin-bottom: 12px;
-      padding: 7px 13px;
+    .price-card .btn {
+      margin-top: auto;
+      width: 100%;
+    }
 
-      background: #fff4a8;
-      color: #574c00;
-
-      border-radius: 999px;
-
-      font-size: 13px;
+    .deal-box {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 14px;
+      padding: 13px;
+      margin-bottom: 18px;
+      color: #92400e;
       font-weight: 800;
+      font-size: 0.9rem;
     }
 
-    /* =========================================
-       HOW IT WORKS
-    ========================================= */
-
-    .steps {
-      background: var(--background-soft);
+    .pay-later {
+      margin-top: 10px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
     }
 
-    .steps-grid {
+    .pricing-note {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 28px;
+      font-size: 0.9rem;
+    }
+
+    /* VALUE */
+    .value-section {
+      background: var(--light);
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .value-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .value-card .icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .value-card h3 {
+      color: var(--secondary);
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .value-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
     }
 
-    .step {
-      position: relative;
-
-      padding: 30px;
-
-      background: white;
-
-      border-radius: 22px;
-
+    .testimonial {
       border: 1px solid var(--border);
-
+      border-radius: var(--radius);
+      padding: 28px;
+      background: var(--white);
       box-shadow: var(--shadow);
-
-      text-align: center;
     }
 
-    .step-number {
-      width: 50px;
-      height: 50px;
+    .stars {
+      color: var(--gold);
+      letter-spacing: 2px;
+      margin-bottom: 13px;
+    }
 
-      margin: 0 auto 18px;
+    .testimonial p {
+      color: var(--text);
+      font-style: italic;
+      margin-bottom: 18px;
+    }
 
-      display: flex;
+    .testimonial strong {
+      color: var(--secondary);
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 55px;
       align-items: center;
-      justify-content: center;
-
-      background: var(--purple);
-      color: white;
-
-      border-radius: 50%;
-
-      font-size: 20px;
-      font-weight: 800;
     }
 
-    .step h3 {
-      margin-bottom: 8px;
-    }
-
-    .step p {
-      color: var(--text-light);
-      font-size: 14px;
-    }
-
-    /* =========================================
-       BOOKING
-    ========================================= */
-
-    .booking {
+    .about-visual {
+      min-height: 420px;
+      border-radius: 26px;
       background:
-        radial-gradient(
-          circle at 90% 20%,
-          #eee4ff 0,
-          transparent 30%
-        ),
-        #ffffff;
-    }
-
-    .booking-box {
-      max-width: 850px;
-      margin: 0 auto;
-
-      padding: 45px;
-
-      background: white;
-
-      border-radius: 30px;
-
-      border: 1px solid var(--border);
-
-      box-shadow:
-        0 25px 70px rgba(40, 20, 60, 0.10);
-    }
-
-    .booking-heading {
+        linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(29, 78, 216, 0.75)),
+        #2563eb;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      padding: 40px;
       text-align: center;
-      margin-bottom: 35px;
     }
 
-    .booking-heading h2 {
+    .about-visual .big-emoji {
+      font-size: 6rem;
+      margin-bottom: 18px;
+    }
+
+    .about-visual h3 {
+      font-size: 1.8rem;
       margin-bottom: 10px;
-
-      font-size: clamp(32px, 5vw, 44px);
     }
 
-    .booking-heading p {
-      color: var(--text-light);
+    .about-visual p {
+      color: #dbeafe;
+    }
+
+    .about-content h2 {
+      color: var(--secondary);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .about-content > p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+    }
+
+    .about-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .about-list li {
+      display: flex;
+      gap: 10px;
+      font-weight: 700;
+    }
+
+    .about-list li::before {
+      content: "✓";
+      color: var(--success);
+    }
+
+    /* BOOKING */
+    .booking-section {
+      background: var(--secondary);
+      color: var(--white);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 45px;
+      align-items: start;
+    }
+
+    .booking-copy h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .booking-copy p {
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
+
+    .booking-points {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .booking-points li {
+      display: flex;
+      gap: 10px;
+    }
+
+    .booking-points li::before {
+      content: "✓";
+      color: #86efac;
+      font-weight: 900;
     }
 
     .booking-form {
-      display: grid;
-      gap: 18px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      background: var(--white);
+      color: var(--text);
+      padding: 30px;
+      border-radius: 22px;
     }
 
     .form-group {
-      display: grid;
-      gap: 7px;
+      margin-bottom: 16px;
     }
 
     .form-group label {
-      font-size: 14px;
-      font-weight: 700;
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 800;
+      color: var(--secondary);
     }
 
     .form-group input,
     .form-group select,
     .form-group textarea {
       width: 100%;
-
-      padding: 14px 15px;
-
-      border: 1px solid #ddd7e5;
-      border-radius: 13px;
-
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 13px 14px;
       outline: none;
-
-      background: white;
-      color: var(--text);
-
-      transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+      background: var(--white);
     }
 
     .form-group input:focus,
     .form-group select:focus,
     .form-group textarea:focus {
-      border-color: var(--purple);
-
-      box-shadow:
-        0 0 0 4px rgba(108, 59, 185, 0.09);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
     .form-group textarea {
@@ -948,211 +771,196 @@
       resize: vertical;
     }
 
-    .booking-submit {
-      width: 100%;
-      border: none;
-      margin-top: 8px;
-    }
-
-    .booking-note {
+    .form-note {
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-top: 10px;
       text-align: center;
-
-      margin-top: 14px;
-
-      color: #837b8d;
-      font-size: 13px;
     }
 
-    /* =========================================
-       FINAL CTA
-    ========================================= */
+    /* FAQ */
+    .faq-section {
+      background: var(--light);
+    }
 
+    .faq {
+      max-width: 850px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--secondary);
+    }
+
+    details p {
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    /* CTA */
     .final-cta {
-      padding: 75px 0;
-
-      background: var(--purple);
-      color: white;
-
+      padding: 80px 0;
+      background: linear-gradient(135deg, #eff6ff, #ffffff);
       text-align: center;
     }
 
     .final-cta h2 {
-      margin-bottom: 12px;
-
-      font-size: clamp(32px, 5vw, 48px);
+      color: var(--secondary);
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 14px;
     }
 
     .final-cta p {
+      color: var(--muted);
       max-width: 650px;
-
-      margin: 0 auto 28px;
-
-      color: rgba(255,255,255,0.84);
-
-      font-size: 17px;
+      margin: 0 auto 25px;
     }
 
-    .final-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .final-cta .btn-primary {
-      background: white;
-      color: var(--purple);
-    }
-
-    /* =========================================
-       FOOTER
-    ========================================= */
-
+    /* FOOTER */
     footer {
-      padding: 35px 0;
-
-      background: #21152f;
-      color: white;
+      background: #020617;
+      color: var(--white);
+      padding: 45px 0 25px;
     }
 
-    .footer-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 40px;
+      margin-bottom: 35px;
     }
 
-    .footer-logo {
-      font-size: 22px;
-      font-weight: 800;
+    footer h3 {
+      margin-bottom: 12px;
     }
 
-    .footer-text {
-      color: rgba(255,255,255,0.65);
-      font-size: 13px;
-      text-align: right;
+    footer p,
+    footer a {
+      color: #94a3b8;
     }
 
-    /* =========================================
-       FLOATING WHATSAPP
-    ========================================= */
+    footer a:hover {
+      color: var(--white);
+    }
 
-    .floating-whatsapp {
+    .footer-links {
+      display: grid;
+      gap: 8px;
+    }
+
+    .copyright {
+      border-top: 1px solid #1e293b;
+      padding-top: 20px;
+      color: #64748b;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    /* MOBILE WHATSAPP */
+    .mobile-whatsapp {
+      display: none;
       position: fixed;
-
-      right: 20px;
-      bottom: 20px;
-
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
       z-index: 999;
-
-      width: 58px;
-      height: 58px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: var(--green);
-      color: white;
-
-      border-radius: 50%;
-
-      font-size: 27px;
-
-      box-shadow:
-        0 10px 30px rgba(0,0,0,0.18);
-
-      transition:
-        transform 0.2s ease;
+      background: var(--whatsapp);
+      color: #052e16;
+      padding: 14px;
+      text-align: center;
+      border-radius: 13px;
+      font-weight: 900;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     }
 
-    .floating-whatsapp:hover {
-      transform: scale(1.08);
-    }
-
-    /* =========================================
-       MOBILE
-    ========================================= */
-
+    /* RESPONSIVE */
     @media (max-width: 900px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .about-grid {
+      .hero-grid,
+      .about-grid,
+      .booking-grid {
         grid-template-columns: 1fr;
-        gap: 35px;
       }
 
-      .about-visual {
-        min-height: 280px;
-      }
-
-      .why-grid,
-      .service-grid,
-      .testimonial-grid,
-      .steps-grid {
-        grid-template-columns: 1fr;
+      .services-grid,
+      .problem-grid,
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .pricing-grid {
         grid-template-columns: 1fr;
-        max-width: 550px;
+        max-width: 560px;
+        margin: auto;
+      }
+
+      .price-card.featured {
+        transform: none;
+        order: -1;
+      }
+
+      .value-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
     @media (max-width: 650px) {
+      .nav-links {
+        display: none;
+      }
 
-      .container {
-        width: min(100% - 30px, 1150px);
+      .hero {
+        padding: 65px 0 55px;
       }
 
       section {
         padding: 65px 0;
       }
 
-      .hero {
-        padding: 70px 0 65px;
+      .services-grid,
+      .problem-grid,
+      .testimonials-grid,
+      .value-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
       }
 
       .hero h1 {
-        letter-spacing: -1.5px;
+        font-size: 2.65rem;
       }
 
-      .trust-items {
-        grid-template-columns: 1fr;
-        padding: 15px 0;
-      }
-
-      .trust-item {
-        padding: 9px;
-      }
-
-      .booking-box {
-        padding: 27px 20px;
-      }
-
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-
-      .price-card {
-        padding: 30px 22px;
-      }
-
-      .footer-content {
+      .cta-row {
         flex-direction: column;
-        text-align: center;
       }
 
-      .footer-text {
-        text-align: center;
+      .cta-row .btn {
+        width: 100%;
       }
 
-      .floating-whatsapp {
-        right: 15px;
-        bottom: 15px;
+      .mobile-whatsapp {
+        display: block;
+      }
+
+      body {
+        padding-bottom: 70px;
       }
     }
   </style>
@@ -1160,1240 +968,1634 @@
 
 <body>
 
-  <!-- =========================================
-       NAVIGATION
-  ========================================== -->
-
+  <!-- NAVIGATION -->
   <header>
-    <div class="container navbar">
+    <div class="container nav">
+      <a href="#home" class="logo">Tolu<span>.</span></a>
 
-      <a href="#" class="logo">
-        Tolu
-      </a>
-
-      <nav>
-        <ul class="nav-links">
-          <li>
-            <a href="#about">About</a>
-          </li>
-
-          <li>
-            <a href="#services">Services</a>
-          </li>
-
-          <li>
-            <a href="#testimonials">Reviews</a>
-          </li>
-
-          <li>
-            <a href="#pricing">Pricing</a>
-          </li>
-
-          <li>
-            <a href="#booking" class="nav-book">
-              Book a Visit
-            </a>
-          </li>
-        </ul>
+      <nav class="nav-links">
+        <a href="#services" data-i18n="navServices">Services</a>
+        <a href="#experience" data-i18n="navExperience">Experience</a>
+        <a href="#pricing" data-i18n="navPricing">Pricing</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#booking" data-i18n="navBooking">Book</a>
       </nav>
 
+      <div class="language-switcher">
+        <button data-lang="nl">NL</button>
+        <button data-lang="fr">FR</button>
+        <button data-lang="en">EN</button>
+      </div>
     </div>
   </header>
 
-
-  <!-- =========================================
-       HERO
-  ========================================== -->
-
-  <main>
-
+  <!-- HERO -->
+  <main id="home">
     <section class="hero">
+      <div class="container hero-grid">
 
-      <div class="container">
-
-        <div class="hero-content">
-
-          <div class="hero-badge">
-            📍 Local Technology Help in Antwerp
+        <div>
+          <div class="eyebrow" data-i18n="heroEyebrow">
+            📍 Local help in Boom & nearby
           </div>
 
-          <h1>
-            Technology doesn't have to be
-            <span>confusing.</span>
+          <h1 data-i18n="heroTitle">
+            Technology problems?
+            <span>I'll come to you.</span>
           </h1>
 
-          <p class="hero-subtitle">
-            Friendly, patient and practical help with your
-            computer, phone and everyday technology.
-            I'll explain everything in simple language —
-            without rushing you.
+          <p class="hero-text" data-i18n="heroText">
+            Friendly, patient and practical technology help at your home.
+            No complicated jargon. No stress. Just someone who helps you get things working again.
           </p>
 
-          <div class="hero-buttons">
+          <ul class="hero-bullets">
+            <li data-i18n="heroBullet1">Computer, phone & tablet help</li>
+            <li data-i18n="heroBullet2">Wi-Fi, printers & online services</li>
+            <li data-i18n="heroBullet3">ChatGPT & AI made simple</li>
+            <li data-i18n="heroBullet4">Home visits in Boom and nearby</li>
+          </ul>
 
-            <a
-              href="#booking"
-              class="btn btn-primary"
-            >
-              📅 Book a Visit
+          <div class="cta-row">
+            <a href="#booking" class="btn btn-primary" data-i18n="heroButton">
+              📅 Book a visit
             </a>
 
             <a
               href="https://wa.me/32485101860"
-              class="btn btn-whatsapp"
               target="_blank"
-              rel="noopener"
+              class="btn btn-whatsapp"
+              data-i18n="heroWhatsapp"
             >
-              💬 WhatsApp Me
+              💬 WhatsApp me
             </a>
-
           </div>
-
-          <p class="hero-note">
-            Home visits • €35 per visit • Friendly & patient
-          </p>
-
         </div>
 
-      </div>
-
-    </section>
-
-
-    <!-- =========================================
-         TRUST BAR
-    ========================================== -->
-
-    <div class="trust-bar">
-
-      <div class="container trust-items">
-
-        <div class="trust-item">
-          <strong>⭐ 5-Star Feedback</strong>
-          From people I've helped
-        </div>
-
-        <div class="trust-item">
-          <strong>💶 €35</strong>
-          Simple price per visit
-        </div>
-
-        <div class="trust-item">
-          <strong>📍 Antwerp</strong>
-          Local & personal support
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- =========================================
-         ABOUT
-    ========================================== -->
-
-    <section class="about" id="about">
-
-      <div class="container">
-
-        <div class="about-grid">
-
-          <div class="about-visual">
-            <div class="about-icon">
-              💻
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <div class="avatar">👋</div>
+            <div>
+              <h3>Tolu</h3>
+              <p data-i18n="heroCardRole">Your local technology helper</p>
             </div>
           </div>
 
-          <div class="about-content">
-
-            <span class="section-label">
-              ABOUT ME
+          <div class="trust-box">
+            <strong data-i18n="trust1Title">Simple explanations</strong>
+            <span data-i18n="trust1Text">
+              I explain technology in normal language.
             </span>
-
-            <h2>
-              Meet Tolu 👋
-            </h2>
-
-            <p>
-              Hello! My name is Tolu, and I'm a Computer
-              Science student at the Université libre de
-              Bruxelles (ULB).
-            </p>
-
-            <p>
-              I enjoy helping people who find computers,
-              phones and new technology confusing or
-              frustrating.
-            </p>
-
-            <p>
-              Whether you need help fixing a problem or
-              simply want someone to show you how something
-              works, I'm here to help.
-            </p>
-
-            <ul class="about-points">
-
-              <li>
-                <span>✓</span>
-                Patient explanations
-              </li>
-
-              <li>
-                <span>✓</span>
-                No complicated technical language
-              </li>
-
-              <li>
-                <span>✓</span>
-                Practical help at your pace
-              </li>
-
-              <li>
-                <span>✓</span>
-                Local home visits
-              </li>
-
-            </ul>
-
           </div>
 
+          <div class="trust-box">
+            <strong data-i18n="trust2Title">I come to your home</strong>
+            <span data-i18n="trust2Text">
+              No need to carry your computer around.
+            </span>
+          </div>
+
+          <div class="trust-box">
+            <strong data-i18n="trust3Title">Real IT experience</strong>
+            <span data-i18n="trust3Text">
+              Experience helping real users with everyday technology.
+            </span>
+          </div>
         </div>
 
       </div>
-
     </section>
 
-
-    <!-- =========================================
-         WHY CHOOSE ME
-    ========================================== -->
-
-    <section id="why">
-
+    <!-- PROBLEM -->
+    <section class="problem-section">
       <div class="container">
 
         <div class="section-heading">
-
-          <span class="section-label">
-            WHY TOLU?
-          </span>
-
-          <h2>
-            Help that feels simple
+          <h2 data-i18n="problemTitle">
+            Technology shouldn't make your life harder.
           </h2>
 
-          <p>
-            Technology support shouldn't make you feel
-            more confused. My goal is to help you understand
-            and feel confident.
+          <p data-i18n="problemText">
+            You don't need to become a technology expert. You just need someone who can help.
           </p>
-
         </div>
 
+        <div class="problem-grid">
 
-        <div class="why-grid">
-
-          <article class="why-card">
-
-            <div class="why-icon">
-              🤝
-            </div>
-
-            <h3>
-              Patient & Friendly
-            </h3>
-
-            <p>
-              No rushing and no complicated technical
-              language. I take the time to explain things
-              clearly.
+          <div class="problem-card">
+            <div class="problem-icon">💻</div>
+            <h3 data-i18n="problem1Title">“My computer isn't working.”</h3>
+            <p data-i18n="problem1Text">
+              Slow computer, strange messages, updates or programs that won't work?
             </p>
+          </div>
 
-          </article>
-
-
-          <article class="why-card">
-
-            <div class="why-icon">
-              🧠
-            </div>
-
-            <h3>
-              I Explain, Not Just Fix
-            </h3>
-
-            <p>
-              I'll explain what I'm doing so you can
-              understand what happened and feel more
-              confident afterwards.
+          <div class="problem-card">
+            <div class="problem-icon">📱</div>
+            <h3 data-i18n="problem2Title">“I don't understand my phone.”</h3>
+            <p data-i18n="problem2Text">
+              New phone, settings, apps, photos, WhatsApp or backups?
             </p>
+          </div>
 
-          </article>
-
-
-          <article class="why-card">
-
-            <div class="why-icon">
-              📍
-            </div>
-
-            <h3>
-              Local Help
-            </h3>
-
-            <p>
-              Personal technology support in your local
-              community, without needing to travel to a
-              computer shop.
+          <div class="problem-card">
+            <div class="problem-icon">🤖</div>
+            <h3 data-i18n="problem3Title">“What is this AI thing?”</h3>
+            <p data-i18n="problem3Text">
+              Learn how ChatGPT and AI can actually make everyday tasks easier.
             </p>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================
-         EXPERIENCE
-    ========================================== -->
-
-    <section class="experience">
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <span class="section-label">
-            EXPERIENCE
-          </span>
-
-          <h2>
-            Real experience helping people
-          </h2>
-
-          <p>
-            I work as an IT Consultant at Beego, where I've
-            helped people with technology in different
-            organisations.
-          </p>
-
-        </div>
-
-
-        <div class="experience-box">
-
-          <p>
-            My experience includes helping people with
-            computers, printers, phones, passwords, emails
-            and online services.
-          </p>
-
-          <div class="experience-logos">
-
-            <span class="experience-logo">
-              ING
-            </span>
-
-            <span class="experience-logo">
-              Colruyt
-            </span>
-
-            <span class="experience-logo">
-              Stad Antwerpen
-            </span>
-
           </div>
 
         </div>
-
       </div>
-
     </section>
 
-
-    <!-- =========================================
-         SERVICES
-    ========================================== -->
-
+    <!-- SERVICES -->
     <section id="services">
-
       <div class="container">
 
         <div class="section-heading">
+          <h2 data-i18n="servicesTitle">What can I help you with?</h2>
+          <p data-i18n="servicesText">
+            If it's technology and it's causing you problems, there's a good chance I can help.
+          </p>
+        </div>
 
-          <span class="section-label">
-            HOW I CAN HELP
-          </span>
+        <div class="services-grid">
 
-          <h2>
-            Everyday technology problems
+          <div class="service-card">
+            <div class="service-icon">💻</div>
+            <h3 data-i18n="service1Title">Computer & Laptop</h3>
+            <p data-i18n="service1Text">
+              Setup, troubleshooting, updates, software, files and general computer help.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">📱</div>
+            <h3 data-i18n="service2Title">Phone & Tablet</h3>
+            <p data-i18n="service2Text">
+              New devices, apps, photos, WhatsApp, settings and backups.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">📶</div>
+            <h3 data-i18n="service3Title">Wi-Fi & Printer</h3>
+            <p data-i18n="service3Text">
+              Connection problems, printer setup and getting your devices connected.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🔐</div>
+            <h3 data-i18n="service4Title">Passwords & Email</h3>
+            <p data-i18n="service4Text">
+              Account access, passwords, email setup and digital organisation.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🌐</div>
+            <h3 data-i18n="service5Title">Online Services</h3>
+            <p data-i18n="service5Text">
+              Online forms, websites and everyday digital services.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🤖</div>
+            <h3 data-i18n="service6Title">ChatGPT & AI</h3>
+            <p data-i18n="service6Text">
+              Learn how to use AI for writing, information, work and everyday tasks.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="experience-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2 data-i18n="experienceTitle">
+            Experience you can trust
           </h2>
 
-          <p>
-            If you're stuck with something digital,
-            don't worry. I can help you work through it.
+          <p data-i18n="experienceText">
+            I've gained practical IT experience helping people and working in professional organisations.
           </p>
+        </div>
+
+        <div class="experience-grid">
+
+          <div class="experience-card">
+            <h3>Beego</h3>
+            <div class="role" data-i18n="beegoRole">
+              IT Consultant
+            </div>
+            <p data-i18n="beegoText">
+              Provided on-site technical support, helping people with computers,
+              smartphones, printers, Wi-Fi, passwords and everyday digital services.
+            </p>
+          </div>
+
+          <div class="experience-card">
+            <h3>ING</h3>
+            <div class="role" data-i18n="ingRole">
+              IT Experience
+            </div>
+            <p data-i18n="ingText">
+              Worked with users and helped resolve practical technology and digital-service issues.
+            </p>
+          </div>
+
+          <div class="experience-card">
+            <h3>BNP Paribas</h3>
+            <div class="role" data-i18n="bnpRole">
+              IT Experience
+            </div>
+            <p data-i18n="bnpText">
+              Gained experience supporting users and working with technology in a professional banking environment.
+            </p>
+          </div>
+
+          <div class="experience-card">
+            <h3>Colruyt</h3>
+            <div class="role" data-i18n="colruytRole">
+              IT Experience
+            </div>
+            <p data-i18n="colruytText">
+              Provided practical technology assistance and helped users solve everyday digital problems.
+            </p>
+          </div>
+
+          <div class="experience-card">
+            <h3>Stad Antwerpen</h3>
+            <div class="role" data-i18n="antwerpRole">
+              IT Support
+            </div>
+            <p data-i18n="antwerpText">
+              Helped people with computers, phones, online services and other digital tasks,
+              with a focus on patient, easy-to-understand explanations.
+            </p>
+          </div>
 
         </div>
 
-
-        <div class="service-grid">
-
-          <article class="service-card">
-
-            <div class="service-icon">
-              💻
-            </div>
-
-            <h3>
-              Computer & Laptop
-            </h3>
-
-            <p>
-              Help with slow computers, settings, software,
-              updates and everyday problems.
-            </p>
-
-          </article>
-
-
-          <article class="service-card">
-
-            <div class="service-icon">
-              📱
-            </div>
-
-            <h3>
-              Phone & Tablet
-            </h3>
-
-            <p>
-              Help with settings, apps, accounts,
-              transfers and getting comfortable with your
-              device.
-            </p>
-
-          </article>
-
-
-          <article class="service-card">
-
-            <div class="service-icon">
-              📶
-            </div>
-
-            <h3>
-              Wi-Fi & Internet
-            </h3>
-
-            <p>
-              Help when your Wi-Fi, internet connection or
-              devices aren't working properly.
-            </p>
-
-          </article>
-
-
-          <article class="service-card">
-
-            <div class="service-icon">
-              🖨️
-            </div>
-
-            <h3>
-              Printers
-            </h3>
-
-            <p>
-              Help connecting your printer and solving
-              common printing problems.
-            </p>
-
-          </article>
-
-
-          <article class="service-card">
-
-            <div class="service-icon">
-              🔐
-            </div>
-
-            <h3>
-              Passwords & Email
-            </h3>
-
-            <p>
-              Help understanding accounts, passwords,
-              email settings and online services.
-            </p>
-
-          </article>
-
-
-          <article class="service-card">
-
-            <div class="service-icon">
-              🤖
-            </div>
-
-            <h3>
-              ChatGPT & AI
-            </h3>
-
-            <p>
-              Learn how to use ChatGPT and other AI tools
-              for everyday tasks.
-            </p>
-
-          </article>
-
+        <div class="experience-summary">
+          <p data-i18n="experienceSummary">
+            I'm not just someone who knows technology — I have experience helping
+            real people solve real technology problems. I explain things simply,
+            patiently and without complicated jargon.
+          </p>
         </div>
 
       </div>
-
     </section>
 
-
-    <!-- =========================================
-         TESTIMONIALS
-    ========================================== -->
-
-    <section class="testimonials" id="testimonials">
-
+    <!-- PRICING -->
+    <section id="pricing" class="pricing-section">
       <div class="container">
 
         <div class="section-heading">
-
-          <span class="section-label">
-            ⭐ REAL FEEDBACK
-          </span>
-
-          <h2>
-            What people say about my help
+          <h2 data-i18n="pricingTitle">
+            Choose the help that fits you
           </h2>
 
-          <p>
-            A few words from people I've had the opportunity
-            to help.
+          <p data-i18n="pricingText">
+            Start small if you need one problem solved, or get ongoing support so you never have to struggle alone.
           </p>
-
         </div>
-
-
-        <div class="testimonial-grid">
-
-
-          <!-- TESTIMONIAL 1 -->
-
-          <article class="testimonial-card">
-
-            <div class="stars">
-              ★★★★★
-            </div>
-
-            <blockquote>
-              “Ontzettend ondernemend, vriendelijk en
-              professioneel. Klanten kwamen zelfs speciaal
-              naar ons om te melden hoe goed ze door hem
-              werden verder geholpen.”
-            </blockquote>
-
-            <div class="testimonial-author">
-
-              <div class="author-icon">
-                A
-              </div>
-
-              <div>
-                <strong>
-                  Stad Antwerpen
-                </strong>
-
-                <span>
-                  Sociaal centrum Wilrijk
-                </span>
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- TESTIMONIAL 2 -->
-
-          <article class="testimonial-card">
-
-            <div class="stars">
-              ★★★★★
-            </div>
-
-            <blockquote>
-              “Hij was zeer vriendelijk, beleefd en
-              behulpzaam.”
-            </blockquote>
-
-            <div class="testimonial-author">
-
-              <div class="author-icon">
-                A
-              </div>
-
-              <div>
-                <strong>
-                  Stad Antwerpen
-                </strong>
-
-                <span>
-                  Sociaal centrum Hoboken/Kiel
-                </span>
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- TESTIMONIAL 3 -->
-
-          <article class="testimonial-card">
-
-            <div class="stars">
-              ★★★★★
-            </div>
-
-            <blockquote>
-              “Top medewerker, beleefd, hulpvaardig.”
-            </blockquote>
-
-            <div class="testimonial-author">
-
-              <div class="author-icon">
-                A
-              </div>
-
-              <div>
-                <strong>
-                  Stad Antwerpen
-                </strong>
-
-                <span>
-                  Sociaal centrum Arena
-                </span>
-              </div>
-
-            </div>
-
-          </article>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================
-         PRICING
-    ========================================== -->
-
-    <section class="pricing" id="pricing">
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <span class="section-label">
-            SIMPLE PRICING
-          </span>
-
-          <h2>
-            No confusing technical costs
-          </h2>
-
-          <p>
-            One simple price for a visit.
-          </p>
-
-        </div>
-
 
         <div class="pricing-grid">
 
-
-          <!-- NORMAL PRICE -->
-
+          <!-- OFFER 1 -->
           <div class="price-card">
 
-            <h3>
-              Regular Visit
+            <h3 data-i18n="offer1Title">
+              Complete Tech Rescue
             </h3>
 
-            <div class="price">
-              €35
-              <small>/ visit</small>
-            </div>
-
-            <p class="price-description">
-              Friendly technology support at your home.
+            <p class="price-description" data-i18n="offer1Description">
+              Need help with one or more technology problems?
             </p>
 
-            <a
-              href="#booking"
-              class="btn btn-primary"
-            >
-              Book a Visit
+            <div class="price">
+              <strong>€34,99</strong>
+              <small data-i18n="perVisit">/ home visit</small>
+            </div>
+
+            <ul class="price-list">
+              <li data-i18n="offer1Item1">Personal help at your home</li>
+              <li data-i18n="offer1Item2">Computer, phone & tablet help</li>
+              <li data-i18n="offer1Item3">Wi-Fi & printer assistance</li>
+              <li data-i18n="offer1Item4">Email & online services</li>
+              <li data-i18n="offer1Item5">Patient step-by-step explanation</li>
+            </ul>
+
+            <a href="#booking" class="btn btn-outline" data-i18n="offer1Button">
+              Book €34,99 visit
             </a>
 
           </div>
 
+          <!-- OFFER 2 -->
+          <div class="price-card">
 
-          <!-- LAUNCH OFFER -->
-
-          <div class="price-card featured">
-
-            <span class="offer-badge">
-              🎁 LAUNCH OFFER
-            </span>
-
-            <h3>
-              First 5 Customers
+            <h3 data-i18n="offer2Title">
+              Tech Rescue Bundle
             </h3>
 
-            <div class="price">
-              FREE
-            </div>
-
-            <p class="price-description">
-              Refer 2 people who contact me about my
-              service and your first visit is free.
+            <p class="price-description" data-i18n="offer2Description">
+              Great if you know you'll need help more than once.
             </p>
 
-            <a
-              href="#booking"
-              class="btn"
-              style="background:white;color:#6c3bb9;"
-            >
-              Claim the Offer
+            <div class="price">
+              <strong>€69,98</strong>
+              <small data-i18n="bundleText">/ 3 visits</small>
+            </div>
+
+            <div class="deal-box" data-i18n="bundleDeal">
+              🎁 BUY 2 GET 1 FREE — Pay for 2 visits, get your 3rd FREE.
+            </div>
+
+            <ul class="price-list">
+              <li data-i18n="offer2Item1">3 home visits</li>
+              <li data-i18n="offer2Item2">Use them whenever you need them</li>
+              <li data-i18n="offer2Item3">Computer & phone assistance</li>
+              <li data-i18n="offer2Item4">Wi-Fi & printer help</li>
+              <li data-i18n="offer2Item5">AI & digital help included</li>
+            </ul>
+
+            <a href="#booking" class="btn btn-outline" data-i18n="offer2Button">
+              Get the 3-visit bundle
             </a>
+
+            <div class="pay-later" data-i18n="payLaterText">
+              Prefer flexibility? Ask about payment options.
+            </div>
+
+          </div>
+
+          <!-- OFFER 3 -->
+          <div class="price-card featured">
+
+            <div class="popular-badge" data-i18n="popularBadge">
+              ⭐ MOST POPULAR
+            </div>
+
+            <h3 data-i18n="offer3Title">
+              Tolu Tech Care
+            </h3>
+
+            <p class="price-description" data-i18n="offer3Description">
+              Your personal technology helper whenever you need support.
+            </p>
+
+            <div class="price">
+              <strong>€74,99</strong>
+              <small data-i18n="firstMonth">/ first month</small>
+            </div>
+
+            <div class="deal-box" data-i18n="membershipDeal">
+              🔥 FIRST MONTH €74,99 — then €99,99/month.
+            </div>
+
+            <ul class="price-list">
+              <li data-i18n="offer3Item1">Unlimited home visits</li>
+              <li data-i18n="offer3Item2">Remote support between visits</li>
+              <li data-i18n="offer3Item3">Priority booking</li>
+              <li data-i18n="offer3Item4">Computer, phone, Wi-Fi & printer help</li>
+              <li data-i18n="offer3Item5">Email, passwords & online services</li>
+              <li data-i18n="offer3Item6">ChatGPT & AI assistance</li>
+              <li data-i18n="offer3Item7">Digital safety guidance</li>
+              <li data-i18n="offer3Item8">One person you can contact when technology gets difficult</li>
+            </ul>
+
+            <a href="#booking" class="btn btn-primary" data-i18n="offer3Button">
+              Start Tech Care
+            </a>
+
+            <div class="pay-later" data-i18n="membershipNote">
+              €99,99/month after the introductory first month. Visits are scheduled subject to availability and service area.
+            </div>
 
           </div>
 
         </div>
 
-      </div>
+        <p class="pricing-note" data-i18n="pricingNote">
+          Not sure which option is right for you? Just tell me what technology problem you're having and I'll help you choose.
+        </p>
 
+      </div>
     </section>
 
-
-    <!-- =========================================
-         HOW IT WORKS
-    ========================================== -->
-
-    <section class="steps">
-
+    <!-- VALUE STACK -->
+    <section class="value-section">
       <div class="container">
 
         <div class="section-heading">
-
-          <span class="section-label">
-            HOW IT WORKS
-          </span>
-
-          <h2>
-            Getting help is easy
+          <h2 data-i18n="valueTitle">
+            More than just fixing a device
           </h2>
 
-          <p>
-            No complicated process.
+          <p data-i18n="valueText">
+            The goal isn't simply to make something work. It's to make technology feel easier for you.
           </p>
-
         </div>
 
+        <div class="value-grid">
 
-        <div class="steps-grid">
-
-
-          <article class="step">
-
-            <div class="step-number">
-              1
-            </div>
-
-            <h3>
-              Book
-            </h3>
-
-            <p>
-              Choose the day and time that works best for
-              you.
+          <div class="value-card">
+            <div class="icon">🏠</div>
+            <h3 data-i18n="value1Title">At your home</h3>
+            <p data-i18n="value1Text">
+              No travelling with heavy equipment.
             </p>
-
-          </article>
-
-
-          <article class="step">
-
-            <div class="step-number">
-              2
-            </div>
-
-            <h3>
-              I Confirm
-            </h3>
-
-            <p>
-              I'll contact you through WhatsApp to confirm
-              the appointment.
-            </p>
-
-          </article>
-
-
-          <article class="step">
-
-            <div class="step-number">
-              3
-            </div>
-
-            <h3>
-              Get Help
-            </h3>
-
-            <p>
-              I'll help solve the problem and explain what
-              I'm doing in simple language.
-            </p>
-
-          </article>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================
-         BOOKING
-    ========================================== -->
-
-    <section class="booking" id="booking">
-
-      <div class="container">
-
-        <div class="booking-box">
-
-          <div class="booking-heading">
-
-            <span class="section-label">
-              📅 BOOK A VISIT
-            </span>
-
-            <h2>
-              Tell me what you need help with
-            </h2>
-
-            <p>
-              Fill in the form and your request will open
-              WhatsApp. Your appointment is confirmed only
-              after I reply.
-            </p>
-
           </div>
 
-
-          <form
-            class="booking-form"
-            id="bookingForm"
-          >
-
-
-            <div class="form-row">
-
-              <div class="form-group">
-
-                <label for="name">
-                  Your name
-                </label>
-
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Your name"
-                  required
-                >
-
-              </div>
-
-
-              <div class="form-group">
-
-                <label for="phone">
-                  Phone number
-                </label>
-
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  placeholder="Your phone number"
-                  required
-                >
-
-              </div>
-
-            </div>
-
-
-            <div class="form-row">
-
-              <div class="form-group">
-
-                <label for="date">
-                  Preferred date
-                </label>
-
-                <input
-                  type="date"
-                  id="date"
-                  name="date"
-                  required
-                >
-
-              </div>
-
-
-              <div class="form-group">
-
-                <label for="time">
-                  Preferred time
-                </label>
-
-                <select
-                  id="time"
-                  name="time"
-                  required
-                >
-
-                  <option value="">
-                    Select a time
-                  </option>
-
-                  <option value="09:00">
-                    09:00
-                  </option>
-
-                  <option value="10:00">
-                    10:00
-                  </option>
-
-                  <option value="11:00">
-                    11:00
-                  </option>
-
-                  <option value="12:00">
-                    12:00
-                  </option>
-
-                  <option value="13:00">
-                    13:00
-                  </option>
-
-                  <option value="14:00">
-                    14:00
-                  </option>
-
-                  <option value="15:00">
-                    15:00
-                  </option>
-
-                  <option value="16:00">
-                    16:00
-                  </option>
-
-                  <option value="17:00">
-                    17:00
-                  </option>
-
-                  <option value="18:00">
-                    18:00
-                  </option>
-
-                  <option value="19:00">
-                    19:00
-                  </option>
-
-                </select>
-
-              </div>
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label for="problem">
-                What do you need help with?
-              </label>
-
-              <textarea
-                id="problem"
-                name="problem"
-                placeholder="For example: My laptop is very slow, I need help with my Wi-Fi, I don't know how to use ChatGPT..."
-                required
-              ></textarea>
-
-            </div>
-
-
-            <button
-              type="submit"
-              class="btn btn-whatsapp booking-submit"
-            >
-              📅 Request My Appointment
-            </button>
-
-
-            <p class="booking-note">
-              💬 Your request will open WhatsApp automatically.
-              I'll reply to confirm your appointment.
+          <div class="value-card">
+            <div class="icon">🗣️</div>
+            <h3 data-i18n="value2Title">Simple language</h3>
+            <p data-i18n="value2Text">
+              No unnecessary technical jargon.
             </p>
+          </div>
 
-          </form>
+          <div class="value-card">
+            <div class="icon">🤝</div>
+            <h3 data-i18n="value3Title">Patient support</h3>
+            <p data-i18n="value3Text">
+              Ask questions without feeling embarrassed.
+            </p>
+          </div>
 
+          <div class="value-card">
+            <div class="icon">⚡</div>
+            <h3 data-i18n="value4Title">Practical solutions</h3>
+            <p data-i18n="value4Text">
+              Focused on getting you back up and running.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section>
+      <div class="container">
+
+        <div class="section-heading">
+          <h2 data-i18n="testimonialTitle">
+            People I've helped
+          </h2>
+
+          <p data-i18n="testimonialText">
+            Technology support should feel comfortable, personal and trustworthy.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>
+              “Tolu was very patient and explained everything clearly.
+              I finally understood what was wrong with my computer.”
+            </p>
+            <strong>— Customer</strong>
+          </div>
+
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>
+              “Very helpful and friendly. The problem was solved without
+              making me feel like I was asking stupid questions.”
+            </p>
+            <strong>— Customer</strong>
+          </div>
+
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>
+              “A great service for anyone who struggles with technology.
+              Tolu takes the time to explain things.”
+            </p>
+            <strong>— Customer</strong>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container about-grid">
+
+        <div class="about-visual">
+          <div>
+            <div class="big-emoji">👨🏾‍💻</div>
+            <h3>Meet Tolu</h3>
+            <p data-i18n="aboutVisual">
+              Your friendly local technology helper.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <h2 data-i18n="aboutTitle">
+            Technology doesn't have to be confusing.
+          </h2>
+
+          <p data-i18n="aboutText1">
+            I'm Tolu, a Computer Science student at ULB who enjoys helping
+            people feel more comfortable with technology.
+          </p>
+
+          <p data-i18n="aboutText2">
+            Whether it's your computer, phone, Wi-Fi, printer or AI,
+            I'll explain what is happening and help you find a practical solution.
+          </p>
+
+          <ul class="about-list">
+            <li data-i18n="aboutBullet1">Friendly and patient</li>
+            <li data-i18n="aboutBullet2">Professional IT experience</li>
+            <li data-i18n="aboutBullet3">Local home visits in Boom</li>
+            <li data-i18n="aboutBullet4">Simple explanations</li>
+          </ul>
         </div>
 
       </div>
-
     </section>
 
+    <!-- BOOKING -->
+    <section id="booking" class="booking-section">
+      <div class="container booking-grid">
 
-    <!-- =========================================
-         FINAL CTA
-    ========================================== -->
+        <div class="booking-copy">
+          <h2 data-i18n="bookingTitle">
+            Tell me what's going wrong.
+          </h2>
 
-    <section class="final-cta">
+          <p data-i18n="bookingText">
+            You don't need to know exactly what the problem is.
+            Just describe it in your own words and I'll get back to you.
+          </p>
 
+          <ul class="booking-points">
+            <li data-i18n="bookingPoint1">Choose the service you want</li>
+            <li data-i18n="bookingPoint2">Choose your preferred date and time</li>
+            <li data-i18n="bookingPoint3">Tell me what you need help with</li>
+            <li data-i18n="bookingPoint4">I'll contact you to confirm the appointment</li>
+          </ul>
+        </div>
+
+        <form class="booking-form" id="bookingForm">
+
+          <div class="form-group">
+            <label for="name" data-i18n="formName">Your name</label>
+            <input
+              type="text"
+              id="name"
+              required
+              placeholder="Your name"
+              data-i18n-placeholder="formNamePlaceholder"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="phone" data-i18n="formPhone">Phone number</label>
+            <input
+              type="tel"
+              id="phone"
+              required
+              placeholder="Your phone number"
+              data-i18n-placeholder="formPhonePlaceholder"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="service" data-i18n="formService">What do you need?</label>
+
+            <select id="service" required>
+              <option value="" data-i18n="selectDefault">
+                Select an option
+              </option>
+
+              <option value="Complete Tech Rescue - €34.99">
+                Complete Tech Rescue — €34,99
+              </option>
+
+              <option value="Tech Rescue Bundle - €69.98">
+                Tech Rescue Bundle — €69,98
+              </option>
+
+              <option value="Tolu Tech Care - €74.99 first month / €99.99 monthly">
+                Tolu Tech Care — €74,99 first month
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="date" data-i18n="formDate">Preferred date</label>
+            <input type="date" id="date" required>
+          </div>
+
+          <div class="form-group">
+            <label for="time" data-i18n="formTime">Preferred time</label>
+            <input type="time" id="time" required>
+          </div>
+
+          <div class="form-group">
+            <label for="issue" data-i18n="formIssue">
+              What do you need help with?
+            </label>
+
+            <textarea
+              id="issue"
+              required
+              placeholder="Tell me what is happening..."
+              data-i18n-placeholder="formIssuePlaceholder"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-whatsapp">
+            💬 <span data-i18n="formButton">Request via WhatsApp</span>
+          </button>
+
+          <p class="form-note" data-i18n="formNote">
+            Your appointment is only confirmed after I reply to you.
+          </p>
+
+        </form>
+
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
       <div class="container">
 
-        <h2>
-          Need a little tech help?
+        <div class="section-heading">
+          <h2 data-i18n="faqTitle">
+            Frequently asked questions
+          </h2>
+        </div>
+
+        <div class="faq">
+
+          <details>
+            <summary data-i18n="faq1Question">
+              Where do you provide your service?
+            </summary>
+
+            <p data-i18n="faq1Answer">
+              I provide home visits in Boom and nearby areas. Contact me if you're unsure whether I cover your location.
+            </p>
+          </details>
+
+          <details>
+            <summary data-i18n="faq2Question">
+              Do I need to know what is wrong?
+            </summary>
+
+            <p data-i18n="faq2Answer">
+              No. Just describe what you're experiencing in normal language and I'll help figure it out.
+            </p>
+          </details>
+
+          <details>
+            <summary data-i18n="faq3Question">
+              What does the €100/month membership include?
+            </summary>
+
+            <p data-i18n="faq3Answer">
+              Tolu Tech Care includes unlimited home visits, remote support, priority booking and help with computers, phones, Wi-Fi, printers, online services, AI and digital safety.
+            </p>
+          </details>
+
+          <details>
+            <summary data-i18n="faq4Question">
+              Are the home visits really unlimited?
+            </summary>
+
+            <p data-i18n="faq4Answer">
+              There is no fixed numerical limit on visits. Visits are scheduled subject to availability and the service area so I can continue providing quality personal support.
+            </p>
+          </details>
+
+          <details>
+            <summary data-i18n="faq5Question">
+              Do you help with AI?
+            </summary>
+
+            <p data-i18n="faq5Answer">
+              Yes. I can show you how to use ChatGPT and other AI tools for practical everyday tasks.
+            </p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+      <div class="container">
+
+        <h2 data-i18n="finalTitle">
+          Don't struggle with technology alone.
         </h2>
 
-        <p>
-          Don't struggle with it alone. Get friendly,
-          patient help with your technology.
+        <p data-i18n="finalText">
+          Tell me what's going wrong and I'll help you find a simple solution.
         </p>
 
-        <div class="final-buttons">
+        <div class="cta-row" style="justify-content:center;">
 
-          <a
-            href="#booking"
-            class="btn btn-primary"
-          >
-            📅 Book a Visit
+          <a href="#booking" class="btn btn-primary" data-i18n="finalButton">
+            📅 Book a visit
           </a>
 
           <a
             href="https://wa.me/32485101860"
-            class="btn btn-whatsapp"
             target="_blank"
-            rel="noopener"
+            class="btn btn-whatsapp"
+            data-i18n="finalWhatsapp"
           >
-            💬 WhatsApp Me
+            💬 WhatsApp Tolu
           </a>
 
         </div>
 
       </div>
-
     </section>
 
   </main>
 
-
-  <!-- =========================================
-       FOOTER
-  ========================================== -->
-
+  <!-- FOOTER -->
   <footer>
+    <div class="container">
 
-    <div class="container footer-content">
+      <div class="footer-grid">
 
-      <div class="footer-logo">
-        Tolu
+        <div>
+          <h3>Tolu.</h3>
+
+          <p data-i18n="footerDescription">
+            Friendly, patient and local technology support in Boom and nearby.
+          </p>
+        </div>
+
+        <div>
+          <h3 data-i18n="footerServicesTitle">Services</h3>
+
+          <div class="footer-links">
+            <a href="#services" data-i18n="footerService1">Computer & Laptop</a>
+            <a href="#services" data-i18n="footerService2">Phone & Tablet</a>
+            <a href="#services" data-i18n="footerService3">Wi-Fi & Printer</a>
+            <a href="#services" data-i18n="footerService4">ChatGPT & AI</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 data-i18n="footerContactTitle">Contact</h3>
+
+          <div class="footer-links">
+            <a href="tel:+32485101860">📞 0485 101 860</a>
+            <a href="https://wa.me/32485101860" target="_blank">💬 WhatsApp</a>
+            <a href="#booking" data-i18n="footerBook">Book a visit</a>
+          </div>
+        </div>
+
       </div>
 
-      <div class="footer-text">
-        💻 Home Visits • 🤝 Friendly • 💬 Patient • 📍 Local
-        <br>
-        © 2026 Tolu Tech Help
+      <div class="copyright">
+        © <span id="year"></span> Tolu Tech Help.
+        <span data-i18n="copyright">All rights reserved.</span>
       </div>
 
     </div>
-
   </footer>
 
-
-  <!-- =========================================
-       FLOATING WHATSAPP
-  ========================================== -->
-
+  <!-- MOBILE WHATSAPP -->
   <a
     href="https://wa.me/32485101860"
-    class="floating-whatsapp"
     target="_blank"
-    rel="noopener"
-    aria-label="Contact Tolu on WhatsApp"
+    class="mobile-whatsapp"
+    data-i18n="mobileWhatsapp"
   >
-    💬
+    💬 WhatsApp Tolu
   </a>
-
-
-  <!-- =========================================
-       JAVASCRIPT
-  ========================================== -->
 
   <script>
 
-    /* -----------------------------------------
-       PREVENT PAST DATES
-    ----------------------------------------- */
+    /* =========================================
+       WHATSAPP BOOKING
+    ========================================= */
 
-    const dateInput = document.getElementById("date");
+    const bookingForm = document.getElementById("bookingForm");
 
-    const today = new Date();
+    bookingForm.addEventListener("submit", function(event) {
+      event.preventDefault();
 
-    const year = today.getFullYear();
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const service = document.getElementById("service").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      const issue = document.getElementById("issue").value.trim();
 
-    const month = String(
-      today.getMonth() + 1
-    ).padStart(2, "0");
+      const message =
+        `Hello Tolu! 👋%0A%0A` +
+        `I would like to request technology help.%0A%0A` +
+        `Name: ${encodeURIComponent(name)}%0A` +
+        `Phone: ${encodeURIComponent(phone)}%0A` +
+        `Service: ${encodeURIComponent(service)}%0A` +
+        `Preferred date: ${encodeURIComponent(date)}%0A` +
+        `Preferred time: ${encodeURIComponent(time)}%0A` +
+        `Problem: ${encodeURIComponent(issue)}%0A%0A` +
+        `Please let me know if this is possible.`;
 
-    const day = String(
-      today.getDate()
-    ).padStart(2, "0");
-
-    dateInput.min =
-      `${year}-${month}-${day}`;
-
-
-    /* -----------------------------------------
-       BOOKING FORM
-    ----------------------------------------- */
-
-    document
-      .getElementById("bookingForm")
-      .addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-
-        const name =
-          document.getElementById("name").value.trim();
-
-        const phone =
-          document.getElementById("phone").value.trim();
-
-        const date =
-          document.getElementById("date").value;
-
-        const time =
-          document.getElementById("time").value;
-
-        const problem =
-          document.getElementById("problem").value.trim();
+      window.open(
+        `https://wa.me/32485101860?text=${message}`,
+        "_blank"
+      );
+    });
 
 
-        if (
-          !name ||
-          !phone ||
-          !date ||
-          !time ||
-          !problem
-        ) {
+    /* =========================================
+       YEAR
+    ========================================= */
 
-          alert(
-            "Please complete all fields before submitting."
-          );
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
 
-          return;
+
+    /* =========================================
+       TRANSLATIONS
+    ========================================= */
+
+    const translations = {
+
+      en: {
+
+        navServices: "Services",
+        navExperience: "Experience",
+        navPricing: "Pricing",
+        navAbout: "About",
+        navBooking: "Book",
+
+        heroEyebrow: "📍 Local help in Boom & nearby",
+        heroTitle: "Technology problems? <span>I'll come to you.</span>",
+        heroText: "Friendly, patient and practical technology help at your home. No complicated jargon. No stress. Just someone who helps you get things working again.",
+        heroBullet1: "Computer, phone & tablet help",
+        heroBullet2: "Wi-Fi, printers & online services",
+        heroBullet3: "ChatGPT & AI made simple",
+        heroBullet4: "Home visits in Boom and nearby",
+        heroButton: "📅 Book a visit",
+        heroWhatsapp: "💬 WhatsApp me",
+
+        heroCardRole: "Your local technology helper",
+
+        trust1Title: "Simple explanations",
+        trust1Text: "I explain technology in normal language.",
+
+        trust2Title: "I come to your home",
+        trust2Text: "No need to carry your computer around.",
+
+        trust3Title: "Real IT experience",
+        trust3Text: "Experience helping real users with everyday technology.",
+
+        problemTitle: "Technology shouldn't make your life harder.",
+        problemText: "You don't need to become a technology expert. You just need someone who can help.",
+
+        problem1Title: "“My computer isn't working.”",
+        problem1Text: "Slow computer, strange messages, updates or programs that won't work?",
+
+        problem2Title: "“I don't understand my phone.”",
+        problem2Text: "New phone, settings, apps, photos, WhatsApp or backups?",
+
+        problem3Title: "“What is this AI thing?”",
+        problem3Text: "Learn how ChatGPT and AI can actually make everyday tasks easier.",
+
+        servicesTitle: "What can I help you with?",
+        servicesText: "If it's technology and it's causing you problems, there's a good chance I can help.",
+
+        service1Title: "Computer & Laptop",
+        service1Text: "Setup, troubleshooting, updates, software, files and general computer help.",
+
+        service2Title: "Phone & Tablet",
+        service2Text: "New devices, apps, photos, WhatsApp, settings and backups.",
+
+        service3Title: "Wi-Fi & Printer",
+        service3Text: "Connection problems, printer setup and getting your devices connected.",
+
+        service4Title: "Passwords & Email",
+        service4Text: "Account access, passwords, email setup and digital organisation.",
+
+        service5Title: "Online Services",
+        service5Text: "Online forms, websites and everyday digital services.",
+
+        service6Title: "ChatGPT & AI",
+        service6Text: "Learn how to use AI for writing, information, work and everyday tasks.",
+
+        experienceTitle: "Experience you can trust",
+        experienceText: "I've gained practical IT experience helping people and working in professional organisations.",
+
+        beegoRole: "IT Consultant",
+        beegoText: "Provided on-site technical support, helping people with computers, smartphones, printers, Wi-Fi, passwords and everyday digital services.",
+
+        ingRole: "IT Experience",
+        ingText: "Worked with users and helped resolve practical technology and digital-service issues.",
+
+        bnpRole: "IT Experience",
+        bnpText: "Gained experience supporting users and working with technology in a professional banking environment.",
+
+        colruytRole: "IT Experience",
+        colruytText: "Provided practical technology assistance and helped users solve everyday digital problems.",
+
+        antwerpRole: "IT Support",
+        antwerpText: "Helped people with computers, phones, online services and other digital tasks, with a focus on patient, easy-to-understand explanations.",
+
+        experienceSummary: "I'm not just someone who knows technology — I have experience helping real people solve real technology problems. I explain things simply, patiently and without complicated jargon.",
+
+        pricingTitle: "Choose the help that fits you",
+        pricingText: "Start small if you need one problem solved, or get ongoing support so you never have to struggle alone.",
+
+        offer1Title: "Complete Tech Rescue",
+        offer1Description: "Need help with one or more technology problems?",
+        perVisit: "/ home visit",
+
+        offer1Item1: "Personal help at your home",
+        offer1Item2: "Computer, phone & tablet help",
+        offer1Item3: "Wi-Fi & printer assistance",
+        offer1Item4: "Email & online services",
+        offer1Item5: "Patient step-by-step explanation",
+
+        offer1Button: "Book €34,99 visit",
+
+        offer2Title: "Tech Rescue Bundle",
+        offer2Description: "Great if you know you'll need help more than once.",
+        bundleText: "/ 3 visits",
+        bundleDeal: "🎁 BUY 2 GET 1 FREE — Pay for 2 visits, get your 3rd FREE.",
+
+        offer2Item1: "3 home visits",
+        offer2Item2: "Use them whenever you need them",
+        offer2Item3: "Computer & phone assistance",
+        offer2Item4: "Wi-Fi & printer help",
+        offer2Item5: "AI & digital help included",
+
+        offer2Button: "Get the 3-visit bundle",
+        payLaterText: "Prefer flexibility? Ask about payment options.",
+
+        popularBadge: "⭐ MOST POPULAR",
+
+        offer3Title: "Tolu Tech Care",
+        offer3Description: "Your personal technology helper whenever you need support.",
+        firstMonth: "/ first month",
+        membershipDeal: "🔥 FIRST MONTH €74,99 — then €99,99/month.",
+
+        offer3Item1: "Unlimited home visits",
+        offer3Item2: "Remote support between visits",
+        offer3Item3: "Priority booking",
+        offer3Item4: "Computer, phone, Wi-Fi & printer help",
+        offer3Item5: "Email, passwords & online services",
+        offer3Item6: "ChatGPT & AI assistance",
+        offer3Item7: "Digital safety guidance",
+        offer3Item8: "One person you can contact when technology gets difficult",
+
+        offer3Button: "Start Tech Care",
+
+        membershipNote: "€99,99/month after the introductory first month. Visits are scheduled subject to availability and service area.",
+
+        pricingNote: "Not sure which option is right for you? Just tell me what technology problem you're having and I'll help you choose.",
+
+        valueTitle: "More than just fixing a device",
+        valueText: "The goal isn't simply to make something work. It's to make technology feel easier for you.",
+
+        value1Title: "At your home",
+        value1Text: "No travelling with heavy equipment.",
+
+        value2Title: "Simple language",
+        value2Text: "No unnecessary technical jargon.",
+
+        value3Title: "Patient support",
+        value3Text: "Ask questions without feeling embarrassed.",
+
+        value4Title: "Practical solutions",
+        value4Text: "Focused on getting you back up and running.",
+
+        testimonialTitle: "People I've helped",
+        testimonialText: "Technology support should feel comfortable, personal and trustworthy.",
+
+        aboutVisual: "Your friendly local technology helper.",
+
+        aboutTitle: "Technology doesn't have to be confusing.",
+        aboutText1: "I'm Tolu, a Computer Science student at ULB who enjoys helping people feel more comfortable with technology.",
+        aboutText2: "Whether it's your computer, phone, Wi-Fi, printer or AI, I'll explain what is happening and help you find a practical solution.",
+
+        aboutBullet1: "Friendly and patient",
+        aboutBullet2: "Professional IT experience",
+        aboutBullet3: "Local home visits in Boom",
+        aboutBullet4: "Simple explanations",
+
+        bookingTitle: "Tell me what's going wrong.",
+        bookingText: "You don't need to know exactly what the problem is. Just describe it in your own words and I'll get back to you.",
+
+        bookingPoint1: "Choose the service you want",
+        bookingPoint2: "Choose your preferred date and time",
+        bookingPoint3: "Tell me what you need help with",
+        bookingPoint4: "I'll contact you to confirm the appointment",
+
+        formName: "Your name",
+        formPhone: "Phone number",
+        formService: "What do you need?",
+        formDate: "Preferred date",
+        formTime: "Preferred time",
+        formIssue: "What do you need help with?",
+
+        formNamePlaceholder: "Your name",
+        formPhonePlaceholder: "Your phone number",
+        formIssuePlaceholder: "Tell me what is happening...",
+
+        selectDefault: "Select an option",
+
+        formButton: "Request via WhatsApp",
+        formNote: "Your appointment is only confirmed after I reply to you.",
+
+        faqTitle: "Frequently asked questions",
+
+        faq1Question: "Where do you provide your service?",
+        faq1Answer: "I provide home visits in Boom and nearby areas. Contact me if you're unsure whether I cover your location.",
+
+        faq2Question: "Do I need to know what is wrong?",
+        faq2Answer: "No. Just describe what you're experiencing in normal language and I'll help figure it out.",
+
+        faq3Question: "What does the €100/month membership include?",
+        faq3Answer: "Tolu Tech Care includes unlimited home visits, remote support, priority booking and help with computers, phones, Wi-Fi, printers, online services, AI and digital safety.",
+
+        faq4Question: "Are the home visits really unlimited?",
+        faq4Answer: "There is no fixed numerical limit on visits. Visits are scheduled subject to availability and the service area so I can continue providing quality personal support.",
+
+        faq5Question: "Do you help with AI?",
+        faq5Answer: "Yes. I can show you how to use ChatGPT and other AI tools for practical everyday tasks.",
+
+        finalTitle: "Don't struggle with technology alone.",
+        finalText: "Tell me what's going wrong and I'll help you find a simple solution.",
+        finalButton: "📅 Book a visit",
+        finalWhatsapp: "💬 WhatsApp Tolu",
+
+        footerDescription: "Friendly, patient and local technology support in Boom and nearby.",
+        footerServicesTitle: "Services",
+        footerService1: "Computer & Laptop",
+        footerService2: "Phone & Tablet",
+        footerService3: "Wi-Fi & Printer",
+        footerService4: "ChatGPT & AI",
+        footerContactTitle: "Contact",
+        footerBook: "Book a visit",
+        copyright: "All rights reserved.",
+        mobileWhatsapp: "💬 WhatsApp Tolu"
+      },
+
+
+      nl: {
+
+        navServices: "Diensten",
+        navExperience: "Ervaring",
+        navPricing: "Prijzen",
+        navAbout: "Over mij",
+        navBooking: "Boeken",
+
+        heroEyebrow: "📍 Lokale hulp in Boom en omgeving",
+        heroTitle: "Problemen met technologie? <span>Ik kom naar jou.</span>",
+        heroText: "Vriendelijke, geduldige en praktische hulp bij jou thuis. Geen ingewikkeld jargon. Geen stress. Gewoon iemand die je helpt om alles weer werkend te krijgen.",
+        heroBullet1: "Hulp met computer, gsm & tablet",
+        heroBullet2: "Wi-Fi, printers & online diensten",
+        heroBullet3: "ChatGPT & AI eenvoudig uitgelegd",
+        heroBullet4: "Huisbezoeken in Boom en omgeving",
+        heroButton: "📅 Bezoek boeken",
+        heroWhatsapp: "💬 WhatsApp mij",
+
+        heroCardRole: "Jouw lokale technologiehulp",
+
+        trust1Title: "Eenvoudige uitleg",
+        trust1Text: "Ik leg technologie uit in gewone taal.",
+
+        trust2Title: "Ik kom bij je thuis",
+        trust2Text: "Je hoeft je computer niet mee te nemen.",
+
+        trust3Title: "Echte IT-ervaring",
+        trust3Text: "Ervaring met het helpen van echte gebruikers met dagelijkse technologie.",
+
+        problemTitle: "Technologie hoort je leven niet moeilijker te maken.",
+        problemText: "Je hoeft geen technologie-expert te worden. Je hebt gewoon iemand nodig die kan helpen.",
+
+        problem1Title: "“Mijn computer werkt niet.”",
+        problem1Text: "Trage computer, vreemde meldingen, updates of programma's die niet werken?",
+
+        problem2Title: "“Ik begrijp mijn gsm niet.”",
+        problem2Text: "Nieuwe gsm, instellingen, apps, foto's, WhatsApp of back-ups?",
+
+        problem3Title: "“Wat is dat AI eigenlijk?”",
+        problem3Text: "Leer hoe ChatGPT en AI je dagelijkse taken gemakkelijker kunnen maken.",
+
+        servicesTitle: "Waarmee kan ik je helpen?",
+        servicesText: "Als het met technologie te maken heeft en problemen veroorzaakt, kan ik waarschijnlijk helpen.",
+
+        service1Title: "Computer & Laptop",
+        service1Text: "Installatie, problemen oplossen, updates, software, bestanden en algemene computerhulp.",
+
+        service2Title: "Gsm & Tablet",
+        service2Text: "Nieuwe toestellen, apps, foto's, WhatsApp, instellingen en back-ups.",
+
+        service3Title: "Wi-Fi & Printer",
+        service3Text: "Verbindingsproblemen, printerinstallatie en apparaten verbinden.",
+
+        service4Title: "Wachtwoorden & E-mail",
+        service4Text: "Toegang tot accounts, wachtwoorden, e-mail en digitale organisatie.",
+
+        service5Title: "Online Diensten",
+        service5Text: "Online formulieren, websites en dagelijkse digitale diensten.",
+
+        service6Title: "ChatGPT & AI",
+        service6Text: "Leer AI gebruiken voor schrijven, informatie, werk en dagelijkse taken.",
+
+        experienceTitle: "Ervaring waarop je kunt vertrouwen",
+        experienceText: "Ik heb praktische IT-ervaring opgebouwd door mensen te helpen en in professionele organisaties te werken.",
+
+        beegoRole: "IT Consultant",
+        beegoText: "Bood technische ondersteuning aan huis en hielp mensen met computers, smartphones, printers, Wi-Fi, wachtwoorden en dagelijkse digitale diensten.",
+
+        ingRole: "IT-ervaring",
+        ingText: "Werkte met gebruikers en hielp praktische technologie- en digitale problemen oplossen.",
+
+        bnpRole: "IT-ervaring",
+        bnpText: "Deed ervaring op met gebruikersondersteuning en technologie in een professionele bankomgeving.",
+
+        colruytRole: "IT-ervaring",
+        colruytText: "Bood praktische technologische hulp en hielp gebruikers met dagelijkse digitale problemen.",
+
+        antwerpRole: "IT Support",
+        antwerpText: "Hielp mensen met computers, telefoons, online diensten en andere digitale taken, met aandacht voor geduldige en eenvoudige uitleg.",
+
+        experienceSummary: "Ik ben niet alleen iemand die technologie kent — ik heb ervaring met het helpen van echte mensen bij echte technologieproblemen. Ik leg alles eenvoudig, geduldig en zonder ingewikkeld jargon uit.",
+
+        pricingTitle: "Kies de hulp die bij jou past",
+        pricingText: "Start met één bezoek als je één probleem wilt oplossen, of kies voor doorlopende ondersteuning zodat je nooit alleen met technologie hoeft te worstelen.",
+
+        offer1Title: "Complete Tech Rescue",
+        offer1Description: "Hulp nodig met één of meerdere technologieproblemen?",
+        perVisit: "/ huisbezoek",
+
+        offer1Item1: "Persoonlijke hulp bij jou thuis",
+        offer1Item2: "Computer-, gsm- & tablethulp",
+        offer1Item3: "Wi-Fi & printerhulp",
+        offer1Item4: "E-mail & online diensten",
+        offer1Item5: "Geduldige stap-voor-stap uitleg",
+
+        offer1Button: "Boek bezoek €34,99",
+
+        offer2Title: "Tech Rescue Bundel",
+        offer2Description: "Ideaal als je weet dat je meer dan één keer hulp nodig hebt.",
+        bundleText: "/ 3 bezoeken",
+        bundleDeal: "🎁 KOOP 2, KRIJG 1 GRATIS — Betaal voor 2 bezoeken en krijg je 3e GRATIS.",
+
+        offer2Item1: "3 huisbezoeken",
+        offer2Item2: "Gebruik ze wanneer je hulp nodig hebt",
+        offer2Item3: "Computer- & gsm-hulp",
+        offer2Item4: "Wi-Fi- & printerhulp",
+        offer2Item5: "AI- & digitale hulp inbegrepen",
+
+        offer2Button: "Neem de 3-bezoekenbundel",
+        payLaterText: "Liever flexibel betalen? Vraag naar de mogelijkheden.",
+
+        popularBadge: "⭐ MEEST GEKOZEN",
+
+        offer3Title: "Tolu Tech Care",
+        offer3Description: "Jouw persoonlijke technologiehulp wanneer je ondersteuning nodig hebt.",
+        firstMonth: "/ eerste maand",
+        membershipDeal: "🔥 EERSTE MAAND €74,99 — daarna €99,99/maand.",
+
+        offer3Item1: "Onbeperkte huisbezoeken",
+        offer3Item2: "Hulp op afstand tussen bezoeken",
+        offer3Item3: "Voorrang bij afspraken",
+        offer3Item4: "Hulp met computer, gsm, Wi-Fi & printer",
+        offer3Item5: "E-mail, wachtwoorden & online diensten",
+        offer3Item6: "ChatGPT & AI-hulp",
+        offer3Item7: "Begeleiding rond digitale veiligheid",
+        offer3Item8: "Eén persoon die je kunt contacteren wanneer technologie moeilijk wordt",
+
+        offer3Button: "Start Tech Care",
+
+        membershipNote: "€99,99/maand na de eerste kennismakingsmaand. Bezoeken worden ingepland volgens beschikbaarheid en servicegebied.",
+
+        pricingNote: "Twijfel je welke optie bij je past? Vertel me gewoon welk technologieprobleem je hebt en ik help je kiezen.",
+
+        valueTitle: "Meer dan alleen een toestel repareren",
+        valueText: "Het doel is niet alleen om iets te laten werken. Het doel is om technologie gemakkelijker te maken.",
+
+        value1Title: "Bij jou thuis",
+        value1Text: "Geen gesleur met zware apparatuur.",
+
+        value2Title: "Eenvoudige taal",
+        value2Text: "Geen onnodig technisch jargon.",
+
+        value3Title: "Geduldige hulp",
+        value3Text: "Stel vragen zonder je ongemakkelijk te voelen.",
+
+        value4Title: "Praktische oplossingen",
+        value4Text: "Gericht op jou snel weer op weg helpen.",
+
+        testimonialTitle: "Mensen die ik heb geholpen",
+        testimonialText: "Technologiehulp moet comfortabel, persoonlijk en betrouwbaar voelen.",
+
+        aboutVisual: "Jouw vriendelijke lokale technologiehulp.",
+
+        aboutTitle: "Technologie hoeft niet ingewikkeld te zijn.",
+        aboutText1: "Ik ben Tolu, student Computerwetenschappen aan de ULB en ik help mensen graag om zich comfortabeler te voelen met technologie.",
+        aboutText2: "Of het nu gaat om je computer, gsm, Wi-Fi, printer of AI: ik leg uit wat er gebeurt en help je een praktische oplossing te vinden.",
+
+        aboutBullet1: "Vriendelijk en geduldig",
+        aboutBullet2: "Professionele IT-ervaring",
+        aboutBullet3: "Lokale huisbezoeken in Boom",
+        aboutBullet4: "Eenvoudige uitleg",
+
+        bookingTitle: "Vertel me wat er misgaat.",
+        bookingText: "Je hoeft niet precies te weten wat het probleem is. Beschrijf het gewoon in je eigen woorden en ik neem contact met je op.",
+
+        bookingPoint1: "Kies de dienst die je nodig hebt",
+        bookingPoint2: "Kies je gewenste datum en tijd",
+        bookingPoint3: "Vertel me waarmee je hulp nodig hebt",
+        bookingPoint4: "Ik neem contact met je op om de afspraak te bevestigen",
+
+        formName: "Je naam",
+        formPhone: "Telefoonnummer",
+        formService: "Wat heb je nodig?",
+        formDate: "Gewenste datum",
+        formTime: "Gewenste tijd",
+        formIssue: "Waarmee heb je hulp nodig?",
+
+        formNamePlaceholder: "Je naam",
+        formPhonePlaceholder: "Je telefoonnummer",
+        formIssuePlaceholder: "Vertel me wat er gebeurt...",
+
+        selectDefault: "Kies een optie",
+
+        formButton: "Aanvragen via WhatsApp",
+        formNote: "Je afspraak is pas bevestigd nadat ik je heb geantwoord.",
+
+        faqTitle: "Veelgestelde vragen",
+
+        faq1Question: "Waar bied je je dienst aan?",
+        faq1Answer: "Ik doe huisbezoeken in Boom en omgeving. Neem contact op als je niet zeker weet of ik bij jou kom.",
+
+        faq2Question: "Moet ik weten wat er mis is?",
+        faq2Answer: "Nee. Beschrijf gewoon wat je ervaart in gewone taal en ik help je het probleem te achterhalen.",
+
+        faq3Question: "Wat zit er in het abonnement van €100/maand?",
+        faq3Answer: "Tolu Tech Care omvat onbeperkte huisbezoeken, ondersteuning op afstand, voorrang bij afspraken en hulp met computers, telefoons, Wi-Fi, printers, online diensten, AI en digitale veiligheid.",
+
+        faq4Question: "Zijn de huisbezoeken echt onbeperkt?",
+        faq4Answer: "Er is geen vast numeriek maximum op het aantal bezoeken. Bezoeken worden ingepland volgens beschikbaarheid en servicegebied zodat ik persoonlijke kwaliteitsvolle ondersteuning kan blijven bieden.",
+
+        faq5Question: "Help je ook met AI?",
+        faq5Answer: "Ja. Ik kan je tonen hoe je ChatGPT en andere AI-tools kunt gebruiken voor praktische dagelijkse taken.",
+
+        finalTitle: "Worstel niet alleen met technologie.",
+        finalText: "Vertel me wat er misgaat en ik help je een eenvoudige oplossing te vinden.",
+        finalButton: "📅 Bezoek boeken",
+        finalWhatsapp: "💬 WhatsApp Tolu",
+
+        footerDescription: "Vriendelijke, geduldige en lokale technologiehulp in Boom en omgeving.",
+        footerServicesTitle: "Diensten",
+        footerService1: "Computer & Laptop",
+        footerService2: "Gsm & Tablet",
+        footerService3: "Wi-Fi & Printer",
+        footerService4: "ChatGPT & AI",
+        footerContactTitle: "Contact",
+        footerBook: "Bezoek boeken",
+        copyright: "Alle rechten voorbehouden.",
+        mobileWhatsapp: "💬 WhatsApp Tolu"
+      },
+
+
+      fr: {
+
+        navServices: "Services",
+        navExperience: "Expérience",
+        navPricing: "Tarifs",
+        navAbout: "À propos",
+        navBooking: "Réserver",
+
+        heroEyebrow: "📍 Aide locale à Boom et alentours",
+        heroTitle: "Un problème avec la technologie ? <span>Je viens chez vous.</span>",
+        heroText: "Une aide technologique conviviale, patiente et pratique à domicile. Pas de jargon compliqué. Pas de stress. Juste quelqu'un qui vous aide à remettre les choses en ordre.",
+        heroBullet1: "Aide ordinateur, téléphone & tablette",
+        heroBullet2: "Wi-Fi, imprimantes & services en ligne",
+        heroBullet3: "ChatGPT & IA expliqués simplement",
+        heroBullet4: "Visites à domicile à Boom et alentours",
+        heroButton: "📅 Réserver une visite",
+        heroWhatsapp: "💬 WhatsApp",
+
+        heroCardRole: "Votre assistant technologique local",
+
+        trust1Title: "Explications simples",
+        trust1Text: "J'explique la technologie avec des mots simples.",
+
+        trust2Title: "Je viens chez vous",
+        trust2Text: "Pas besoin de transporter votre ordinateur.",
+
+        trust3Title: "Une vraie expérience IT",
+        trust3Text: "Expérience avec de vrais utilisateurs et leurs problèmes technologiques quotidiens.",
+
+        problemTitle: "La technologie ne devrait pas vous compliquer la vie.",
+        problemText: "Vous n'avez pas besoin de devenir expert. Vous avez simplement besoin de quelqu'un pour vous aider.",
+
+        problem1Title: "« Mon ordinateur ne fonctionne plus. »",
+        problem1Text: "Ordinateur lent, messages étranges, mises à jour ou programmes qui ne fonctionnent pas ?",
+
+        problem2Title: "« Je ne comprends pas mon téléphone. »",
+        problem2Text: "Nouveau téléphone, réglages, applications, photos, WhatsApp ou sauvegardes ?",
+
+        problem3Title: "« C'est quoi cette IA ? »",
+        problem3Text: "Découvrez comment ChatGPT et l'IA peuvent simplifier vos tâches quotidiennes.",
+
+        servicesTitle: "Comment puis-je vous aider ?",
+        servicesText: "Si cela concerne la technologie et vous pose problème, je peux probablement vous aider.",
+
+        service1Title: "Ordinateur & Laptop",
+        service1Text: "Installation, dépannage, mises à jour, logiciels, fichiers et aide informatique générale.",
+
+        service2Title: "Téléphone & Tablette",
+        service2Text: "Nouveaux appareils, applications, photos, WhatsApp, réglages et sauvegardes.",
+
+        service3Title: "Wi-Fi & Imprimante",
+        service3Text: "Problèmes de connexion, installation d'imprimante et connexion de vos appareils.",
+
+        service4Title: "Mots de passe & E-mail",
+        service4Text: "Accès aux comptes, mots de passe, configuration e-mail et organisation numérique.",
+
+        service5Title: "Services en ligne",
+        service5Text: "Formulaires en ligne, sites web et services numériques du quotidien.",
+
+        service6Title: "ChatGPT & IA",
+        service6Text: "Apprenez à utiliser l'IA pour écrire, rechercher des informations, travailler et gérer les tâches quotidiennes.",
+
+        experienceTitle: "Une expérience sur laquelle vous pouvez compter",
+        experienceText: "J'ai acquis une expérience IT pratique en aidant des personnes et en travaillant dans des organisations professionnelles.",
+
+        beegoRole: "Consultant IT",
+        beegoText: "Support technique à domicile, avec aide pour les ordinateurs, smartphones, imprimantes, Wi-Fi, mots de passe et services numériques.",
+
+        ingRole: "Expérience IT",
+        ingText: "Travail avec des utilisateurs et résolution de problèmes technologiques et numériques pratiques.",
+
+        bnpRole: "Expérience IT",
+        bnpText: "Expérience dans le support aux utilisateurs et les technologies dans un environnement bancaire professionnel.",
+
+        colruytRole: "Expérience IT",
+        colruytText: "Assistance technologique pratique et aide aux utilisateurs pour leurs problèmes numériques quotidiens.",
+
+        antwerpRole: "Support IT",
+        antwerpText: "Aide aux personnes avec ordinateurs, téléphones, services en ligne et autres tâches numériques, avec des explications patientes et simples.",
+
+        experienceSummary: "Je ne suis pas seulement quelqu'un qui connaît la technologie — j'ai l'expérience nécessaire pour aider de vraies personnes à résoudre de vrais problèmes technologiques. J'explique les choses simplement, patiemment et sans jargon compliqué.",
+
+        pricingTitle: "Choisissez l'aide qui vous convient",
+        pricingText: "Commencez avec une seule visite si vous avez un problème précis, ou choisissez un accompagnement continu pour ne plus devoir gérer la technologie seul.",
+
+        offer1Title: "Complete Tech Rescue",
+        offer1Description: "Besoin d'aide avec un ou plusieurs problèmes technologiques ?",
+        perVisit: "/ visite à domicile",
+
+        offer1Item1: "Aide personnalisée à domicile",
+        offer1Item2: "Aide ordinateur, téléphone & tablette",
+        offer1Item3: "Aide Wi-Fi & imprimante",
+        offer1Item4: "E-mail & services en ligne",
+        offer1Item5: "Explications patientes étape par étape",
+
+        offer1Button: "Réserver à €34,99",
+
+        offer2Title: "Pack Tech Rescue",
+        offer2Description: "Idéal si vous savez que vous aurez besoin d'aide plusieurs fois.",
+        bundleText: "/ 3 visites",
+        bundleDeal: "🎁 ACHETEZ 2, RECEVEZ 1 GRATUITE — Payez 2 visites et recevez la 3e GRATUITEMENT.",
+
+        offer2Item1: "3 visites à domicile",
+        offer2Item2: "Utilisez-les lorsque vous en avez besoin",
+        offer2Item3: "Aide ordinateur & téléphone",
+        offer2Item4: "Aide Wi-Fi & imprimante",
+        offer2Item5: "Aide IA & numérique incluse",
+
+        offer2Button: "Obtenir le pack de 3 visites",
+        payLaterText: "Vous préférez plus de flexibilité ? Demandez les options de paiement.",
+
+        popularBadge: "⭐ LE PLUS POPULAIRE",
+
+        offer3Title: "Tolu Tech Care",
+        offer3Description: "Votre assistant technologique personnel lorsque vous avez besoin d'aide.",
+        firstMonth: "/ premier mois",
+        membershipDeal: "🔥 PREMIER MOIS €74,99 — puis €99,99/mois.",
+
+        offer3Item1: "Visites à domicile illimitées",
+        offer3Item2: "Support à distance entre les visites",
+        offer3Item3: "Réservation prioritaire",
+        offer3Item4: "Aide ordinateur, téléphone, Wi-Fi & imprimante",
+        offer3Item5: "E-mails, mots de passe & services en ligne",
+        offer3Item6: "Aide ChatGPT & IA",
+        offer3Item7: "Conseils de sécurité numérique",
+        offer3Item8: "Une personne à contacter lorsque la technologie devient compliquée",
+
+        offer3Button: "Commencer Tech Care",
+
+        membershipNote: "€99,99/mois après le premier mois d'introduction. Les visites sont planifiées selon les disponibilités et la zone de service.",
+
+        pricingNote: "Vous ne savez pas quelle option choisir ? Dites-moi simplement quel est votre problème technologique et je vous aiderai à choisir.",
+
+        valueTitle: "Plus que réparer un appareil",
+        valueText: "L'objectif n'est pas seulement de faire fonctionner quelque chose. C'est de rendre la technologie plus facile pour vous.",
+
+        value1Title: "Chez vous",
+        value1Text: "Pas besoin de transporter du matériel lourd.",
+
+        value2Title: "Langage simple",
+        value2Text: "Pas de jargon technique inutile.",
+
+        value3Title: "Support patient",
+        value3Text: "Posez vos questions sans vous sentir gêné.",
+
+        value4Title: "Solutions pratiques",
+        value4Text: "L'objectif est de vous remettre rapidement sur pied.",
+
+        testimonialTitle: "Des personnes que j'ai aidées",
+        testimonialText: "L'aide technologique doit être confortable, personnelle et fiable.",
+
+        aboutVisual: "Votre assistant technologique local et convivial.",
+
+        aboutTitle: "La technologie ne doit pas être compliquée.",
+        aboutText1: "Je suis Tolu, étudiant en informatique à l'ULB, et j'aime aider les personnes à se sentir plus à l'aise avec la technologie.",
+        aboutText2: "Que ce soit votre ordinateur, téléphone, Wi-Fi, imprimante ou l'IA, je vous explique ce qui se passe et vous aide à trouver une solution pratique.",
+
+        aboutBullet1: "Amical et patient",
+        aboutBullet2: "Expérience IT professionnelle",
+        aboutBullet3: "Visites à domicile à Boom",
+        aboutBullet4: "Explications simples",
+
+        bookingTitle: "Dites-moi ce qui ne va pas.",
+        bookingText: "Vous n'avez pas besoin de savoir exactement quel est le problème. Décrivez-le simplement avec vos propres mots et je vous recontacterai.",
+
+        bookingPoint1: "Choisissez le service dont vous avez besoin",
+        bookingPoint2: "Choisissez votre date et heure préférées",
+        bookingPoint3: "Dites-moi ce pour quoi vous avez besoin d'aide",
+        bookingPoint4: "Je vous contacte pour confirmer le rendez-vous",
+
+        formName: "Votre nom",
+        formPhone: "Numéro de téléphone",
+        formService: "De quoi avez-vous besoin ?",
+        formDate: "Date souhaitée",
+        formTime: "Heure souhaitée",
+        formIssue: "Pour quoi avez-vous besoin d'aide ?",
+
+        formNamePlaceholder: "Votre nom",
+        formPhonePlaceholder: "Votre numéro de téléphone",
+        formIssuePlaceholder: "Dites-moi ce qui se passe...",
+
+        selectDefault: "Choisissez une option",
+
+        formButton: "Demander via WhatsApp",
+        formNote: "Votre rendez-vous est confirmé uniquement après ma réponse.",
+
+        faqTitle: "Questions fréquentes",
+
+        faq1Question: "Où proposez-vous votre service ?",
+        faq1Answer: "Je propose des visites à domicile à Boom et dans les environs. Contactez-moi si vous ne savez pas si votre adresse est couverte.",
+
+        faq2Question: "Dois-je savoir quel est le problème ?",
+        faq2Answer: "Non. Décrivez simplement ce que vous constatez avec des mots simples et je vous aiderai à trouver le problème.",
+
+        faq3Question: "Que comprend l'abonnement à €100/mois ?",
+        faq3Answer: "Tolu Tech Care comprend des visites à domicile illimitées, un support à distance, une réservation prioritaire et une aide avec les ordinateurs, téléphones, Wi-Fi, imprimantes, services en ligne, IA et sécurité numérique.",
+
+        faq4Question: "Les visites à domicile sont-elles vraiment illimitées ?",
+        faq4Answer: "Il n'y a pas de limite numérique fixe au nombre de visites. Les visites sont planifiées selon les disponibilités et la zone de service afin de garantir un accompagnement personnel de qualité.",
+
+        faq5Question: "Aidez-vous aussi avec l'IA ?",
+        faq5Answer: "Oui. Je peux vous montrer comment utiliser ChatGPT et d'autres outils d'IA pour des tâches pratiques du quotidien.",
+
+        finalTitle: "Ne restez pas seul face à la technologie.",
+        finalText: "Dites-moi ce qui ne va pas et je vous aiderai à trouver une solution simple.",
+        finalButton: "📅 Réserver une visite",
+        finalWhatsapp: "💬 WhatsApp Tolu",
+
+        footerDescription: "Support technologique local, convivial et patient à Boom et alentours.",
+        footerServicesTitle: "Services",
+        footerService1: "Ordinateur & Laptop",
+        footerService2: "Téléphone & Tablette",
+        footerService3: "Wi-Fi & Imprimante",
+        footerService4: "ChatGPT & IA",
+        footerContactTitle: "Contact",
+        footerBook: "Réserver une visite",
+        copyright: "Tous droits réservés.",
+        mobileWhatsapp: "💬 WhatsApp Tolu"
+      }
+
+    };
+
+
+    /* =========================================
+       LANGUAGE SYSTEM
+    ========================================= */
+
+    function applyLanguage(lang) {
+
+      if (!translations[lang]) {
+        lang = "nl";
+      }
+
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+
+        const key = element.getAttribute("data-i18n");
+
+        if (translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
         }
 
+      });
 
-        /* Convert date to DD/MM/YYYY */
+      document.querySelectorAll("[data-i18n-placeholder]").forEach(element => {
 
-        const selectedDate =
-          new Date(date + "T00:00:00");
+        const key = element.getAttribute("data-i18n-placeholder");
 
-        const formattedDate =
-          selectedDate.toLocaleDateString(
-            "en-GB"
-          );
-
-
-        /* -------------------------------------
-           WHATSAPP MESSAGE
-        ------------------------------------- */
-
-        const message =
-`Hello Tolu! 👋
-
-I would like to book a technology help visit.
-
-👤 Name: ${name}
-📞 Phone: ${phone}
-📅 Preferred date: ${formattedDate}
-🕐 Preferred time: ${time}
-
-💻 What I need help with:
-${problem}
-
-I understand that the appointment is only confirmed after you reply.
-
-Thank you!`;
-
-
-        /*
-          IMPORTANT:
-          Replace YOUR_WHATSAPP_NUMBER below
-          with your WhatsApp number.
-
-          Example Belgian number:
-
-          324XXXXXXXX
-
-          Do NOT include:
-          +
-          spaces
-          brackets
-          dashes
-        */
-
-        const whatsappNumber =
-          "32485101860";
-
-
-        const whatsappURL =
-          "https://wa.me/" +
-          whatsappNumber +
-          "?text=" +
-          encodeURIComponent(message);
-
-
-        window.open(
-          whatsappURL,
-          "_blank"
-        );
+        if (translations[lang][key]) {
+          element.placeholder = translations[lang][key];
+        }
 
       });
+
+      document.querySelectorAll(".language-switcher button").forEach(button => {
+        button.classList.toggle(
+          "active",
+          button.dataset.lang === lang
+        );
+      });
+
+      localStorage.setItem("toluLanguage", lang);
+    }
+
+
+    document
+      .querySelectorAll(".language-switcher button")
+      .forEach(button => {
+
+        button.addEventListener("click", () => {
+          applyLanguage(button.dataset.lang);
+        });
+
+      });
+
+
+    /* =========================================
+       AUTOMATIC LANGUAGE DETECTION
+    ========================================= */
+
+    function detectLanguage() {
+
+      const savedLanguage = localStorage.getItem("toluLanguage");
+
+      if (savedLanguage && translations[savedLanguage]) {
+        return savedLanguage;
+      }
+
+      const browserLanguage =
+        navigator.language ||
+        navigator.userLanguage ||
+        "nl";
+
+      const language = browserLanguage.toLowerCase();
+
+      if (language.startsWith("nl")) {
+        return "nl";
+      }
+
+      if (language.startsWith("fr")) {
+        return "fr";
+      }
+
+      if (language.startsWith("en")) {
+        return "en";
+      }
+
+      return "nl";
+    }
+
+    applyLanguage(detectLanguage());
 
   </script>
 
